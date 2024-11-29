@@ -156,7 +156,7 @@ a,a:hover
 }
 .navbar .nav-item .nav-link
 {
-    color: var(--white);
+    color: var(--black);
     text-transform: capitalize;
     font-size: 18px;
     font-weight: 400;
@@ -270,7 +270,7 @@ a,a:hover
     {
         font-size: 100%;
         opacity: 0;
-        content: "게임 총괄 디렉터가";
+        content: "하나의 꿈이";
     }
     90%
     {
