@@ -153,10 +153,11 @@ a,a:hover
 .navbar .nav-item
 {
     margin-left: 35px;
+    background-color: var(--black-900);
 }
 .navbar .nav-item .nav-link
 {
-    color: var(--black);
+    color: var(--white);
     text-transform: capitalize;
     font-size: 18px;
     font-weight: 400;
@@ -352,7 +353,8 @@ a,a:hover
 }
 .about-content
 {
-    padding-left: 350px;
+    padding-left: 100px ;
+    padding-right: 100px ;
     padding-top: 50px;
 }
 
@@ -409,7 +411,8 @@ a,a:hover
 #skill-bar-wrapper
 {
     margin-top: 30px;
-    padding-right: 200px;
+    padding-right: 100px;
+    padding-left: 100px;
 }
 .text-left h4
 {
@@ -422,7 +425,6 @@ a,a:hover
     position: relative;
     display: block;
     margin-top: 15px;
-    width: 100%;
     background-color: rgba(187,23,23,0.1);
     height: 5px;
 }
@@ -448,7 +450,7 @@ a,a:hover
     position: relative;
     z-index: 1;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;ㄴ
 }
 .service-item:hover
 {
@@ -516,7 +518,7 @@ a,a:hover
 }
 .service-item:hover p
 {
-    color: var(--black-100);
+    color: var(--white);
 }
 /* 포트폴리오 */
 .portfolio
@@ -527,7 +529,7 @@ a,a:hover
 .mainclass
 {
     background-color: #000;
-    height: 1500px;
+    height: auto;
     margin-top: -150px;
 }
 /* sort btn */
