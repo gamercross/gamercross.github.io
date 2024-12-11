@@ -525,7 +525,7 @@ a,a:hover
 .portfolio
 {   
     background-color: black;
-    height: 1500px;
+    height: auto;
 }
 .mainclass
 {
@@ -689,7 +689,7 @@ a,a:hover
     margin-bottom: 7px;
     border-radius: 5px;
     height: 500px;
-    width: 800px;
+    width: 100%;
 }
 
 .video-container .main-video-container .main-vid-title{
