@@ -8,7 +8,7 @@ Designing visual experiences with creativity and AI.
 
 <br>
 
-<a href="https://your-portfolio.github.io">
+<a href="https://gamercross.github.io">
 <img src="https://img.shields.io/badge/🌐_Visit_Portfolio-111111?style=for-the-badge">
 </a>
 
