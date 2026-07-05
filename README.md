@@ -1,16 +1,17 @@
-────────────────────────
+<div align="center">
 
-Hello, I'm
+# 👋 Hello, I'm JaeYoup Lee
 
-JAEYOUP LEE
+### Editorial Designer · Motion Graphics · AI Creative
 
-Editorial Designer
-Motion Graphics
-AI Creative
+Designing visual experiences with creativity and AI.
 
-Designing experiences through
-design and AI.
+<br>
 
-[ Visit Portfolio ](gamercross.github.io)
+<a href="https://your-portfolio.github.io">
+<img src="https://img.shields.io/badge/🌐_Visit_Portfolio-111111?style=for-the-badge">
+</a>
 
-────────────────────────
+</div>
+
+---
