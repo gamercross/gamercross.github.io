@@ -1,6 +1,16 @@
-# Welcome My page!
-* 
+────────────────────────
 
-제가 할 수 있는 그리고 배우고 있는것들을 정리하고 다른 사람들과 정보를 공유하기 위해서 이 페이지를 제작하게 되었습니다!
+Hello, I'm
 
-다들 잘 부탁드립니다!
+JAEYOUP LEE
+
+Editorial Designer
+Motion Graphics
+AI Creative
+
+Designing experiences through
+design and AI.
+
+[ Visit Portfolio ](gamercross.github.io)
+
+────────────────────────
