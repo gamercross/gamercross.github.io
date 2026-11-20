@@ -104,7 +104,7 @@
     <ol>
       <li><a href="#form">시험 꼴 (확인된 것)</a></li>
       <li><a href="#range">나올 만한 것 (짐작)</a></li>
-      <li><a href="#practice">연습하는 법 · 파일 받기</a></li>
+      <li><a href="#practice">연습하는 법 · 파일 받기</a> · <a href="#conv2d">심화: 2D 컨볼루션</a></li>
       <li><a href="#problems">모의 8문제</a></li>
       <li><a href="#answers">답과 풀이</a></li>
       <li><a href="#onsite">시험장에서 할 것</a></li>
@@ -161,6 +161,29 @@
   </ol>
   <p>규칙: 파이썬 3, <strong>import 없이</strong>, 파일 읽기 · 쓰기 없이 함수만 씁니다. 시간을 잽니다. 문제 1~4는 120분, 문제 5~8을 더하면 180분입니다. 시험장에서는 문제당 40분 안쪽으로 쓰고, 마지막 20분은 제출 확인용으로 남깁니다.</p>
   <p>제출 전에 스스로 물을 것: 입력이 비어 있으면? 크기 · 꼴이 다르면? 값이 float이면? 부분 점수는 대개 예시만 맞추고 낸 데서 깎입니다.</p>
+
+  <h2 id="conv2d">3-2. 심화 연습: MAC 기반 2D 컨볼루션 <span class="tag">짐작으로 만든 연습</span></h2>
+  <p>"MAC 기반 연산 · 2D 컨볼루션, 함수 열 개 남짓을 채우는 2문제 + data.json 만들기"가 나온다는 이야기에 맞춰 만든 연습입니다. 함수 머리와 설명만 있고 몸통은 <code>pass</code>입니다. <strong>잘못된 입력이면 예외 대신 <code>None</code>(또는 <code>False</code>)을 돌려줍니다.</strong></p>
+  <div class="download">
+    <a href="exam3-conv2d.zip" download>심화 연습 받기 (zip)</a>
+    <a class="alt" href="https://github.com/gamercross/codyssey-1-3/tree/main/연습/conv2d">GitHub에서 보기</a>
+  </div>
+  <ol>
+    <li><code>practice.py</code>를 열어 <code>pass</code> 자리를 채웁니다. 위에서부터 차례로 쓰면 뒤 함수에서 앞 함수를 쓸 수 있습니다.</li>
+    <li>같은 폴더에 <code>data.json</code>을 <strong>손으로</strong> 만듭니다(문제 3).</li>
+    <li><code>check.py</code>를 IDLE로 열고 F5(터미널은 <code>python3 check.py</code>). 숨은 케이스 101개로 채점합니다. <code>--solution</code>은 풀이 채점입니다.</li>
+    <li>다 쓴 뒤에만 <code>풀이/solution.py</code> · <code>풀이/data.json</code>을 엽니다.</li>
+  </ol>
+  <div class="table-wrap"><table>
+    <thead><tr><th>문제</th><th>채울 것</th><th>숨은 케이스가 보는 곳</th></tr></thead>
+    <tbody>
+      <tr><td>1 · 함수 10개</td><td><code>shape</code> · <code>zeros</code> · <code>mac</code> · <code>window</code> · <code>pad</code> · <code>out_size</code> · <code>conv2d</code> · <code>flip</code> · <code>relu</code> · <code>max_pool</code></td><td>줄 길이 들쭉날쭉, <code>[[0]*n]*n</code> 함정, 패딩 · stride, 커널을 뒤집지 않음, 직사각형, 원본을 바꾸지 않음 (53개)</td></tr>
+      <tr><td>2 · 함수 1개 + 메서드 9개</td><td><code>normalize_label</code>, <code>ConvClassifier</code>의 <code>add_filter</code> · <code>add_pattern</code> · <code>load_data</code> · <code>scores</code> · <code>classify</code> · <code>classify_all</code> · <code>summary</code> · <code>get_failed</code> · <code>count_by_verdict</code></td><td>이름 정리, 겹친 이름, 필터보다 작은 패턴, 잘못된 항목 건너뛰기, 동점 → UNDECIDED, 0개인 키 (37개)</td></tr>
+      <tr><td>3 · data.json</td><td>필터 2개 이상(cross · x 포함, 3×3), 패턴 6개 이상(5×5)</td><td>JSON 문법, 꼴, id 겹침, <code>"+"</code> 표기, 모두 PASS (11개)</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>점수 = conv2d 결과의 가장 큰 값</strong>이라 모양이 그림 어디에 있든 찾습니다. 5×5 가운데 십자가는 cross 5 · x 3, 가운데 한 칸만 켜진 그림은 1 · 1로 동점(UNDECIDED)입니다.</p>
+  <p>기억할 것: 출력 크기 <code>(n + 2p − k) // s + 1</code>, 창의 왼쪽 위는 <code>(i × s, j × s)</code>, 딥러닝의 conv는 커널을 뒤집지 않는다, 동점은 <code>abs(a − b) &lt; eps</code>, JSON은 큰따옴표 · 마지막 쉼표 없음 · <code>true</code> · <code>null</code>.</p>
 
   <h2 id="problems">4. 모의 8문제 <span class="tag">짐작으로 만든 연습</span></h2>
 
