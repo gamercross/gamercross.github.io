@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입학연수 3차 시험 대비</title>
+  <meta name="description" content="코디세이 AI 올인원 입학연수 3차 시험 대비: 시험 꼴 정리, 짐작으로 만든 모의 8문제와 풀이, 연습 파일과 채점기">
+  <style>
+    :root {
+      --bg: #eef1f7;
+      --panel: #f7f8fc;
+      --line: #d9deeb;
+      --text: #1e2a4a;
+      --sub: #4a5577;
+      --muted: #6b7591;
+      --accent: #5b63b7;
+      --accent-soft: #e3e5f6;
+      --mint: #dff1ec;
+      --mint-text: #1f6f55;
+      --code-bg: #e6eaf3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161b2b;
+        --panel: #1e2438;
+        --line: #2f3753;
+        --text: #e4e8f4;
+        --sub: #b4bbd3;
+        --muted: #8c94b0;
+        --accent: #a9aee6;
+        --accent-soft: #2a3152;
+        --mint: #1f3a34;
+        --mint-text: #9fdcc6;
+        --code-bg: #121725;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    main { max-width: 860px; margin: 0 auto; padding: 40px 16px 80px; }
+    h1 { font-size: 2rem; line-height: 1.3; margin: 0 0 8px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.35rem; margin: 48px 0 12px; padding-top: 8px; letter-spacing: -0.01em; }
+    h3 { font-size: 1.08rem; margin: 28px 0 8px; }
+    p, li { color: var(--sub); }
+    strong { color: var(--text); }
+    a { color: var(--accent); }
+    .lead { font-size: 1.05rem; margin: 0 0 20px; }
+    .note {
+      background: var(--accent-soft);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      color: var(--text);
+    }
+    .note p { margin: 4px 0; color: var(--text); }
+    nav.toc { margin: 24px 0 8px; }
+    nav.toc ol { margin: 0; padding-left: 22px; }
+    nav.toc li { margin: 2px 0; }
+    .table-wrap { overflow-x: auto; margin: 12px 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.94rem; background: var(--panel); border-radius: 10px; overflow: hidden; }
+    th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--text); background: var(--accent-soft); font-weight: 700; white-space: nowrap; }
+    td { color: var(--sub); }
+    tr:last-child td { border-bottom: none; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; color: var(--text); }
+    pre { background: var(--code-bg); padding: 14px 16px; border-radius: 10px; overflow-x: auto; font-size: 0.88rem; line-height: 1.55; }
+    pre code { background: none; padding: 0; }
+    .download { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+    .download a {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--mint);
+      color: var(--mint-text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .download a.alt { background: var(--accent-soft); color: var(--text); }
+    details { background: var(--panel); border-radius: 10px; padding: 10px 16px; margin: 12px 0; border: 1px solid var(--line); }
+    summary { cursor: pointer; font-weight: 700; color: var(--text); }
+    details[open] summary { margin-bottom: 8px; }
+    .tag { display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-left: 6px; }
+    footer { margin-top: 56px; font-size: 0.88rem; color: var(--muted); }
+    footer p { color: var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>입학연수 3차 시험 대비</h1>
+  <p class="lead">코디세이 AI 올인원 입학연수 3차 시험(11/20 금 19:00~22:00, 야간)을 위한 정리입니다. 시험 꼴, 짐작으로 만든 모의 8문제와 풀이, 손으로 풀어 보고 채점할 수 있는 연습 파일을 담았습니다.</p>
+
+  <div class="note">
+    <p><strong>공식 자료가 아닙니다.</strong> 교육생 한 명이 공지 · 학습자 가이드 · 미션 저장소를 보고 정리했습니다.</p>
+    <p>모의 문제는 <strong>짐작으로 만든 연습</strong>입니다. 실제 시험 문제가 아니고, 시험 문제는 공개된 적이 없습니다. 바뀐 공지가 있으면 공지가 맞습니다.</p>
+  </div>
+
+  <nav class="toc" aria-label="차례">
+    <ol>
+      <li><a href="#form">시험 꼴 (확인된 것)</a></li>
+      <li><a href="#range">나올 만한 것 (짐작)</a></li>
+      <li><a href="#practice">연습하는 법 · 파일 받기</a></li>
+      <li><a href="#problems">모의 8문제</a></li>
+      <li><a href="#answers">답과 풀이</a></li>
+      <li><a href="#onsite">시험장에서 할 것</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="form">1. 시험 꼴 (확인된 것)</h2>
+  <p>11/19 기준. 출처는 allinone 공지사항(11/12 "시험 안내", 11/18 "시험일 교육장 이용 제한")과 시험 기능 학습자 가이드 PDF(11/12 공지 첨부)입니다.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>시간</td><td>19:00~22:00, 180분. 입실 18:20~18:50, 18:50이 지나면 못 들어간다. 정문으로</td></tr>
+        <tr><td>문제 수 · 점수</td><td>지난 시험은 4문제였고, 총점은 문제별 점수의 평균이었다. 부분 점수(예: 50, 90)도 나온다</td></tr>
+        <tr><td>답 내는 방식</td><td>(1) 코드 파일 올리기: 확장자로 언어를 알아본다 (2) 글로 답하기: Q1 · Q2 … 칸, 칸마다 10,000자까지</td></tr>
+        <tr><td>문제 화면</td><td>번호 · 문제명, [?] 사용 제한 코드, 기술적 설명 · 개발환경 · 제약조건, 작성 예시 · 실행 결과, (있으면) 데이터 파일</td></tr>
+        <tr><td>쓸 수 있는 것</td><td>교육장 PC의 코디세이 플랫폼만. 외부 사이트 · 다른 프로그램 금지. 플랫폼 안의 AI 도움은 힌트 · 개념만 주고 정답 코드는 안 준다. 토큰 한도가 있다</td></tr>
+        <tr><td>채점이 안 되는 코드</td><td>시스템 명령 · 파일/네트워크 접근 · 동적 실행. 글 답에 <code>os.system</code> · <code>import</code> · <code>subprocess</code>가 있으면 FAIL될 수 있다</td></tr>
+        <tr><td>글 답 주의</td><td>따옴표 · 특수문자는 꼭 필요할 때만. 빈 칸도 그대로 제출된다</td></tr>
+        <tr><td>시험 종류</td><td>PASS/FAIL형이면 지금 문제를 통과해야 다음으로 간다. 부분채점형이면 자유롭게 오가고 다시 낼 수 있다</td></tr>
+        <tr><td>제출</td><td>문제마다 [시험 제출]을 눌러야 점수가 나온다. 다시 내려면 3분 기다린다. 통과한 문제는 다시 못 낸다. 다 끝나면 목록에서 [시험 종료]</td></tr>
+        <tr><td>파일</td><td>빈 파일 안 됨. 파일명 앞뒤 공백 안 됨. 파일명 · 확장자 · 한글 조건을 문제대로</td></tr>
+        <tr><td>현장</td><td>폰 · 워치 · 이어폰은 전원을 끄고 가방에 넣어 테이블 아래 바구니로. 화장실은 못 간다(자리를 뜨면 시험 끝). 메모는 안내문 뒷면만. 19:20부터 조기 퇴실</td></tr>
+        <tr><td>좌석</td><td>시험마다 새로 배정한다. 디스코드 명단을 확인한다</td></tr>
+        <tr><td>교육장</td><td>11/20 08시부터 4 · 5층 교육장을 못 쓴다. 3층과 4 · 5층 코워킹룸은 된다</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>지난 시험 경험: 문제는 <strong>빈 화면에서 처음부터 손으로 쓰는</strong> 꼴이었고, 제출 전에 돌려 볼 수 있는 것은 <strong>파이썬 IDLE</strong>뿐이었다.</p>
+
+  <h2 id="range">2. 나올 만한 것 (짐작)</h2>
+  <p>공지에 "주차별 학습 성취도를 평가"라고 적혀 있고 주차마다 미션이 하나씩 이어집니다. 그래서 3차 시험은 E1-3 중심일 가능성이 큽니다. 앞 주차 내용이 섞일 수도 있습니다.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>주차</th><th>미션</th><th>다룬 것</th></tr></thead>
+      <tbody>
+        <tr><td>1주차</td><td>E1-1</td><td>리눅스 CLI, 파일 권한(chmod), Docker(이미지 빌드 · 포트 매핑 · 볼륨), Git · GitHub</td></tr>
+        <tr><td>2주차</td><td>E1-2</td><td>파이썬 기초(자료형 · 클래스 · 예외 처리), JSON 읽고 쓰기, Git 명령</td></tr>
+        <tr><td>3주차</td><td>E1-3</td><td>MAC 연산, Mini NPU(십자가 · X 판정), 2차원 리스트, 부동소수점 비교(epsilon), 라벨 정리, 크기 검사, 시간 재기</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="practice">3. 연습하는 법 · 파일 받기</h2>
+  <div class="download">
+    <a href="exam3-practice.zip" download>연습 파일 받기 (zip)</a>
+    <a class="alt" href="https://github.com/gamercross/codyssey-1-3/tree/main/연습">IDLE용 빈칸 연습 (codyssey-1-3)</a>
+  </div>
+  <ol>
+    <li>zip을 풀면 빈 문제 파일 여섯 개(<code>mac.py</code> · <code>judge.py</code> · <code>summary.py</code> · <code>account.py</code> · <code>safe.py</code> · <code>tally.py</code>)와 채점기 <code>check.py</code>, <code>풀이/solution.py</code>가 있습니다.</li>
+    <li>아래 문제를 읽고 파일 안의 <code>raise NotImplementedError</code> 자리에 직접 씁니다. <strong>풀이는 다 쓴 뒤에만 엽니다.</strong></li>
+    <li>터미널에서 <code>python3 check.py</code>를 실행하거나, IDLE에서 <code>check.py</code>를 열고 F5를 누르면 채점합니다(모두 22개 검사). <code>python3 check.py --solution</code>은 풀이를 채점합니다.</li>
+    <li>글 답(문제 4 · 8)은 <a href="#answers">5절</a>과 맞춰 봅니다.</li>
+  </ol>
+  <p>규칙: 파이썬 3, <strong>import 없이</strong>, 파일 읽기 · 쓰기 없이 함수만 씁니다. 시간을 잽니다. 문제 1~4는 120분, 문제 5~8을 더하면 180분입니다. 시험장에서는 문제당 40분 안쪽으로 쓰고, 마지막 20분은 제출 확인용으로 남깁니다.</p>
+  <p>제출 전에 스스로 물을 것: 입력이 비어 있으면? 크기 · 꼴이 다르면? 값이 float이면? 부분 점수는 대개 예시만 맞추고 낸 데서 깎입니다.</p>
+
+  <h2 id="problems">4. 모의 8문제 <span class="tag">짐작으로 만든 연습</span></h2>
+
+  <h3>문제 1. MAC 계산 (파일: <code>mac.py</code>)</h3>
+  <p><code>mac(pattern, filt)</code>를 만든다.</p>
+  <ul>
+    <li>pattern, filt는 같은 크기 N×N의 2차원 리스트다(숫자는 int 또는 float).</li>
+    <li>같은 자리끼리 곱해서 모두 더한 값을 돌려준다.</li>
+    <li>두 크기가 다르거나 정사각형이 아니면 <code>ValueError</code>를 일으킨다.</li>
+  </ul>
+  <div class="table-wrap"><table>
+    <thead><tr><th>입력</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td><code>mac([[1,2],[3,4]], [[1,0],[0,1]])</code></td><td><code>5</code></td></tr>
+      <tr><td><code>mac([[0,1,0],[1,1,1],[0,1,0]], [[0,1,0],[1,1,1],[0,1,0]])</code></td><td><code>5</code></td></tr>
+      <tr><td><code>mac([[0.5,0.5],[0.5,0.5]], [[1,1],[1,1]])</code></td><td><code>2.0</code></td></tr>
+      <tr><td><code>mac([[1,2,3]], [[1,2,3]])</code></td><td><code>ValueError</code></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>문제 2. 십자가와 X 판정 (파일: <code>judge.py</code>)</h3>
+  <p><code>judge(pattern, cross, x, eps=1e-9)</code>를 만든다. a = mac(pattern, cross), b = mac(pattern, x).</p>
+  <ul>
+    <li>|a - b| &lt; eps면 <code>"UNDECIDED"</code>, a &gt; b면 <code>"Cross"</code>, 아니면 <code>"X"</code>.</li>
+  </ul>
+  <p>CROSS = <code>[[0,1,0],[1,1,1],[0,1,0]]</code>, X = <code>[[1,0,1],[0,1,0],[1,0,1]]</code>일 때:</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>pattern</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td>CROSS</td><td><code>"Cross"</code></td></tr>
+      <tr><td>X</td><td><code>"X"</code></td></tr>
+      <tr><td><code>[[0,0,0],[0,1,0],[0,0,0]]</code></td><td><code>"UNDECIDED"</code></td></tr>
+      <tr><td><code>[[0.3,0.1,0.0],[0.2,0.0,0.0],[0.0,0.0,0.0]]</code></td><td><code>"UNDECIDED"</code> (a는 0.30000000000000004, b는 0.3. <code>a == b</code>로 비교하면 틀린다)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>문제 3. 케이스 요약 (파일: <code>summary.py</code>)</h3>
+  <p><code>summarize(data)</code>를 만든다. data는 미션의 data.json을 읽은 모양의 dict다.</p>
+<pre><code>data = {
+    "filters": {
+        "size_3": {"cross": [[0,1,0],[1,1,1],[0,1,0]], "x": [[1,0,1],[0,1,0],[1,0,1]]}
+    },
+    "patterns": {
+        "size_3_0": {"input": [[0,1,0],[1,1,1],[0,1,0]], "expected": "+"},
+        "size_3_1": {"input": [[1,0,1],[0,1,0],[1,0,1]], "expected": " X "},
+        "size_3_2": {"input": [[0,0,0],[0,1,0],[0,0,0]], "expected": "cross"},
+        "size_5_0": {"input": [[0]*5 for _ in range(5)], "expected": "x"}
+    }
+}</code></pre>
+  <ul>
+    <li>expected는 앞뒤 공백 · 대소문자를 무시하고 <code>"+"</code> · <code>"cross"</code>는 <code>"Cross"</code>, <code>"x"</code>는 <code>"X"</code>로 바꾼다.</li>
+    <li>패턴 키 <code>size_N_번호</code>의 N으로 필터 <code>size_N</code>을 찾는다. 필터가 없으면 그 케이스는 FAIL.</li>
+    <li>판정은 문제 2와 같다. 판정이 바꾼 expected와 같으면 PASS, <code>"UNDECIDED"</code>는 FAIL.</li>
+    <li>돌려줄 값: <code>{"total": 전체, "pass": 통과, "fail": 실패, "fails": [실패 키를 문자열 순으로]}</code></li>
+  </ul>
+  <p>결과: <code>{"total": 4, "pass": 2, "fail": 2, "fails": ["size_3_2", "size_5_0"]}</code></p>
+
+  <h3>문제 4. 글로 답하기 (Q1~Q4, 숫자나 낱말만)</h3>
+  <ul>
+    <li>Q1. CROSS 패턴과 X 필터(문제 2)의 MAC 값은?</li>
+    <li>Q2. 25×25 패턴 하나와 필터 하나의 MAC 값을 구할 때 곱셈은 몇 번 하나?</li>
+    <li>Q3. 파이썬에서 <code>print(0.1 + 0.2 == 0.3)</code>의 출력은?</li>
+    <li>Q4. <code>chmod 754 run.sh</code> 뒤 그룹(group)의 권한을 rwx 꼴 세 글자로 쓰면?</li>
+  </ul>
+
+  <h3>문제 5. 계좌 클래스 (파일: <code>account.py</code>) · 2주차 범위</h3>
+  <p><code>class Account</code>를 만든다.</p>
+  <ul>
+    <li><code>Account(owner, balance=0)</code>: <code>owner</code> · <code>balance</code> 속성을 둔다. <code>balance</code>가 0보다 작으면 <code>ValueError</code>.</li>
+    <li><code>deposit(amount)</code>: 잔액에 더하고 새 잔액을 돌려준다. <code>amount</code>가 0 이하면 <code>ValueError</code>.</li>
+    <li><code>withdraw(amount)</code>: 잔액에서 빼고 새 잔액을 돌려준다. <code>amount</code>가 0 이하이거나 잔액보다 크면 <code>ValueError</code>.</li>
+  </ul>
+  <div class="table-wrap"><table>
+    <thead><tr><th>입력</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td><code>a = Account("kim", 100)</code> → <code>a.deposit(50)</code></td><td><code>150</code></td></tr>
+      <tr><td>이어서 <code>a.withdraw(30)</code></td><td><code>120</code></td></tr>
+      <tr><td><code>Account("lee").balance</code></td><td><code>0</code></td></tr>
+      <tr><td><code>Account("a", 10).withdraw(11)</code></td><td><code>ValueError</code></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>문제 6. 안전하게 숫자로 (파일: <code>safe.py</code>) · 2주차 범위</h3>
+  <p><code>to_int(text, default=0)</code>를 만든다. 앞뒤 공백을 지우고 정수로 바꾼다. 바꿀 수 없으면(<code>ValueError</code>) 멈추지 말고 <code>default</code>를 돌려준다.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>입력</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td><code>to_int("42")</code></td><td><code>42</code></td></tr>
+      <tr><td><code>to_int(" -7 ")</code></td><td><code>-7</code></td></tr>
+      <tr><td><code>to_int("abc")</code></td><td><code>0</code></td></tr>
+      <tr><td><code>to_int("3.5", -1)</code></td><td><code>-1</code></td></tr>
+      <tr><td><code>to_int(None, 9)</code></td><td><code>9</code></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>문제 7. 낱말 세기 (파일: <code>tally.py</code>) · 2주차 범위</h3>
+  <p><code>tally(items)</code>를 만든다. 낱말마다 앞뒤 공백을 지우고 소문자로 바꿔 센다. 빈 낱말은 뺀다.</p>
+  <ul>
+    <li>돌려줄 값: <code>{"total": 센 낱말 수, "counts": {낱말: 개수}, "most": 가장 많은 낱말}</code></li>
+    <li>가장 많은 것이 여럿이면 사전 순으로 앞의 것. 목록이 비면 <code>"most"</code>는 <code>None</code>.</li>
+  </ul>
+  <div class="table-wrap"><table>
+    <thead><tr><th>입력</th><th>결과</th></tr></thead>
+    <tbody>
+      <tr><td><code>tally(["Cross", " x", "cross", "", "X", "  ", "cross"])</code></td><td><code>{"total": 5, "counts": {"cross": 3, "x": 2}, "most": "cross"}</code></td></tr>
+      <tr><td><code>tally(["b", "a", "b", "a"])["most"]</code></td><td><code>"a"</code></td></tr>
+      <tr><td><code>tally([])</code></td><td><code>{"total": 0, "counts": {}, "most": None}</code></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>문제 8. 글로 답하기: 리눅스 · Docker · Git (Q1~Q4) · 1주차 범위</h3>
+  <ul>
+    <li>Q1. <code>chmod 640 a.txt</code> 뒤 권한을 rwx 꼴 아홉 글자로 쓰면? 그리고 <code>rwxr-x---</code>를 숫자 셋으로 쓰면?</li>
+    <li>Q2. <code>docker run -p 8080:80 nginx</code>에서 <code>8080</code>과 <code>80</code>은 각각 무엇인가?</li>
+    <li>Q3. <code>docker run -v $(pwd)/data:/app/data ...</code>의 <code>-v</code>는 무엇을 하나?</li>
+    <li>Q4. <code>git restore a.py</code>와 <code>git reset HEAD~1</code>은 각각 무엇을 되돌리나?</li>
+  </ul>
+
+  <h2 id="answers">5. 답과 풀이</h2>
+  <p>먼저 직접 풀고 나서 엽니다. 코드 문제의 풀이 전체는 zip 안의 <code>풀이/solution.py</code>에 있습니다(import 없음).</p>
+
+  <details>
+    <summary>문제 1~3 풀이</summary>
+<pre><code>EPS = 1e-9
+
+
+def mac(pattern, filt):
+    n = len(pattern)
+    if n == 0 or len(filt) != n:
+        raise ValueError("size mismatch")
+    for row_p, row_f in zip(pattern, filt):
+        if len(row_p) != n or len(row_f) != n:
+            raise ValueError("not square")
+    total = 0
+    for i in range(n):
+        for j in range(n):
+            total += pattern[i][j] * filt[i][j]
+    return total
+
+
+def judge(pattern, cross, x, eps=EPS):
+    a = mac(pattern, cross)
+    b = mac(pattern, x)
+    if abs(a - b) &lt; eps:
+        return "UNDECIDED"
+    return "Cross" if a &gt; b else "X"
+
+
+def normalize(label):
+    s = str(label).strip().lower()
+    if s in ("+", "cross"):
+        return "Cross"
+    if s == "x":
+        return "X"
+    raise ValueError("unknown label: " + str(label))
+
+
+def summarize(data):
+    filters = data.get("filters", {})
+    patterns = data.get("patterns", {})
+    passed = 0
+    fails = []
+    for key, case in patterns.items():
+        try:
+            n = key.split("_")[1]
+            f = filters["size_" + n]
+            ok = judge(case["input"], f["cross"], f["x"]) == normalize(case["expected"])
+        except (KeyError, IndexError, ValueError):
+            ok = False
+        if ok:
+            passed += 1
+        else:
+            fails.append(key)
+    return {"total": len(patterns), "pass": passed, "fail": len(fails), "fails": sorted(fails)}</code></pre>
+    <ul>
+      <li>동점은 <code>==</code>가 아니라 <code>abs(a - b) &lt; eps</code>로 본다(문제 2 넷째 줄).</li>
+      <li>라벨은 <code>strip()</code> · <code>lower()</code>를 먼저 하고 바꾼다(문제 3의 <code>" X "</code>).</li>
+      <li>실패한 케이스 하나가 전체를 멈추지 않게 케이스마다 <code>try</code>로 감싼다.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>문제 4 답</summary>
+    <ul>
+      <li>Q1. <code>1</code> (두 필터가 겹치는 곳은 가운데 한 칸)</li>
+      <li>Q2. <code>625</code> (N×N = 25 × 25)</li>
+      <li>Q3. <code>False</code></li>
+      <li>Q4. <code>r-x</code> (7 = rwx 주인, 5 = r-x 그룹, 4 = r-- 나머지)</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>문제 5~7 풀이</summary>
+<pre><code>class Account:
+    def __init__(self, owner, balance=0):
+        if balance &lt; 0:
+            raise ValueError("balance must be &gt;= 0")
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount &lt;= 0:
+            raise ValueError("amount must be &gt; 0")
+        self.balance += amount
+        return self.balance
+
+    def withdraw(self, amount):
+        if amount &lt;= 0:
+            raise ValueError("amount must be &gt; 0")
+        if amount &gt; self.balance:
+            raise ValueError("not enough balance")
+        self.balance -= amount
+        return self.balance
+
+
+def to_int(text, default=0):
+    try:
+        return int(str(text).strip())
+    except ValueError:
+        return default
+
+
+def tally(items):
+    counts = {}
+    for item in items:
+        word = str(item).strip().lower()
+        if word == "":
+            continue
+        counts[word] = counts.get(word, 0) + 1
+    most = None
+    for word in sorted(counts):
+        if most is None or counts[word] &gt; counts[most]:
+            most = word
+    return {"total": sum(counts.values()), "counts": counts, "most": most}</code></pre>
+    <ul>
+      <li>문제 5: 검사(<code>raise ValueError</code>)를 값 바꾸기보다 <strong>먼저</strong> 한다. 실패한 <code>withdraw</code>가 잔액을 바꾸면 안 된다.</li>
+      <li>문제 6: <code>int("3.5")</code>도 <code>ValueError</code>다.</li>
+      <li>문제 7: <code>counts[w] = counts.get(w, 0) + 1</code>. 동점 처리는 <code>sorted(counts)</code>를 돌며 "더 클 때만" 바꾼다.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>문제 8 답</summary>
+    <ul>
+      <li>Q1. <code>rw-r-----</code> (6 = rw-, 4 = r--, 0 = ---) / <code>750</code></li>
+      <li>Q2. <code>8080</code> = 호스트(내 PC) 포트, <code>80</code> = 컨테이너 안 포트. 내 PC의 8080으로 들어온 요청을 컨테이너의 80으로 보낸다</li>
+      <li>Q3. 볼륨(바인드 마운트): 호스트의 <code>data</code> 폴더를 컨테이너의 <code>/app/data</code>에 잇는다. 컨테이너를 지워도 파일이 남는다</li>
+      <li>Q4. <code>git restore a.py</code> = 커밋하지 않은 <strong>작업 폴더의 고침</strong>을 되돌린다(커밋 기록은 그대로). <code>git reset HEAD~1</code> = <strong>마지막 커밋</strong>을 취소해 가지를 한 칸 뒤로(기본 <code>--mixed</code>라 고친 내용은 파일에 남는다)</li>
+    </ul>
+  </details>
+
+  <h2 id="onsite">6. 시험장에서 할 것</h2>
+  <ol>
+    <li>18:20~18:50 입실, 정문, 서명하고 지정 좌석에 앉기. 화장실은 들어가기 전에.</li>
+    <li>폰 · 워치 · 이어폰은 전원을 끄고 가방에 넣어 바구니로. 주머니에 넣으면 안 된다.</li>
+    <li>감독관이 시작을 알리기 전에는 PC를 만지지 않는다. 19:00 뒤 로그인.</li>
+    <li>[시험보기]를 누르면 바로 시작된다. 시험 종류(PASS/FAIL인지 부분채점인지)부터 본다.</li>
+    <li>문제마다 제출 꼴(파일명 · 확장자 · 함수 이름)을 먼저 읽고, 다 쓰면 [시험 제출].</li>
+    <li>끝나면 목록 화면에서 [시험 종료]. 안내문과 펜은 돌려준다.</li>
+  </ol>
+
+  <footer>
+    <p>2026-11-20 · 교육생이 만든 비공식 정리 · 틀린 곳이 있으면 공지를 따르세요.</p>
+  </footer>
+</main>
+</body>
+</html>
