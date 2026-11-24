@@ -92,6 +92,10 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .hero h1 span { display: block; }
 .hero .side { grid-column: 9 / -1; grid-row: 2; display: grid; gap: clamp(14px, 1.4vw, 22px); justify-items: start; padding-bottom: 0.6vw; }
 .hero .lead { font-size: var(--step-lead); line-height: 1.38; font-weight: 500; letter-spacing: -0.01em; }
+.hero .lead span { display: block; }
+/* 글 줄은 고르게 끊는다(지원하지 않는 브라우저는 그대로) */
+.lead, .lead span, .next .desc, .with p, .about .say p, figcaption { text-wrap: balance; }
+.cells dd, .index-head p, .more-head p { text-wrap: pretty; }
 
 /* ── 색인 ───────────────────────────────────────── */
 .index-head { padding-top: clamp(10px, 1vw, 16px); padding-bottom: clamp(10px, 1vw, 14px); align-items: baseline; }
@@ -100,7 +104,8 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 
 /* 다섯 칸: 머리줄과 작품 줄이 같은 칸 나눔을 쓴다.
    칸을 더하려면(예: "왜" · "알게 된 것") ① 이 줄에 너비 하나 ② .picker에 radio 하나
-   ③ 작품마다 <div class="c-이름"> 하나 ④ 아래 :has() 줄에 이름 하나를 더한다. */
+   ③ 작품마다 <div class="c-이름"> 하나 ④ 아래 :has() 줄에 이름 하나를 더한다.
+   좁은 화면(1023px 아래)은 "무엇"이 한 줄을 다 쓰고 나머지가 그 아래 한 줄이니, 거기 칸 수도 하나 늘린다. */
 .five { display: grid; grid-template-columns: 3fr 1.5fr 2.5fr 2.9fr 2.3fr; column-gap: var(--g); }
 
 .picker {
@@ -321,7 +326,8 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
   .work-title .mascot { display: none; }
   .work-title .more { margin-top: 0; margin-left: auto; }
   .sheet { grid-column: 1 / -1; }
-  .five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .five { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .five > .c-what { grid-column: 1 / -1; }
   .picker.five { grid-template-columns: repeat(5, auto); justify-content: space-between; }
   .index .cells dt { position: static; width: auto; height: auto; clip-path: none; }
   .proof dt { grid-column: 1 / -1; }
