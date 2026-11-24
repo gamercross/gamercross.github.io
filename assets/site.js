@@ -4,6 +4,18 @@
   root.classList.add('js');
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // 구역의 부분마다 차례로 들어오게: 제목 → 글 → 그림. 마크업에 일일이 적지 않고 여기서 붙인다.
+  ['.index-head > *', '.more-head > *', '.mini-row', '.made > h2', '.line > h2', '.line .note', '.with > h2',
+   '.about > h2', '.about .facts > div', '.else > h2', '.else li', '.contact > h2', '.nums > div',
+   '.d-hero .cells > div', '.tree .roots', '.tree .trunk', '.next > h2', '.next .name', '.next .desc', '.foot .name'
+  ].forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (el, i) {
+      if (el.classList.contains('rise')) return;
+      el.classList.add('rise');
+      if (!el.style.getPropertyValue('--i')) el.style.setProperty('--i', i % 6);
+    });
+  });
+
   var targets = document.querySelectorAll('.rise, .pop-group, .shutter, .grow');
   function showAll() { targets.forEach(function (el) { el.classList.add('is-in'); }); }
 

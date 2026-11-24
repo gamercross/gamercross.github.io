@@ -57,8 +57,8 @@ a:focus-visible, label:focus-within, .button:focus-visible {
 .pad { padding-inline: var(--m); }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-.skip { position: absolute; left: var(--m); top: -80px; z-index: 20; background: var(--ink); color: var(--bg); padding: 12px 18px; font-weight: 600; }
-.skip:focus { top: 8px; }
+.skip { position: absolute; left: var(--m); top: 8px; z-index: 20; background: var(--ink); color: var(--bg); padding: 12px 18px; font-weight: 600; }
+.skip:not(:focus) { width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 .button {
   display: inline-flex; align-items: center; justify-content: center;
@@ -96,7 +96,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 /* ── 색인 ───────────────────────────────────────── */
 .index-head { padding-top: clamp(10px, 1vw, 16px); padding-bottom: clamp(10px, 1vw, 14px); align-items: baseline; }
 .index-head h2 { grid-column: 1 / span 3; }
-.index-head p { grid-column: 4 / span 9; font-size: var(--step-small); color: var(--muted); }
+.index-head p { grid-column: 4 / span 9; font-size: var(--step-small); }
 
 /* 다섯 칸: 머리줄과 작품 줄이 같은 칸 나눔을 쓴다.
    칸을 더하려면(예: "왜" · "알게 된 것") ① 이 줄에 너비 하나 ② .picker에 radio 하나
@@ -117,7 +117,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .picker label:has(input:checked) { background: var(--lit); font-weight: 800; }
 @media (hover: hover) and (pointer: fine) { .picker label:hover:not(:has(input:checked)) { background: #BECDD5; } }
 
-.work { padding-block: clamp(18px, 1.8vw, 30px) clamp(48px, 4.6vw, 84px); row-gap: clamp(14px, 1.4vw, 22px); scroll-margin-top: 48px; }
+.work { padding-block: clamp(18px, 1.8vw, 30px) clamp(64px, 5vw, 88px); row-gap: clamp(14px, 1.4vw, 22px); scroll-margin-top: 48px; }
 .work.floe, .f-floe { background: var(--f-floe); }
 .work.archi, .f-archi { background: var(--f-archi); }
 .work.dotci, .f-dotci { background: var(--f-dotci); }
@@ -137,7 +137,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .sheet .rows { display: grid; gap: var(--gap-frame); align-content: start; }
 .row { display: flex; gap: var(--gap-frame); }
 .frame { flex: var(--r) 1 0; min-width: 0; overflow: hidden; background: var(--surface); aspect-ratio: var(--r); display: block; }
-.frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--ease-soft); }
+.frame img, .frame video { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--ease-soft); }
 /* 큰 그림은 옆 줄들의 높이를 따른다(그림이 줄 높이를 정하지 않게) */
 .frame.big { aspect-ratio: auto; height: 100%; min-height: 0; position: relative; }
 .frame.big img { position: absolute; inset: 0; object-position: var(--pos, 50% 50%); }
@@ -171,7 +171,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 /* 작은 색인 줄: 그림 없이 같은 다섯 칸 */
 .more-head { background: var(--bg); padding-top: clamp(40px, 5vw, 88px); padding-bottom: clamp(12px, 1.2vw, 18px); align-items: baseline; }
 .more-head h2 { grid-column: 1 / span 3; }
-.more-head p { grid-column: 4 / span 9; font-size: var(--step-small); color: var(--muted); }
+.more-head p { grid-column: 4 / span 9; font-size: var(--step-small); }
 .mini-row { padding-block: clamp(6px, 0.6vw, 10px); }
 .mini-row:nth-of-type(odd) { background: var(--surface); }
 .mini-row h3 { font-size: inherit; font-weight: 800; line-height: 1.42; }
@@ -185,8 +185,9 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .about .facts dd { font-weight: 600; }
 .about .facts a { display: inline-block; padding-block: 10px; }
 .about .say { grid-column: 4 / -1; grid-row: 1 / span 2; font-size: clamp(1.375rem, 2.4vw, 2.25rem); line-height: 1.3; font-weight: 600; letter-spacing: -0.025em; }
-.about .say p + p { margin-top: 1em; color: var(--muted); font-weight: 500; }
-.dropcap { float: left; width: 3.9em; height: 3.9em; margin: 0.08em 0.5em 0 0; background: var(--surface); display: grid; place-items: center; }
+.about .say p + p { margin-top: 1em; font-weight: 500; }
+.about .say .motto { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 0.6em; align-items: center; }
+.dropcap { width: 3.9em; height: 3.9em; background: var(--surface); display: grid; place-items: center; }
 .dropcap svg { width: 78%; height: auto; }
 
 /* ── 다른 곳 ─────────────────────────────────────── */
@@ -243,11 +244,14 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .made .wide { grid-column: 1 / -1; }
 .made .half-a { grid-column: 1 / span 6; }
 .made .half-b { grid-column: 7 / span 6; }
+.made .third-a { grid-column: 1 / span 4; }
+.made .third-b { grid-column: 5 / span 4; }
+.made .third-c { grid-column: 9 / span 4; }
 .made .nums { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--g); }
-.made .nums div { padding: clamp(14px, 1.4vw, 22px); display: flex; flex-direction: column; justify-content: space-between; min-height: clamp(110px, 11vw, 170px); }
+.made .nums div { display: flex; flex-direction: column; gap: clamp(6px, 0.8vw, 12px); }
 .made .nums dt { font-size: var(--step-body); font-weight: 500; order: 2; }
 .made .nums dt b { font-weight: 800; margin-right: 0.3em; }
-.made .nums dd { font-size: clamp(2.75rem, 6vw, 6.5rem); font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; }
+.made .nums dd { font-size: clamp(3.25rem, 8.6vw, 9.5rem); font-weight: 800; letter-spacing: -0.055em; line-height: 0.86; margin-left: -0.03em; }
 .made .strip { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--g); }
 .made .strip.two { grid-column: 1 / span 4; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .made .stack { grid-column: 7 / span 6; display: grid; gap: clamp(20px, 2.4vw, 40px); align-content: start; }
@@ -258,7 +262,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
    주인이 "알게 된 것"을 쓰면 .tree의 칸을 하나 늘리고 .trunk 오른쪽에 잎(.leaf)을 단다. */
 .line { background: var(--surface); padding-block: clamp(48px, 6vw, 110px); row-gap: clamp(18px, 2vw, 30px); scroll-margin-top: 0; }
 .line h2 { grid-column: 1 / span 3; }
-.line .note { grid-column: 4 / -1; font-size: var(--step-small); color: var(--muted); align-self: end; }
+.line .note { grid-column: 4 / -1; font-size: var(--step-small); align-self: end; }
 .tree { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 1.4fr) minmax(0, 4.6fr); align-items: stretch; }
 .tree .roots { display: grid; gap: var(--g); grid-auto-rows: 1fr; }
 .tree .root { background: var(--bg); padding: clamp(12px, 1.2vw, 18px) clamp(14px, 1.4vw, 22px); display: flex; flex-direction: column; justify-content: center; gap: 2px; text-decoration: none; min-height: 84px; transition: background-color 180ms ease, transform 240ms var(--ease-out); }
@@ -279,7 +283,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .next { padding-block: clamp(20px, 2.2vw, 36px); align-items: end; row-gap: 12px; text-decoration: none; }
 .next h2 { grid-column: 1 / span 4; align-self: start; }
 .next .name { grid-column: 1 / span 4; grid-row: 2; font-size: var(--step-head); font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
-.next .desc { grid-column: 1 / span 4; grid-row: 3; font-size: var(--step-body); line-height: 1.45; }
+.next .desc { grid-column: 1 / span 4; grid-row: 3; font-size: var(--step-lead); font-weight: 600; letter-spacing: -0.015em; line-height: 1.36; }
 .next .pic { grid-column: 5 / -1; grid-row: 1 / span 3; overflow: hidden; aspect-ratio: 1600 / 560; }
 .next .pic img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 30%); transition: transform 600ms var(--ease-soft); }
 @media (hover: hover) and (pointer: fine) { .next:hover .pic img { transform: scale(1.03); } }
@@ -329,7 +333,9 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
   .contact h2, .contact p { grid-column: 1 / -1; }
   .d-hero .words, .d-hero .shot, .d-hero .phones { grid-column: 1 / -1; }
   .d-hero .words .button { margin-top: 8px; }
-  .made .nums { grid-template-columns: repeat(2, 1fr); }
+  .made .nums { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+  .made .third-a, .made .third-b { grid-column: span 6; }
+  .made .third-c { grid-column: 1 / -1; }
   .tree { grid-template-columns: minmax(0, 5fr) minmax(0, 0.9fr) minmax(0, 4fr); }
   .with h2, .with p { grid-column: 1 / -1; }
   .with p { margin-top: 12px; }
@@ -342,7 +348,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
   .top .who { grid-column: 1; }
   .top nav { grid-column: 2; grid-row: 1; }
   .top nav .hide-s { display: none; }
-  .top .now { grid-column: 1 / -1; color: var(--muted); }
+  .top .now { grid-column: 1 / -1; }
   .hero { padding-top: 14px; }
   .hero h1 { font-size: 17.6vw; }
   .hero .side { grid-column: 1 / -1; margin-top: 18px; justify-items: stretch; }
@@ -352,13 +358,15 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
   .index-head p { margin-top: 2px; }
   .picker.five { display: flex; padding-inline: 0; justify-content: stretch; }
   .picker label { flex: 1 1 auto; justify-content: center; margin: 0; padding-inline: 4px; }
-  .work { padding-block: 22px 44px; row-gap: 14px; }
+  .work { padding-block: 22px 64px; row-gap: 14px; }
   .work-title h3 { font-size: clamp(2.5rem, 13vw, 3.4rem); }
   .work-title .more { margin-left: 0; width: 100%; }
   .sheet.big-left, .sheet.big-right { grid-template-columns: 1fr; }
   .sheet.big-right .frame.big { order: -1; }
   .frame.big { aspect-ratio: var(--r); height: auto; position: static; }
   .frame.big img { position: static; }
+  .work.mini .frame.big { aspect-ratio: 1.2; }
+  .work.mini .frame.big img { object-position: 50% 0; }
   .row { flex-wrap: wrap; }
   .row .frame { flex: var(--r) 1 calc(var(--r) * 64px); aspect-ratio: auto; height: 76px; }
   .row.phones .frame { flex: 0 0 calc((100% - var(--gap-frame) * 2) / 3); aspect-ratio: var(--r); height: auto; }
@@ -390,7 +398,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
   .d-hero .cells .c-what { order: -1; grid-template-columns: 1fr; padding: 12px 12px 14px; }
   .d-hero .cells .c-what dt { display: none; }
   .d-hero .cells .c-what dd { font-size: 1.3125rem; line-height: 1.32; }
-  .made .half-a, .made .half-b, .made .stack { grid-column: 1 / -1; }
+  .made .half-a, .made .half-b, .made .stack, .made .third-a, .made .third-b, .made .third-c { grid-column: 1 / -1; }
   .made .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; }
   .made .strip.two { grid-column: 1 / -1; }
   .line h2, .line .note { grid-column: 1 / -1; }
