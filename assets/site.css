@@ -77,6 +77,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .top .who { grid-column: 1 / span 3; font-weight: 700; }
 .top .who a { text-decoration: none; display: inline-block; padding-block: 4px; }
 .top .now { grid-column: 4 / span 6; padding-block: 4px; }
+.top .now b, .about .say b { font-weight: 700; margin-right: 0.35em; }
 .top nav { grid-column: 10 / span 3; display: flex; gap: clamp(12px, 1.2vw, 22px); justify-content: flex-end; font-weight: 600; }
 .top nav a { text-decoration-color: transparent; transition: text-decoration-color 180ms ease; padding-block: 4px; }
 @media (hover: hover) { .top nav a:hover { text-decoration-color: currentColor; } }
@@ -173,9 +174,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .more-head p { grid-column: 4 / span 9; font-size: var(--step-small); color: var(--muted); }
 .mini-row { padding-block: clamp(6px, 0.6vw, 10px); }
 .mini-row:nth-of-type(odd) { background: var(--surface); }
-.mini-row h3 { font-size: inherit; font-weight: 800; line-height: 1.42; display: inline; }
-.mini-row h3::after { content: " — "; font-weight: 500; }
-.mini-row .c-what dd { display: inline; }
+.mini-row h3 { font-size: inherit; font-weight: 800; line-height: 1.42; }
 .more-end { height: clamp(40px, 5vw, 88px); }
 
 /* ── 소개 ───────────────────────────────────────── */
@@ -212,7 +211,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .contact p a { display: inline-block; padding-block: 6px; }
 
 .foot { padding-top: clamp(28px, 4vw, 64px); padding-bottom: 22px; font-size: var(--step-small); color: var(--muted); align-items: baseline; row-gap: 14px; }
-.foot .name { grid-column: 1 / -1; color: var(--ink); font-size: clamp(3rem, 17.3vw, 22.5rem); font-weight: 800; letter-spacing: -0.06em; line-height: 0.8; margin-left: -0.04em; white-space: nowrap; padding-bottom: 0.08em; }
+.foot .name { grid-column: 1 / -1; color: var(--ink); font-size: clamp(3rem, 17.3vw, 22.5rem); font-weight: 800; letter-spacing: -0.06em; line-height: 1; margin: -0.14em 0 0 -0.04em; white-space: nowrap; }
 .foot .note { grid-column: 1 / span 6; }
 .foot nav { grid-column: 7 / span 5; display: flex; gap: 24px; justify-content: flex-end; color: var(--ink); font-weight: 600; }
 .foot nav a { padding-block: 10px; }
@@ -228,7 +227,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .d-hero .shot { grid-column: 5 / -1; overflow: hidden; background: var(--surface); aspect-ratio: var(--shot, 1.675); }
 .d-hero .shot > div { height: 100%; }
 .d-hero .shot img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 0); }
-.d-hero .phones { grid-column: 5 / -1; display: flex; gap: var(--gap-frame); }
+.d-hero .phones { grid-column: 5 / -1; display: flex; gap: var(--gap-frame); align-self: start; }
 .d-hero .cells { margin-top: clamp(4px, 0.8vw, 12px); }
 .d-hero .cells .c-what { background: var(--lit); }
 .d-hero .cells .c-what dd { font-weight: 600; }
@@ -240,18 +239,19 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .made figure img, .made figure video { width: 100%; height: auto; transition: transform 500ms var(--ease-soft); }
 @media (hover: hover) and (pointer: fine) { .made figure:hover img { transform: scale(1.03); } }
 .made figcaption { font-size: var(--step-body); line-height: 1.4; }
-.made figcaption b { font-weight: 700; }
+.made figcaption b { font-weight: 800; display: block; }
 .made .wide { grid-column: 1 / -1; }
 .made .half-a { grid-column: 1 / span 6; }
 .made .half-b { grid-column: 7 / span 6; }
 .made .nums { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--g); }
 .made .nums div { padding: clamp(14px, 1.4vw, 22px); display: flex; flex-direction: column; justify-content: space-between; min-height: clamp(110px, 11vw, 170px); }
-.made .nums dt { font-size: var(--step-body); font-weight: 600; order: 2; }
+.made .nums dt { font-size: var(--step-body); font-weight: 500; order: 2; }
+.made .nums dt b { font-weight: 800; margin-right: 0.3em; }
 .made .nums dd { font-size: clamp(2.75rem, 6vw, 6.5rem); font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; }
 .made .strip { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--g); }
 .made .strip.two { grid-column: 1 / span 4; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.made .log { grid-column: 7 / span 6; align-self: stretch; }
-.made .log .pic { background: var(--lit); padding: clamp(14px, 1.6vw, 26px); height: 100%; }
+.made .stack { grid-column: 7 / span 6; display: grid; gap: clamp(20px, 2.4vw, 40px); align-content: start; }
+.made .log .pic { background: var(--lit); padding: clamp(14px, 1.6vw, 26px); }
 .made pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: clamp(0.8125rem, 0.72rem + 0.4vw, 1.0625rem); line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
 
 /* 근거 → 작품: 열리는 주소만 왼쪽에 놓는다.
@@ -283,6 +283,8 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
 .next .pic { grid-column: 5 / -1; grid-row: 1 / span 3; overflow: hidden; aspect-ratio: 1600 / 560; }
 .next .pic img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 30%); transition: transform 600ms var(--ease-soft); }
 @media (hover: hover) and (pointer: fine) { .next:hover .pic img { transform: scale(1.03); } }
+.next .pic.four { display: flex; gap: var(--gap-frame); }
+.next .pic.four img { flex: 1 1 0; min-width: 0; object-position: 50% 0; }
 
 /* ── 움직임: 스크립트가 켜진 때만 감추고, 들어오면 보인다 ── */
 @media (prefers-reduced-motion: no-preference) {
@@ -388,7 +390,7 @@ h2 { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; lin
   .d-hero .cells .c-what { order: -1; grid-template-columns: 1fr; padding: 12px 12px 14px; }
   .d-hero .cells .c-what dt { display: none; }
   .d-hero .cells .c-what dd { font-size: 1.3125rem; line-height: 1.32; }
-  .made .half-a, .made .half-b, .made .log { grid-column: 1 / -1; }
+  .made .half-a, .made .half-b, .made .stack { grid-column: 1 / -1; }
   .made .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; }
   .made .strip.two { grid-column: 1 / -1; }
   .line h2, .line .note { grid-column: 1 / -1; }
