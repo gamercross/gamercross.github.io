@@ -3,243 +3,299 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GAMERCROSS</title>
-<meta name="description" content="GAMERCROSS — Design, Dev, Career portfolio hub">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
-<style>
-  :root{
-    --bg: oklch(16% 0.028 280);
-    --panel: oklch(21% 0.03 280);
-    --panel-2: oklch(25% 0.032 280);
-    --ink: oklch(96% 0.01 280);
-    --ink-dim: oklch(72% 0.02 280);
-    --line: oklch(34% 0.03 280);
-    --grid-line: oklch(30% 0.03 280 / 0.55);
-    --grid-line-major: oklch(38% 0.04 280 / 0.6);
-    --design: oklch(76% 0.19 345);
-    --dev: oklch(80% 0.16 195);
-    --career: oklch(84% 0.19 115);
-    --shadow: oklch(9% 0.02 280);
-  }
-  *{ box-sizing:border-box; }
-  html, body{ margin:0; padding:0; background:var(--bg); }
-  body{
-    font-family:"Noto Sans KR","Press Start 2P",sans-serif;
-    color:var(--ink);
-    background-image:
-      linear-gradient(var(--grid-line-major) 2px, transparent 2px),
-      linear-gradient(90deg, var(--grid-line-major) 2px, transparent 2px),
-      linear-gradient(var(--grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
-    background-position: -1px -1px;
-  }
-  .px{ font-family:"Press Start 2P", monospace; }
-  a{ color:var(--ink); text-decoration:none; }
-  a:hover{ color:var(--dev); }
-  .pixel-border{ border:4px solid var(--line); box-shadow:6px 6px 0 0 var(--shadow); }
-  .btn{ display:inline-flex; align-items:center; gap:10px; border:4px solid var(--shadow); box-shadow:4px 4px 0 0 var(--shadow); cursor:pointer; }
-  img, svg{ display:block; }
-
-  .wrap{ max-width:1440px; margin:0 auto; position:relative; overflow:hidden; }
-
-  .header{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 56px; height:84px; border-bottom:4px solid var(--line); background:var(--panel); position:relative; z-index:2; }
-  .logo{ display:flex; align-items:center; gap:14px; justify-self:start; }
-  .nav{ display:flex; align-items:center; gap:36px; justify-self:center; }
-  .nav a, .logo-text{ font-size:11px; color:var(--ink-dim); }
-  .logo-text{ font-size:14px; letter-spacing:1px; color:var(--ink); }
-  .contact-btn{ background:var(--dev); color:var(--shadow); padding:10px 16px; font-size:10px; justify-self:end; }
-
-  .hero{ position:relative; display:flex; align-items:center; justify-content:center; gap:72px; padding:88px 56px 96px; z-index:2; flex-wrap:wrap; }
-  .hero-char{ flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:18px; }
-  .player-tag{ background:var(--panel-2); padding:10px 16px; font-size:9px; color:var(--dev); white-space:nowrap; }
-  .hero-text{ max-width:600px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px; }
-  .eyebrow{ font-size:11px; color:var(--career); letter-spacing:1px; }
-  .headline{ font-size:30px; line-height:1.65; margin:0; color:var(--ink); text-shadow:4px 4px 0 var(--shadow); }
-  .sub{ font-size:16px; line-height:1.8; color:var(--ink-dim); margin:0; }
-
-  .dot{ position:absolute; border:3px solid var(--shadow); }
-
-  .stage-label{ position:relative; padding:0 56px 24px; z-index:2; font-size:12px; color:var(--ink-dim); text-align:center; margin-bottom:28px; letter-spacing:2px; }
-
-  .stages{ position:relative; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:32px; padding:0 56px 100px; z-index:2; }
-  .stage-card{ display:flex; flex-direction:column; background:var(--panel); }
-  .stage-strip{ height:8px; }
-  .stage-icon-wrap{ display:flex; flex-direction:column; align-items:center; padding:32px 24px 20px; background:var(--panel-2); border-bottom:4px solid var(--line); }
-  .stage-body{ padding:24px 24px 28px; display:flex; flex-direction:column; gap:12px; flex-grow:1; }
-  .stage-tag{ font-size:10px; }
-  .stage-title{ font-size:14px; line-height:1.6; }
-  .stage-desc{ font-size:13.5px; line-height:1.7; color:var(--ink-dim); margin:0; flex-grow:1; }
-  .stage-enter{ padding:12px 16px; font-size:10px; justify-content:center; margin-top:6px; color:var(--shadow); }
-
-  .footer{ position:relative; display:flex; align-items:center; justify-content:space-between; padding:26px 56px; border-top:4px solid var(--line); background:var(--panel); z-index:2; flex-wrap:wrap; gap:16px; }
-  .footer-copy{ font-size:9px; color:var(--ink-dim); }
-  .footer-links{ display:flex; gap:16px; }
-  .footer-links a{ background:var(--panel-2); padding:8px 12px; font-size:9px; color:var(--ink-dim); }
-
-  @media (max-width:900px){
-    .header{ grid-template-columns:1fr; height:auto; row-gap:16px; padding:16px 24px; }
-    .logo, .nav, .contact-btn{ justify-self:center; }
-    .hero{ flex-direction:column; padding:56px 24px 64px; gap:40px; }
-    .headline{ font-size:22px; }
-    .stages{ grid-template-columns:1fr; padding:0 24px 64px; }
-    .footer{ padding:24px; justify-content:center; text-align:center; }
-  }
-</style>
+<title>이재엽 (gamercross) · 작품 색인</title>
+<meta name="description" content="이재엽(gamercross)이 끝낸 작품을 같은 다섯 칸(무엇 · 언제 · 내 몫 · 결과물 · 상태)과 열리는 근거로 적은 색인.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="이재엽 (gamercross) · 작품 색인">
+<meta property="og:description" content="MAKE, FIX, GO HIGH. 끝낸 작품을 같은 다섯 칸으로 적었습니다.">
+<meta property="og:url" content="https://gamercross.github.io/">
+<meta property="og:image" content="https://gamercross.github.io/assets/img/floe-workspace.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://gamercross.github.io/">
+<meta name="theme-color" content="#DDE6EA">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#work">작품으로 건너뛰기</a>
 
-  <!-- Header -->
-  <div class="header">
-    <div class="logo">
-      <svg width="34" height="24" viewBox="0 0 108 72" style="image-rendering:pixelated;">
-        <rect x="36" y="0" width="36" height="9" fill="var(--career)"/>
-        <rect x="27" y="9" width="54" height="9" fill="var(--career)"/>
-        <rect x="18" y="18" width="72" height="9" fill="var(--career)"/>
-        <rect x="9" y="27" width="90" height="9" fill="var(--career)"/>
-        <rect x="0" y="36" width="108" height="9" fill="var(--career)"/>
-        <rect x="0" y="45" width="108" height="9" fill="var(--career)"/>
-        <rect x="0" y="54" width="108" height="9" fill="var(--career)"/>
-        <rect x="9" y="63" width="90" height="9" fill="var(--career)"/>
-        <rect x="36" y="18" width="9" height="9" fill="var(--shadow)"/>
-        <rect x="63" y="18" width="9" height="9" fill="var(--shadow)"/>
-        <rect x="36" y="9" width="9" height="9" fill="oklch(96% 0.06 115)"/>
-      </svg>
-      <div class="px logo-text">GAMERCROSS</div>
-    </div>
-    <nav class="nav">
-      <a href="#design" class="px">[ DESIGN ]</a>
-      <a href="#dev" class="px">[ DEV ]</a>
-      <a href="#career" class="px">[ CAREER ]</a>
-    </nav>
-    <a href="#contact" class="btn px contact-btn">CONTACT</a>
+<header class="top grid pad">
+  <p class="who"><a href="./">이재엽 · gamercross</a></p>
+  <p class="now"><b>지금 하는 것</b> 나의 OS, 그리고 2027년 1월 CES 2027 글로벌 연수 준비</p>
+  <nav aria-label="쪽 안 이동">
+    <a href="#work">작품</a>
+    <a href="#about" class="hide-s">소개</a>
+    <a href="https://github.com/gamercross">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero grid pad" aria-labelledby="h-hero">
+  <h1 id="h-hero" class="rise" lang="en"><span>MAKE, FIX,</span> <span>GO HIGH.</span></h1>
+  <div class="side">
+    <p class="lead rise" style="--i:1"><span>이재엽 · 우송대학교 컴퓨터정보 · 보안전공 2학년.</span> <span>끝낸 작품을 같은 다섯 칸으로 적었습니다.</span></p>
+    <a class="button rise" style="--i:2" href="work/floe/">Floe부터 보기</a>
+  </div>
+</section>
+
+<section class="index" id="work" aria-labelledby="h-work">
+  <div class="index-head grid pad">
+    <h2 id="h-work">작품 넷</h2>
+    <p>작품마다 같은 다섯 칸입니다. 한 칸을 고르면 그 칸끼리 견줘집니다.</p>
   </div>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="dot" style="top:44px; left:120px; width:16px; height:16px; background:oklch(88% 0.18 95);"></div>
-    <div class="dot" style="top:240px; left:80px; width:12px; height:12px; background:var(--design);"></div>
-    <div class="dot" style="top:70px; right:140px; width:14px; height:14px; background:var(--dev); transform:rotate(45deg);"></div>
+  <fieldset class="picker five pad">
+    <legend class="vh">견줄 칸 고르기</legend>
+    <label><input type="radio" name="k" id="k-what" checked>무엇</label>
+    <label><input type="radio" name="k" id="k-when">언제</label>
+    <label><input type="radio" name="k" id="k-role">내 몫</label>
+    <label><input type="radio" name="k" id="k-out">결과물</label>
+    <label><input type="radio" name="k" id="k-state">상태</label>
+  </fieldset>
 
-    <div class="hero-char">
-      <svg width="216" height="144" viewBox="0 0 108 72" style="image-rendering:pixelated; filter:drop-shadow(6px 6px 0 var(--shadow));">
-        <rect x="36" y="0" width="36" height="9" fill="var(--dev)"/>
-        <rect x="27" y="9" width="54" height="9" fill="var(--dev)"/>
-        <rect x="18" y="18" width="72" height="9" fill="var(--dev)"/>
-        <rect x="9" y="27" width="90" height="9" fill="var(--dev)"/>
-        <rect x="0" y="36" width="108" height="9" fill="var(--dev)"/>
-        <rect x="0" y="45" width="108" height="9" fill="var(--dev)"/>
-        <rect x="0" y="54" width="108" height="9" fill="var(--dev)"/>
-        <rect x="9" y="63" width="90" height="9" fill="var(--dev)"/>
-        <rect x="36" y="18" width="9" height="9" fill="var(--shadow)"/>
-        <rect x="63" y="18" width="9" height="9" fill="var(--shadow)"/>
-        <rect x="36" y="9" width="9" height="9" fill="oklch(97% 0.05 195)"/>
-      </svg>
-      <div class="px pixel-border player-tag">PLAYER 1</div>
+  <!-- Floe -->
+  <article class="work floe grid pad" id="floe" aria-labelledby="t-floe">
+    <div class="work-title">
+      <h3 id="t-floe">Floe</h3>
+      <p class="when">2026.09 – 11 · 5인 팀의 팀장</p>
+      <img class="mascot" src="assets/img/floro.svg" width="200" height="200" alt="Floe의 마스코트 물범 플로로">
+      <a class="button more" href="work/floe/">Floe 한 장으로 보기</a>
     </div>
+    <div class="sheet big-left pop-group">
+      <a class="frame big shutter" href="work/floe/" style="--r:1.68"><img src="assets/img/floe-workspace.jpg" width="1600" height="955" alt="Floe 작업실 화면. 지금 할 일 한 칸과 다음 단계가 한 화면에 보인다"></a>
+      <div class="rows">
+        <div class="row">
+          <div class="frame pop" style="--r:.96;--i:1"><img src="assets/img/f-seal.jpg" width="540" height="560" alt="Floe 화면 속 물범 플로로" loading="lazy"></div>
+          <div class="frame pop" style="--r:1.63;--i:2"><img src="assets/img/f-note.jpg" width="620" height="380" alt="작업실의 생각 · 행동 칸" loading="lazy"></div>
+          <div class="frame pop" style="--r:1.6;--i:3"><img src="assets/img/f-card.jpg" width="480" height="300" alt="단계 안내 카드" loading="lazy"></div>
+        </div>
+        <div class="row">
+          <div class="frame pop" style="--r:1.778;--i:4"><video data-loop muted loop playsinline preload="none" poster="assets/img/floe-clip.jpg" width="960" height="540" aria-label="Floe 소개 영상의 한 대목. 소리 없이 되풀이된다."><source src="assets/img/floe-clip.mp4" type="video/mp4"></video></div>
+          <div class="frame pop" style="--r:2.14;--i:5"><img src="assets/img/f-deck.jpg" width="620" height="290" alt="발표 덱 첫 장: AI와 만드는 프로젝트, 길을 잃지 않게" loading="lazy"></div>
+          <div class="frame pop" style="--r:1;--i:6"><img src="assets/img/f-icon.jpg" width="330" height="330" alt="Floe 앱 아이콘" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd>AI에게 코드를 맡기는 사람이 끝까지 만들게 돕는 데스크톱 앱</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2026.09 – 11</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>팀장 · 총괄 · AI 연동 (5인 팀)</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd>Mac · Windows · 우분투 앱, 릴리스 15번</dd></div>
+      <div class="c-state"><dt>상태</dt><dd>끝. 11.08 제출 · 11.13 발표 · 평가 Pass</dd></div>
+    </dl>
+    <dl class="proof grid">
+      <dt>근거</dt>
+      <dd>
+        <a href="https://github.com/2026-Codyssey-Final-Proj/Final-Proj">저장소</a>
+        <a href="https://github.com/2026-Codyssey-Final-Proj/Final-Proj/releases">릴리스 15번</a>
+        <a href="https://2026-codyssey-final-proj.github.io/Floe-open-index/">발표 덱</a>
+      </dd>
+    </dl>
+  </article>
 
-    <div class="hero-text">
-      <div class="px eyebrow">&gt; NEW GAME LOADED</div>
-      <h1 class="px headline">MAKE, FIX,<br/>GO HIGH.</h1>
-      <p class="sub">게임 시스템 개발자를 목표로, 디자인과 개발 사이를 오가며 만든 것들을 이 스테이지에 모아두었습니다.</p>
+  <!-- archi-board -->
+  <article class="work archi grid pad" id="archi" aria-labelledby="t-archi">
+    <div class="work-title">
+      <h3 id="t-archi">archi-board</h3>
+      <p class="when">2026.10 – 11 · 혼자</p>
+      <a class="button more" href="work/archi-board/">archi-board 한 장으로 보기</a>
     </div>
+    <div class="sheet big-right pop-group">
+      <div class="rows">
+        <div class="row">
+          <div class="frame pop" style="--r:2.9;--i:0"><img src="assets/img/a-users.jpg" width="580" height="200" alt="보드의 사용자 층: 처음 보는 사람, 만드는 사람" loading="lazy"></div>
+          <div class="frame pop" style="--r:1;--i:1"><img src="assets/img/a-map.jpg" width="170" height="170" alt="보드의 작은 지도" loading="lazy"></div>
+        </div>
+        <div class="row">
+          <div class="frame pop" style="--r:4.46;--i:2"><img src="assets/img/a-infra.jpg" width="580" height="130" alt="보드의 인프라 · 엔진 층" loading="lazy"></div>
+        </div>
+        <div class="row">
+          <div class="frame pop" style="--r:2.9;--i:3"><img src="assets/img/a-ui.jpg" width="580" height="200" alt="보드의 사용자 인터페이스 층" loading="lazy"></div>
+          <div class="frame pop" style="--r:2.64;--i:4"><img src="assets/img/a-goal.jpg" width="290" height="110" alt="보드의 목표 상자" loading="lazy"></div>
+        </div>
+      </div>
+      <a class="frame big pop" href="work/archi-board/" style="--r:1.6;--i:5"><img src="assets/img/archi-front.jpg" width="1600" height="1000" alt="archi-board 예시 보드. 사용자 · 화면 · 기능 · 인프라 네 층이 한 장에 보인다" loading="lazy"></a>
+    </div>
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd>코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2026.10 – 11</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>혼자. 엔진 · 스킬 · 예시 보드</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd>공개 스킬 (MIT) · 예시 보드 · 엔진 1.6</dd></div>
+      <div class="c-state"><dt>상태</dt><dd>공개함</dd></div>
+    </dl>
+    <dl class="proof grid">
+      <dt>근거</dt>
+      <dd>
+        <a href="https://gamercross.github.io/archi-board/">예시 보드</a>
+        <a href="https://github.com/gamercross/archi-board">저장소</a>
+      </dd>
+    </dl>
+  </article>
+
+  <!-- DOTCI -->
+  <article class="work dotci grid pad" id="dotci" aria-labelledby="t-dotci">
+    <div class="work-title">
+      <h3 id="t-dotci">DOTCI</h3>
+      <p class="when">2026 2학기 · 3인 팀의 UI 디자인</p>
+      <a class="button more" href="work/dotci/">DOTCI 한 장으로 보기</a>
+    </div>
+    <div class="sheet pop-group">
+      <div class="row phones">
+        <div class="frame pop" style="--r:.4618;--i:0"><img src="assets/img/dotci-map.jpg" width="540" height="1169" alt="DOTCI 지도 화면. 캠퍼스 건물마다 쪽지 수가 붙은 점이 있다" loading="lazy"></div>
+        <div class="frame pop" style="--r:.4618;--i:1"><img src="assets/img/dotci-place.jpg" width="540" height="1169" alt="장소를 누르면 나오는 안내. 책상 열기 단추가 있다" loading="lazy"></div>
+        <div class="frame pop" style="--r:.4618;--i:2"><img src="assets/img/dotci-locked.jpg" width="540" height="1169" alt="잠긴 책상. 도착하기 전에는 쪽지 본문이 가려져 있다" loading="lazy"></div>
+        <div class="frame pop" style="--r:.4618;--i:3"><img src="assets/img/dotci-opened.jpg" width="540" height="1169" alt="열린 책상. 도착하면 선배들의 쪽지가 보인다" loading="lazy"></div>
+        <div class="frame pop" style="--r:.4618;--i:4"><img src="assets/img/dotci-note.jpg" width="540" height="1169" alt="쪽지 한 장을 크게 본 화면" loading="lazy"></div>
+        <div class="frame pop" style="--r:.4618;--i:5"><img src="assets/img/dotci-write.jpg" width="540" height="1169" alt="흔적 남기기. 도착한 장소에서 쪽지를 쓴다" loading="lazy"></div>
+      </div>
+    </div>
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd>캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2026 2학기</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>UI 디자인 · 사용자 평가 · 발표 (3인 팀)</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd>공개 웹 서비스. 캠퍼스 21곳, GPS · QR로 도착 확인</dd></div>
+      <div class="c-state"><dt>상태</dt><dd>11월 교내 학술제 출품 · 서비스 공개 중</dd></div>
+    </dl>
+    <dl class="proof grid">
+      <dt>근거</dt>
+      <dd>
+        <a href="https://dotci.vercel.app/">서비스</a>
+        <a href="https://sangukjeon.github.io/dotci/">체험판</a>
+        <a href="https://github.com/sangukjeon/dotci">저장소</a>
+      </dd>
+    </dl>
+  </article>
+
+  <!-- MiniMall -->
+  <article class="work mini grid pad" id="minimall" aria-labelledby="t-mini">
+    <div class="work-title">
+      <h3 id="t-mini">MiniMall</h3>
+      <p class="when">2026 2학기 · 팀의 발표와 점검</p>
+      <a class="button more" href="work/minimall/">MiniMall 한 장으로 보기</a>
+    </div>
+    <div class="sheet big-left pop-group">
+      <a class="frame big pop" href="work/minimall/" style="--r:.695;--pos:50% 0"><img src="assets/img/minimall-home.jpg" width="820" height="1180" alt="MiniMall 첫 화면. 상품 찾기 칸과 상품 목록이 있다" loading="lazy"></a>
+      <div class="rows">
+        <div class="row">
+          <div class="frame pop" style="--r:2;--i:1"><img src="assets/img/m-cards.jpg" width="772" height="386" alt="상품 카드 셋. 이름 · 값 · 재고가 적혀 있다" loading="lazy"></div>
+        </div>
+        <div class="row">
+          <div class="frame pop" style="--r:1.415;--i:2"><img src="assets/img/m-box.jpg" width="552" height="390" alt="상품 그림. 상자 하나" loading="lazy"></div>
+          <div class="frame pop" style="--r:1.407;--i:3"><img src="assets/img/m-buy.jpg" width="550" height="391" alt="상품 한 개 화면. 장바구니 담기와 바로 구매" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd>요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2026 2학기</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>발표 덱 · 대본, 사용자 쪽 점검</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd>팀 결과: 시험 110개 통과, 요구 43 · 수용 기준 50</dd></div>
+      <div class="c-state"><dt>상태</dt><dd>저장소 공개 · 마지막 반영 11.04</dd></div>
+    </dl>
+    <dl class="proof grid">
+      <dt>근거</dt>
+      <dd>
+        <a href="https://github.com/moonjjang4421/Minimall">저장소</a>
+        <a href="https://github.com/moonjjang4421/Minimall/blob/main/docs/SCOPE_AUDIT.md">범위 감사</a>
+        <a href="https://github.com/moonjjang4421/Minimall/blob/main/docs/evidence/SCOPE-AUDIT-20261104/regression.txt">시험 기록</a>
+      </dd>
+    </dl>
+  </article>
+
+  <!-- 그 밖에 끝낸 것: 그림 없이 같은 다섯 칸. 줄을 더하려면 .mini-row 하나를 베껴 쓴다. -->
+  <div class="more-head grid pad" id="more">
+    <h2>그 밖에 끝낸 것</h2>
+    <p>열어 볼 수 있는 근거가 있는 것만 적었습니다.</p>
   </div>
 
-  <div class="stage-label px">SELECT YOUR STAGE</div>
+  <article class="mini-row pad" aria-labelledby="t-talk">
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd><h3 id="t-talk">수업 발표 「AI 시대, 무엇을 믿고 만들까」</h3>설계 일곱 단계를 한 장씩 다시 그린 발표</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2026.11.18</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>발표 · 덱 구성 (덱은 AI와 함께 만듦)</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd><a href="https://gamercross.github.io/archi-board/talks/2026-11-18-sw-engineering/">발표 덱</a></dd></div>
+      <div class="c-state"><dt>상태</dt><dd>발표함</dd></div>
+    </dl>
+  </article>
 
-  <div class="stages">
+  <article class="mini-row pad" aria-labelledby="t-allinone">
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd><h3 id="t-allinone">코디세이 AI 올인원 입학연수 미션</h3>파이썬 퀴즈 게임과 작은 NPU 시뮬레이터</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2026.11</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>혼자</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd><a href="https://gamercross.github.io/codyssey-1-2/">퀴즈 게임</a> · <a href="https://gamercross.github.io/codyssey-1-3/">NPU 시뮬레이터</a> · <a href="codyssey/exam3/">시험 대비</a></dd></div>
+      <div class="c-state"><dt>상태</dt><dd>미션 셋 끝 (11.11)</dd></div>
+    </dl>
+  </article>
 
-    <!-- Design stage -->
-    <a id="design" href="https://gamercross.github.io/design-story/" class="pixel-border stage-card">
-      <div class="stage-strip" style="background:var(--design);"></div>
-      <div class="stage-icon-wrap">
-        <svg width="90" height="60" viewBox="0 0 108 72" style="image-rendering:pixelated;">
-          <rect x="36" y="0" width="36" height="9" fill="var(--design)"/>
-          <rect x="27" y="9" width="54" height="9" fill="var(--design)"/>
-          <rect x="18" y="18" width="72" height="9" fill="var(--design)"/>
-          <rect x="9" y="27" width="90" height="9" fill="var(--design)"/>
-          <rect x="0" y="36" width="108" height="9" fill="var(--design)"/>
-          <rect x="0" y="45" width="108" height="9" fill="var(--design)"/>
-          <rect x="0" y="54" width="108" height="9" fill="var(--design)"/>
-          <rect x="9" y="63" width="90" height="9" fill="var(--design)"/>
-          <rect x="36" y="18" width="9" height="9" fill="var(--shadow)"/>
-          <rect x="63" y="18" width="9" height="9" fill="var(--shadow)"/>
-          <rect x="36" y="9" width="9" height="9" fill="oklch(97% 0.06 345)"/>
-        </svg>
-      </div>
-      <div class="stage-body">
-        <div class="px stage-tag" style="color:var(--design);">STAGE 01</div>
-        <div class="px stage-title">디자인</div>
-        <p class="stage-desc">브랜딩과 UI/UX, 비주얼 작업들을 모아둔 스테이지입니다.</p>
-        <div class="btn px stage-enter" style="background:var(--design);">ENTER &gt;</div>
-      </div>
-    </a>
+  <article class="mini-row pad" aria-labelledby="t-native">
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd><h3 id="t-native">코디세이 AI 네이티브 1기 미션</h3>프롬프트 · 자동화 · 데이터 AI 비서 · 기온 분석</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2026.07 – 09</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>혼자</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd><a href="https://data-ai-assistant-flame.vercel.app">데이터 AI 비서</a> · <a href="https://github.com/gamercross/seoul-temperature-analysis">서울 기온 분석</a> · <a href="https://github.com/gamercross/My-Prompt-Manager">프롬프트 매니저</a></dd></div>
+      <div class="c-state"><dt>상태</dt><dd>공개함</dd></div>
+    </dl>
+  </article>
 
-    <!-- Dev stage -->
-    <a id="dev" href="https://gamercross.github.io/my-setup-proj-story/" class="pixel-border stage-card">
-      <div class="stage-strip" style="background:var(--dev);"></div>
-      <div class="stage-icon-wrap">
-        <svg width="90" height="60" viewBox="0 0 108 72" style="image-rendering:pixelated;">
-          <rect x="36" y="0" width="36" height="9" fill="var(--dev)"/>
-          <rect x="27" y="9" width="54" height="9" fill="var(--dev)"/>
-          <rect x="18" y="18" width="72" height="9" fill="var(--dev)"/>
-          <rect x="9" y="27" width="90" height="9" fill="var(--dev)"/>
-          <rect x="0" y="36" width="108" height="9" fill="var(--dev)"/>
-          <rect x="0" y="45" width="108" height="9" fill="var(--dev)"/>
-          <rect x="0" y="54" width="108" height="9" fill="var(--dev)"/>
-          <rect x="9" y="63" width="90" height="9" fill="var(--dev)"/>
-          <rect x="36" y="18" width="9" height="9" fill="var(--shadow)"/>
-          <rect x="63" y="18" width="9" height="9" fill="var(--shadow)"/>
-          <rect x="36" y="9" width="9" height="9" fill="oklch(97% 0.05 195)"/>
-        </svg>
-      </div>
-      <div class="stage-body">
-        <div class="px stage-tag" style="color:var(--dev);">STAGE 02</div>
-        <div class="px stage-title">개발</div>
-        <p class="stage-desc">기획부터 배포까지 혼자 만든 게임과 프로젝트들입니다.</p>
-        <div class="btn px stage-enter" style="background:var(--dev);">ENTER &gt;</div>
-      </div>
-    </a>
+  <article class="mini-row pad" aria-labelledby="t-lol">
+    <dl class="cells five">
+      <div class="c-what"><dt>무엇</dt><dd><h3 id="t-lol">경상롤드컵 2022</h3>경상고 e-스포츠 대회 (리그 오브 레전드)</dd></div>
+      <div class="c-when"><dt>언제</dt><dd>2022</dd></div>
+      <div class="c-role"><dt>내 몫</dt><dd>총괄 PD. 진행 · 디자인 · 방송</dd></div>
+      <div class="c-out"><dt>결과물</dt><dd><a href="https://gamercross.github.io/design-story/">오프닝 영상</a></dd></div>
+      <div class="c-state"><dt>상태</dt><dd>끝</dd></div>
+    </dl>
+  </article>
+  <div class="more-end"></div>
+</section>
 
-    <!-- Career stage -->
-    <a id="career" href="https://gamercross.github.io/career-roadmap/" class="pixel-border stage-card">
-      <div class="stage-strip" style="background:var(--career);"></div>
-      <div class="stage-icon-wrap">
-        <svg width="90" height="60" viewBox="0 0 108 72" style="image-rendering:pixelated;">
-          <rect x="36" y="0" width="36" height="9" fill="var(--career)"/>
-          <rect x="27" y="9" width="54" height="9" fill="var(--career)"/>
-          <rect x="18" y="18" width="72" height="9" fill="var(--career)"/>
-          <rect x="9" y="27" width="90" height="9" fill="var(--career)"/>
-          <rect x="0" y="36" width="108" height="9" fill="var(--career)"/>
-          <rect x="0" y="45" width="108" height="9" fill="var(--career)"/>
-          <rect x="0" y="54" width="108" height="9" fill="var(--career)"/>
-          <rect x="9" y="63" width="90" height="9" fill="var(--career)"/>
-          <rect x="36" y="18" width="9" height="9" fill="var(--shadow)"/>
-          <rect x="63" y="18" width="9" height="9" fill="var(--shadow)"/>
-          <rect x="36" y="9" width="9" height="9" fill="oklch(96% 0.06 115)"/>
-        </svg>
-      </div>
-      <div class="stage-body">
-        <div class="px stage-tag" style="color:var(--career);">STAGE 03</div>
-        <div class="px stage-title">커리어</div>
-        <p class="stage-desc">지금까지 걸어온 경력과 앞으로의 루트를 정리했습니다.</p>
-        <div class="btn px stage-enter" style="background:var(--career);">ENTER &gt;</div>
-      </div>
-    </a>
-
+<section class="about grid pad" id="about" aria-labelledby="h-about">
+  <h2 id="h-about">소개</h2>
+  <dl class="facts">
+    <div><dt>이름</dt><dd>이재엽 · gamercross</dd></div>
+    <div><dt>학교</dt><dd>우송대학교 IT융합학부 컴퓨터정보 · 보안전공 2학년</dd></div>
+  </dl>
+  <div class="say">
+    <p class="motto rise"><span class="dropcap" aria-hidden="true">
+      <svg class="bob" viewBox="0 0 108 72" shape-rendering="crispEdges" role="img">
+        <rect x="36" y="0" width="36" height="9" fill="#58C2CC"/><rect x="27" y="9" width="54" height="9" fill="#58C2CC"/>
+        <rect x="18" y="18" width="72" height="9" fill="#58C2CC"/><rect x="9" y="27" width="90" height="9" fill="#58C2CC"/>
+        <rect x="0" y="36" width="108" height="27" fill="#58C2CC"/><rect x="9" y="63" width="90" height="9" fill="#58C2CC"/>
+        <rect x="36" y="18" width="9" height="9" fill="#17233F"/><rect x="63" y="18" width="9" height="9" fill="#17233F"/>
+        <rect x="36" y="9" width="9" height="9" fill="#DDE6EA"/>
+      </svg></span><span lang="en">“I WILL WIN. Not immediately but Definitely.”</span></p>
+    <p class="rise" style="--i:1"><b>지금 하는 것</b> 나의 OS(내 일과 지식을 한곳에서 보는 맥 앱), 그리고 2027년 1월 CES 2027 글로벌 연수 준비.</p>
   </div>
+</section>
 
-  <!-- Footer -->
-  <div id="contact" class="footer">
-    <div class="px footer-copy">© 2026 GAMERCROSS</div>
-    <div class="footer-links">
-      <a href="https://github.com/gamercross" class="px pixel-border">GITHUB</a>
-      <a href="#" class="px pixel-border">IG</a>
-    </div>
-  </div>
+<section class="else grid pad" aria-labelledby="h-else">
+  <h2 id="h-else">다른 곳</h2>
+  <ul>
+    <li><a id="design" href="https://gamercross.github.io/design-story/"><b>디자인 작업 모음</b><span>영상 · 그래픽 · 웹 디자인</span></a></li>
+    <li><a id="dev" href="https://gamercross.github.io/my-setup-proj-story/"><b>대시보드 OS 이야기</b><span>2026년 9월에 혼자 만든 개인 대시보드</span></a></li>
+    <li><a id="career" href="https://gamercross.github.io/career-roadmap/"><b>커리어 로드맵</b><span>2026년 9월에 적은 진로 계획</span></a></li>
+    <li><a href="https://gamercross.github.io/archi-board/"><b>archi-board 예시 보드</b><span>직접 움직여 보는 아키텍처 보드</span></a></li>
+  </ul>
+</section>
 
-</div>
+<section class="contact grid pad" id="contact" aria-labelledby="h-contact">
+  <h2 id="h-contact">연락</h2>
+  <p class="rise"><a href="https://github.com/gamercross">github.com/gamercross</a></p>
+</section>
+
+</main>
+
+<footer class="foot grid pad">
+  <p class="name" aria-hidden="true">gamercross</p>
+  <p class="note">이재엽의 작품 색인 · 2026</p>
+  <nav aria-label="맺음 이동"><a href="#work">작품</a><a href="#about">소개</a><a href="https://github.com/gamercross">GitHub</a></nav>
+</footer>
+
 </body>
 </html>

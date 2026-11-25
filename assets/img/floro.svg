@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><style><![CDATA[/* claude-drafted: 2026-10-17 — 플로로의 그림 스타일과 움직임. 내비게이터 · 서고 · 지식 은하가 같이 쓴다.
+   app.css에 있던 꼬리 · 잠 · 살핌 · 깜짝을 옮기고, 물범다운 움직임(꼬리 흔들기 · 숨쉬기 · 지느러미 박수 · 헤엄 · 배로 통통)을 더했다.
+   그림은 seal.js, 언제 움직이는지는 app.js(헤엄) · library.js(배로 통통).
+   그림 스타일(색 · 표정 · 상태 표시)도 2026-10-17에 app.css · library.css의 같은 사본 둘을 여기 하나로 모았다.
+   페이지 CSS보다 먼저 읽는다 — 페이지마다 다른 것(테두리 없애기 등)은 페이지 CSS가 덮는다. */
+:root{--seal:#EEF5FD;--seal-shade:#E0EBF8;--seal-line:#C8DAEE;--seal-fin:#B5D1EE;--seal-ink:#1A2350}
+.cat{flex:none;overflow:visible;display:block}
+.cat .c-fur{fill:var(--seal);stroke:var(--seal-line);stroke-width:1.5}
+.cat .c-shade{fill:var(--seal-shade)}
+.cat .c-fin{fill:none;stroke:var(--seal-fin);stroke-width:3.2;stroke-linecap:round}
+.cat .c-tail ellipse{fill:var(--seal-fin)}
+.cat .c-paws ellipse{fill:var(--seal);stroke:var(--seal-fin);stroke-width:1.5}
+.cat .c-blush ellipse{fill:#F7AFBA;opacity:0;transition:opacity .2s}   /* 평소엔 없고, 기쁘거나 잘 때만 */
+.cat .c-whisk{fill:none;stroke:var(--seal-ink);stroke-width:1.1;stroke-linecap:round}   /* 늘 보인다(2026-10-17) — 아주 작을 때(.small)만 뺀다 */
+.cat .c-nose{fill:var(--seal-ink)}
+.cat .c-mouth{fill:none;stroke:var(--seal-ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cat .c-open{fill:#B4505F;display:none}
+.cat .c-eyes circle{fill:var(--seal-ink)}
+.cat .c-eyes .e-glint{fill:#FFFFFF}
+.cat .c-eyes path{fill:none;stroke:var(--seal-ink);stroke-width:2.2;stroke-linecap:round}
+.cat .c-eyes .e-heart path{fill:#FF5D73;stroke:none}
+.cat .s-dots circle{fill:#8FA9D6}.cat .s-spark{fill:#F5A524}.cat .s-heart{fill:#FF6F86}
+.cat .s-q{font:800 22px -apple-system,sans-serif;fill:var(--seal-q,#2F6BFF)}
+.cat .s-bang circle{fill:#F5A524}.cat .s-bang path{stroke:#fff;stroke-width:3;stroke-linecap:round}.cat .s-bang circle:last-child{fill:#fff}
+.cat .s-zzz text{font:800 10px -apple-system,sans-serif;fill:var(--seal-zz,#7C8BA8)}
+.cat .s-zzz text:nth-child(2){font-size:12px}.cat .s-zzz text:nth-child(3){font-size:15px}
+.cat .s-sweat{fill:#7FB3FF}
+/* X 표지판(C-19, 2026-10-20) — 막을 때 손에 든다. 움직임 줄이기면 흔들지 않고 들고만 있다 */
+.cat .s-sign .sg-pole{fill:none;stroke:#8C6B3F;stroke-width:3;stroke-linecap:round}.cat .s-sign .sg-board{fill:#FF4D4D;stroke:#fff;stroke-width:2.2}.cat .s-sign .sg-x{fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round}
+.cat .c-eyes>*,.cat [class^="s-"]{display:none}
+.m-idle .e-dot,.m-look .e-dot,.m-think .e-dot,.m-alert .e-wide,.m-wow .e-wow,.m-happy .e-happy,.m-done .e-happy,
+.m-love .e-heart,.m-purr .e-closed,.m-sleep .e-closed,.m-yawn .e-closed{display:inline}
+.m-look .s-dots,.m-done .s-spark,.m-think .s-q,.m-alert .s-bang,.m-love .s-heart,.m-purr .s-heart,.m-sleep .s-zzz{display:inline}
+.cat.oops .s-sweat{display:inline}.cat.oops .s-q{display:none}
+/* 열중(F-154) — Claude Code가 일하는 동안 노트북으로 코드를 친다. 내리깐 눈 + 노트북 + 머리 위 코드 글자. 그림은 seal.js, 움직임은 아래 no-preference 안에 */
+.cat .c-lap{display:none}
+.m-work .e-work{display:inline}
+.m-work .c-lap,.m-work .s-code{display:inline}
+.m-work .c-fin{display:none}
+.small .c-lap{display:none}
+.cat .lap-lid{fill:#D3E0F3;stroke:#7E9CCB;stroke-width:1.2;stroke-linejoin:round}
+.cat .lap-base{fill:#B5D1EE;stroke:#7E9CCB;stroke-width:1.2;stroke-linejoin:round}
+.cat .lap-mark{font:800 7.5px ui-monospace,Consolas,Menlo,monospace;fill:#4D66B5;text-anchor:middle}
+.cat .lap-l,.cat .lap-r{fill:var(--seal);stroke:var(--seal-fin);stroke-width:1.1}
+.cat .s-code text{font:800 7.5px ui-monospace,Consolas,Menlo,monospace;fill:var(--seal-code,#A9C4F0)}
+.cat .c-eyes .e-work path{fill:var(--seal-ink);stroke-width:1.4;stroke-linejoin:round}
+.m-angry .e-angry,.m-angry .s-sign{display:inline}.m-angry .c-mouth{display:none}.m-angry .c-open{display:inline}   /* C-19 화난 눈 · X 표지판 — 숨기는 규칙(위) 뒤에 둔다 */
+.m-yawn .c-mouth,.m-wow .c-mouth,.m-alert .c-mouth{display:none}
+.m-yawn .c-open,.m-wow .c-open,.m-alert .c-open{display:inline}
+.m-love .c-blush ellipse,.m-purr .c-blush ellipse,.m-happy .c-blush ellipse,.m-done .c-blush ellipse,.m-sleep .c-blush ellipse{opacity:.8}
+.m-look .e-dot,.m-think .e-dot{transform:translateY(-2px)}   /* 생각: 두 눈이 평소 눈 그대로 위를 본다(F-147, 전에는 한쪽 눈이 사선) */
+.small .c-mouth,.small .c-open,.small .c-fin,.small .c-whisk{display:none}
+.blink .m-idle .e-dot,.blink .m-look .e-dot,.blink .m-think .e-dot{display:none}
+.blink .m-idle .e-blink,.blink .m-look .e-blink,.blink .m-think .e-blink{display:inline}
+
+
+.cat .s-bub circle { fill: rgba(169, 221, 255, .35); stroke: #CDE6FF; stroke-width: .8; }
+/* 꾸미기(F-148) — 그림은 seal.js의 WEAR, 머리 그룹 안에 있어 플로로의 움직임을 그대로 받는다. 기준점은 닿는 자리 */
+.cat .w-move, .cat .w-tail { transform-origin: 50px 13px; }
+.cat .w-neck { transform-origin: 50px 52px; --a: 1.2deg; }
+.face .c-fin { display: none; }   /* 얼굴만 그릴 때(접힌 알약) 가슴의 지느러미 선이 턱 밑에 걸리지 않게 */
+/* 숨구멍(물웅덩이) — 웅덩이와 물의 색은 seal.js의 그러데이션에, 선만 여기에 */
+.cat .h-stars circle { fill: #FFFFFF; opacity: .7; }
+.cat .h-line, .cat .h-ripple { fill: none; stroke: #EAF4FF; stroke-linecap: round; }
+.cat .h-line { stroke-width: 1.6; opacity: .7; } .cat .h-ripple { stroke-width: 1; opacity: .4; }
+
+/* '움직임 줄이기'를 켠 사람에게는 하지 않는다 */
+@media (prefers-reduced-motion: no-preference) {
+  /* 꼬리 — 평소엔 느리게 살랑, 살필 땐 조금 빠르게, 기쁘면 파닥파닥, 잘 땐 멈춤 */
+  .cat .c-tail { transform-origin: 92px 108px; animation: sway 3.2s ease-in-out infinite; }
+  .m-look .c-tail, .m-alert .c-tail { animation-duration: 1.1s; }
+  .m-happy .c-tail, .m-done .c-tail, .m-love .c-tail, .m-purr .c-tail { animation: wag .32s ease-in-out infinite alternate; }
+  .m-sleep .c-tail, .m-yawn .c-tail { animation: none; }
+
+  /* 숨쉬기 — 깨어 있을 땐 살짝, 잘 땐 크게 */
+  .cat .c-body { transform-origin: 55px 112px; animation: breath 4.2s ease-in-out infinite; }
+  .hole .c-body { transform-origin: 55px 60px; animation: float 5s ease-in-out infinite; }   /* 숨구멍에서는 물결 따라 둥실 */
+  .m-sleep .c-body { animation: breathe 3.4s ease-in-out infinite; }
+  .m-sleep .s-zzz text { animation: zz 2.6s ease-in-out infinite; }
+  .m-sleep .s-zzz text:nth-child(2) { animation-delay: .35s; } .m-sleep .s-zzz text:nth-child(3) { animation-delay: .7s; }
+
+  /* 앞지느러미 박수 — 기쁠 때 · 다 했을 때 · 깜짝 놀랐을 때 몇 번 */
+  .m-happy .c-fin, .m-done .c-fin, .m-wow .c-fin { transform-origin: 49px 72px; animation: flap .16s ease-in-out 6 alternate; }
+
+  /* 숨구멍에서 물 위로 얼굴 내밀기(2026-10-17) — 표정이 바뀌면 저절로. 물방울(s-bub)이 같이 오른다
+     빼꼼 솟기: 깜짝 · 알림 / 코까지 잠수: 생각 · 살펴보는 중 / 물 뿜기: 다 했을 때 (두리번은 app.js가 고개만 돌린다) */
+  .hole.m-wow .c-body, .hole.m-alert .c-body { animation: popup 1s ease-out; }
+  .hole.m-think .c-body, .hole.m-look .c-body { animation: dip 3s ease-in-out infinite; }
+  .hole.m-wow .s-bub, .hole.m-alert .s-bub, .hole.m-think .s-bub, .hole.m-look .s-bub, .hole.m-done .s-bub, .swim .cat .s-bub { display: inline; }
+  .cat .s-bub circle { animation: rise 1.3s ease-in infinite; }
+  .cat .s-bub circle:nth-child(2) { animation-delay: .45s; } .cat .s-bub circle:nth-child(3) { animation-delay: .9s; }
+
+  .m-look .s-dots { animation: blinkdot 1s infinite; }
+  .cat.m-wow { animation: jump .4s ease; }
+  .m-angry .s-sign { transform-origin: 22px 104px; animation: wave-sign .5s ease-in-out 4 alternate; }   /* 표지판 흔들기 — 네 번 */
+
+  /* 헤엄 — 숨구멍 안에서 머리만 내놓고 이리저리 헤엄치다 쏙 잠수하고 뿅 올라온다. 부르는 쪽이 감싼 요소에 .swim을 붙인다 */
+  .swim .cat .c-body { transform-origin: 55px 60px; animation: swim 3.6s ease-in-out; }   /* 표정 동작보다 앞선다 */
+
+  /* 배로 통통 — 물범이 땅에서 걷는 법(배로 튀며 나아간다). 부르는 쪽이 감싼 요소에 .galumph를 붙인다 */
+  .galumph svg.cat { transform-origin: 50% 100%; animation: galumph 1.4s ease-in-out; }
+
+  /* 열중(F-154) — 양쪽 지느러미로 번갈아 타닥타닥, 고개를 조금씩 끄덕이고, 머리 위 코드 글자가 차례로 떠오른다 */
+  .m-work .lap-l { animation: work-tap .24s ease-in-out infinite alternate; }
+  .m-work .lap-r { animation: work-tap .24s ease-in-out -.12s infinite alternate; }
+  .m-work .c-body, .hole.m-work .c-body { transform-origin: 55px 60px; animation: work-nod 1.5s ease-in-out infinite; }
+  .m-work .s-code text { animation: work-code 1.8s ease-in-out infinite; }
+  .m-work .s-code text:nth-child(2) { animation-delay: .35s; } .m-work .s-code text:nth-child(3) { animation-delay: .7s; }
+
+  /* 표정이 바뀌는 순간(F-154, 두승현 "애니메이션 변환시 연출이 자연스러웠으면") — 바뀐 직후의 그림에만 붙는 .mood-in · .from-옛표정으로 한 번만(app/10-views.js moodIn).
+     ponytail: 움직이는 도중(0.9초 안)에 다시 그려지면 처음부터 다시 움직인다 — 눈에 띄면 경과 시간을 animation-delay로 넘긴다 */
+  /* 눈 · 입은 스르르 뜨듯이, 머리 위 표시는 작게 솟아 나오고, 볼은 물들듯이 */
+  .mood-in .c-eyes>* { transform-box: fill-box; transform-origin: center; animation: eye-in .2s ease-out; }
+  .mood-in :is(.c-mouth, .c-open) { transform-box: fill-box; transform-origin: center; animation: eye-in .2s ease-out; }
+  .mood-in :is(.s-q, .s-spark, .s-bang, .s-heart) { transform-box: fill-box; transform-origin: center bottom; animation: mark-in .24s cubic-bezier(.34, 1.56, .64, 1); }
+  .mood-in .c-blush ellipse { animation: blush-in .3s ease-out; }
+  /* 몸의 높이가 달라지는 표정(잠수 · 끄덕임)을 오갈 때 뛰지 않게 */
+  .hole.mood-in:is(.m-think, .m-look) .c-body { animation: body-dive .4s ease-out, dip 3s ease-in-out .4s infinite; }
+  .hole.mood-in:is(.from-think, .from-look):not(.m-think):not(.m-look):not(.m-work):not(.m-wow):not(.m-alert) .c-body { animation: body-settle .4s ease-out, float 5s ease-in-out .4s infinite; }
+  /* 노트북 — 물에서 떠올라 뚜껑이 열리고, 지느러미가 올라와 치기 시작한다 */
+  .mood-in.m-work .c-lap { animation: lap-rise .42s cubic-bezier(.23, 1, .32, 1) both; }
+  .mood-in.m-work .lap-top { transform-origin: 49px 65px; animation: lap-open .4s cubic-bezier(.34, 1.56, .64, 1) .14s both; }
+  .mood-in.m-work .lap-l { animation: arm-in .24s ease-out .36s both, work-tap .24s ease-in-out .6s infinite alternate; }
+  .mood-in.m-work .lap-r { animation: arm-in .24s ease-out .36s both, work-tap .24s ease-in-out .72s infinite alternate; }
+  .mood-in.m-work .c-fin { display: inline; animation: fade-out .18s ease-out both; }
+  .mood-in.m-work .s-code { animation: fade-in .3s ease-out .45s both; }
+  /* 끝나면 — 지느러미를 내리고 뚜껑을 닫아 물로 내려간다. 가슴의 지느러미 선이 돌아온다 */
+  .mood-in.from-work:not(.m-work):not(.small) .c-lap { display: inline; animation: lap-sink .3s ease-in .12s both; }
+  .mood-in.from-work:not(.m-work):not(.small) .lap-top { transform-origin: 49px 65px; animation: lap-close .18s ease-in both; }
+  .mood-in.from-work:not(.m-work) :is(.lap-l, .lap-r) { display: none; }
+  .mood-in.from-work:not(.m-work) .c-fin { animation: fade-in .3s ease-out .25s both; }
+
+  /* 꾸미기(F-148) — 물결 따라 둥실(float 5초)보다 조금 늦게 따라오고, 표정에 작게 반응한다. 목도리는 조금만 흔들린다 */
+  .cat .w-move { animation: w-lag 5s ease-in-out infinite; }
+  .m-think .w-hat { --t: 9deg; animation: w-tilt 3s ease-in-out infinite; }
+  .m-look .w-hat { --t: -7deg; animation: w-tilt 3s ease-in-out infinite; }
+  .m-happy .w-hat, .m-done .w-hat { animation: w-hop .3s ease-out 4 alternate, w-lag 5s ease-in-out 1.2s infinite; }
+  .m-wow .w-hat, .m-alert .w-hat { animation: w-pop 1s ease-out, w-lag 5s ease-in-out 1s infinite; }
+  .m-sleep .w-hat, .m-yawn .w-hat { animation: w-doze 3.4s ease-in-out infinite; }
+  .cat .w-tail { animation: w-tail 2.6s ease-in-out infinite; }
+  .cat .w-tail.r { animation-delay: -1.3s; }
+  /* 받는 순간 — 위에서 떨어져 머리가 살짝 눌린다. 부르는 쪽(gachaRoll)이 그림에 .landing을 잠깐 붙인다. 표정 움직임보다 앞선다 */
+  .cat.landing .w-move { animation: w-drop .62s cubic-bezier(.23, 1, .32, 1); }
+  .cat.landing .c-body { animation: w-squash .62s ease-out; }
+}
+/* F-46(2026-10-20): 보이지 않을 때는 무한 움직임(꼬리 · 숨쉬기 · 물방울 · z)을 멈춘다 — 띠로 접혔을 때(html[data-ui="hidden"]) · 창이 가려졌을 때(.page-hidden) */
+html[data-ui="hidden"] .cat *, html.page-hidden .cat * { animation-play-state: paused; }
+@keyframes sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-14deg); } }
+@keyframes wag { from { transform: rotate(10deg); } to { transform: rotate(-18deg); } }
+@keyframes breath { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.012, .992); } }
+@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025, .985); } }
+@keyframes zz { 0%, 100% { opacity: .25; transform: translateY(2px); } 50% { opacity: 1; transform: translateY(-2px); } }
+@keyframes blinkdot { 50% { opacity: .25; } }
+@keyframes jump { 0%, 100% { transform: none; } 40% { transform: translateY(-8px); } }
+@keyframes wave-sign { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+@keyframes eye-in { from { opacity: .2; transform: scaleY(.25); } }
+@keyframes mark-in { from { opacity: 0; transform: scale(.5) translateY(3px); } }
+@keyframes blush-in { from { opacity: 0; } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes fade-out { to { opacity: 0; } }
+@keyframes body-dive { from { transform: none; } to { transform: translateY(3px); } }
+@keyframes body-settle { from { transform: translateY(5px); } to { transform: none; } }
+@keyframes lap-rise { from { opacity: 0; transform: translateY(16px); } 35% { opacity: 1; } to { opacity: 1; transform: none; } }
+@keyframes lap-sink { from { opacity: 1; transform: none; } 70% { opacity: 1; } to { opacity: 0; transform: translateY(16px); } }
+@keyframes lap-open { from { transform: scaleY(.08); } to { transform: none; } }
+@keyframes lap-close { from { transform: none; } to { transform: scaleY(.08); } }
+@keyframes arm-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes work-tap { from { transform: translateY(-1.1px); } to { transform: translateY(.7px); } }
+@keyframes work-nod { 0%, 100% { transform: none; } 50% { transform: translateY(1.4px) rotate(1deg); } }
+@keyframes work-code { 0%, 100% { opacity: .2; transform: translateY(1.5px); } 45% { opacity: 1; transform: translateY(-1.5px); } }
+@keyframes w-lag { 0%, 100% { transform: none; } 38% { transform: rotate(var(--a, 3.5deg)); } 78% { transform: rotate(calc(var(--a, 3.5deg) * -1)); } }
+@keyframes w-tilt { 0%, 100% { transform: rotate(calc(var(--t) * .4)); } 50% { transform: rotate(var(--t)) translateY(.6px); } }
+@keyframes w-hop { to { transform: translateY(-3px) rotate(5deg); } }
+@keyframes w-pop { 45% { transform: translateY(-6px) rotate(-6deg); } 70% { transform: translateY(1px) scale(1.08, .9); } }
+@keyframes w-doze { 0%, 100% { transform: translate(3px, 1.5px) rotate(12deg); } 50% { transform: translate(3.4px, 2.2px) rotate(15deg); } }
+@keyframes w-tail { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(6deg); } }
+@keyframes w-drop { 0% { transform: translateY(-44px) rotate(-14deg); opacity: 0; } 15% { opacity: 1; } 55% { transform: scale(1.1, .86); } 78% { transform: translateY(-3px) scale(.97, 1.05); } 100% { transform: none; } }
+@keyframes w-squash { 0%, 45% { transform: none; } 58% { transform: scale(1.05, .93); } 78% { transform: scale(.98, 1.03); } 100% { transform: none; } }
+@keyframes flap { to { transform: scale(1.12, .9) translateY(-1px); } }
+/* 숨구멍의 몸은 1.12배로 그려져 있어 아래 칸 수는 그 안의 칸이다 — 물 아래(그림 y 110)로 사라지려면 72칸 넘게 내려간다 */
+@keyframes float { 0%, 100% { transform: none; } 30% { transform: translateY(-1.5px) rotate(-3deg); } 70% { transform: translateY(1px) rotate(3deg); } }
+@keyframes popup { 0% { transform: none; } 18% { transform: translateY(7px) scale(1.03, .96); } 55% { transform: translateY(-13px) scale(.97, 1.04); } 78% { transform: translateY(2px); } 100% { transform: none; } }   /* 움츠렸다가 솟는다 — 전에는 15칸 아래에서 갑자기 시작해 표정이 바뀔 때 몸이 뛰었다(F-154) */
+@keyframes dip { 0%, 100% { transform: translateY(3px); } 50% { transform: translateY(10px); } }
+@keyframes swim {
+  0% { transform: none; }
+  14% { transform: translate(0, 19px); }
+  32% { transform: translate(-14px, 21px) rotate(-9deg); }
+  52% { transform: translate(13px, 19px) rotate(9deg); }
+  64% { transform: translate(0, 21px); }
+  76% { transform: translate(0, 82px); }
+  90% { transform: translate(0, -6px) scale(.97, 1.05); }
+  100% { transform: none; }
+}
+@keyframes rise { 0% { opacity: 0; transform: translateY(0); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(-34px); } }
+@keyframes galumph {
+  0%, 100% { transform: none; }
+  10% { transform: scale(1.08, .9); }
+  22% { transform: translateY(-16px) scale(.94, 1.08) rotate(-3deg); }
+  34% { transform: scale(1.1, .88); }
+  46% { transform: translateY(-12px) scale(.95, 1.06) rotate(-2deg); }
+  58% { transform: scale(1.08, .9); }
+  70% { transform: translateY(-7px) scale(.97, 1.04); }
+  82% { transform: scale(1.04, .96); }
+}
+]]></style><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A5FE0"/><stop offset="1" stop-color="#16226A"/></linearGradient></defs><rect width="200" height="200" rx="28" fill="url(#bg)"/><svg x="20" y="24" class="cat m-happy hole" width="160" height="160" viewBox="0 0 120 120" aria-hidden="true">
+      <defs><radialGradient id="fl1p" cy=".62"><stop offset=".35" stop-color="#16226A" stop-opacity=".9"></stop><stop offset="1" stop-color="#16226A" stop-opacity="0"></stop></radialGradient>
+      <linearGradient id="fl1w" x2="0" y2="1"><stop offset="0" stop-color="#5D86E6" stop-opacity=".95"></stop><stop offset="1" stop-color="#2A3B8C" stop-opacity=".8"></stop></linearGradient>
+      <clipPath id="fl1c"><rect x="-20" y="-40" width="160" height="150"></rect></clipPath></defs>
+    <ellipse class="h-pool" cx="60" cy="88" rx="58" ry="40" fill="url(#fl1p)"></ellipse>
+    <g class="h-stars"><circle cx="20" cy="74" r=".9"></circle><circle cx="100" cy="68" r="1.1"></circle><circle cx="92" cy="92" r=".7"></circle></g>
+    <g clip-path="url(#fl1c)"><g transform="translate(0 18) scale(1.12)"><g class="c-body"><defs><radialGradient id="fl1v" cx=".42" cy=".36" r=".68"><stop offset=".6" stop-color="#1A2350" stop-opacity="0"></stop><stop offset="1" stop-color="#1A2350" stop-opacity=".2"></stop></radialGradient>
+        <radialGradient id="fl1s"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".85"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></radialGradient></defs>
+      
+      <g class="c-head">
+        <path class="c-fur" d="M50 10 C66 10 78 21 80 38 C81 50 83 58 91 68 C100 79 102 96 94 106 C87 114 73 115 57 115 C39 115 27 112 22 103 C17 94 18 78 19 63 C20 47 20 31 26 21 C32 13 40 10 50 10 Z"></path>
+        <path class="c-shade" d="M80 38 C81 50 83 58 91 68 C100 79 102 96 94 106 C87 114 73 115 62 115 C80 108 90 96 87 82 C84 70 79 58 80 38 Z"></path>
+        <path class="c-vol" d="M50 10 C66 10 78 21 80 38 C81 50 83 58 91 68 C100 79 102 96 94 106 C87 114 73 115 57 115 C39 115 27 112 22 103 C17 94 18 78 19 63 C20 47 20 31 26 21 C32 13 40 10 50 10 Z" fill="url(#fl1v)"></path>
+        <ellipse class="c-shine" cx="36" cy="22" rx="12" ry="7" transform="rotate(-25 36 22)" fill="url(#fl1s)"></ellipse>
+        <path class="c-fin" d="M37 62 Q45 64 49 74 M62 59 Q54 64 49 74 M31 72 Q49 85 69 71"></path>
+        <g class="c-blush"><ellipse cx="33" cy="42" rx="4.2" ry="2.6"></ellipse><ellipse cx="66" cy="42" rx="4.2" ry="2.6"></ellipse></g>
+        <path class="c-whisk" d="M31 41 L22 39.5 M31 43.5 L22 44.5 M68 41 L77 39.5 M68 43.5 L77 44.5"></path>
+        <g class="c-eyes">
+          <g class="e-dot"><circle cx="39" cy="35" r="3.4"></circle> <circle cx="60" cy="35" r="3.4"></circle></g>
+          <g class="e-wide"><circle cx="39" cy="35" r="4.6"></circle><circle class="e-glint" cx="40.4" cy="33.4" r="1.4"></circle> <circle cx="60" cy="35" r="4.6"></circle><circle class="e-glint" cx="61.4" cy="33.4" r="1.4"></circle></g>
+          <g class="e-wow"><circle cx="39" cy="35" r="5.2"></circle><circle class="e-glint" cx="40.6" cy="33.2" r="1.7"></circle><circle class="e-glint" cx="37.4" cy="37" r=".8"></circle> <circle cx="60" cy="35" r="5.2"></circle><circle class="e-glint" cx="61.6" cy="33.2" r="1.7"></circle><circle class="e-glint" cx="58.4" cy="37" r=".8"></circle></g>
+          <path class="e-happy" d="M35.5 36.5 Q39 31.5 42.5 36.5 M56.5 36.5 Q60 31.5 63.5 36.5"></path>
+          <path class="e-closed" d="M35.5 34.5 Q39 38 42.5 34.5 M56.5 34.5 Q60 38 63.5 34.5"></path>
+          <path class="e-blink" d="M35.5 35 L42.5 35 M56.5 35 L63.5 35"></path>
+          <g class="e-work"><path d="M35.4 35.8 A3.6 3.6 0 0 0 42.6 35.8 Z"></path> <path d="M56.4 35.8 A3.6 3.6 0 0 0 63.6 35.8 Z"></path></g>
+          <g class="e-heart"><path d="M39 38.6 C34.6 35.6 34.6 31.6 37.4 31.6 C38.4 31.6 39 32.6 39 33.2 C39 32.6 39.6 31.6 40.6 31.6 C43.4 31.6 43.4 35.6 39 38.6 Z"></path> <path d="M60 38.6 C55.6 35.6 55.6 31.6 58.4 31.6 C59.4 31.6 60 32.6 60 33.2 C60 32.6 60.6 31.6 61.6 31.6 C64.4 31.6 64.4 35.6 60 38.6 Z"></path></g>
+          <g class="e-angry"><circle cx="39" cy="35.5" r="3.4"></circle> <circle cx="60" cy="35.5" r="3.4"></circle><path d="M34 28.5 L43 31.5 M65 28.5 L56 31.5"></path></g>
+        </g>
+        <g class="c-snout">
+          <path class="c-nose" d="M47.3 39.2 Q49.5 38.2 51.7 39.2 Q50.8 41.6 49.5 41.8 Q48.2 41.6 47.3 39.2 Z"></path>
+          <path class="c-mouth" d="M49.5 41.8 L49.5 43.4 M46 43 Q47.7 45.3 49.5 43.4 Q51.3 45.3 53 43"></path>
+          <ellipse class="c-open" cx="49.5" cy="45" rx="1.8" ry="2.4"></ellipse>
+        </g>
+        
+        <g class="c-lap"><ellipse class="lap-l" cx="28.5" cy="59" rx="5.5" ry="2.6" transform="rotate(14 28.5 59)"></ellipse><ellipse class="lap-r" cx="69.5" cy="59" rx="5.5" ry="2.6" transform="rotate(-14 69.5 59)"></ellipse><g class="lap-top"><path class="lap-lid" d="M28.5 49 Q28.3 47 30.3 47 H67.7 Q69.7 47 69.5 49 L67.3 65 H30.7 Z"></path><text class="lap-mark" x="49" y="58.6">&lt;/&gt;</text></g><path class="lap-base" d="M30.5 65 H67.5 Q68.6 65 68.6 66 Q68.6 67.2 67.4 67.2 H30.6 Q29.4 67.2 29.4 66 Q29.4 65 30.5 65 Z"></path></g>
+      </g>
+      </g></g></g>
+    <path class="h-water" d="M4 100 Q60 92 116 100 Q110 117 60 118 Q10 117 4 100 Z" fill="url(#fl1w)"></path>
+    <path class="h-line" d="M14 100 Q60 93 106 100"></path><path class="h-ripple" d="M30 106 Q44 104 52 106 M66 108 Q78 106 90 108"></path><g transform="translate(-2 12)"><g class="s-dots"><circle cx="84" cy="26" r="2.2"></circle><circle cx="90" cy="18" r="3"></circle><circle cx="97" cy="9" r="3.8"></circle></g>
+      <path class="s-spark" d="M97 2 L99.5 10 L107 12.5 L99.5 15 L97 23 L94.5 15 L87 12.5 L94.5 10 Z"></path>
+      <text class="s-q" x="82" y="27">?</text>
+      <g class="s-code"><text x="80" y="29">{ }</text><text x="86" y="18">&lt;/&gt;</text><text x="94" y="8">;</text></g>
+      <g class="s-bang"><circle cx="94" cy="16" r="8"></circle><path d="M94 11 L94 17.5"></path><circle cx="94" cy="21" r="1.6"></circle></g>
+      <path class="s-heart" d="M84 15 C84 10 91 10 91 15 C91 10 98 10 98 15 C98 21 91 24 91 27 C91 24 84 21 84 15 Z"></path>
+      <g class="s-zzz"><text x="80" y="28">z</text><text x="87" y="18">z</text><text x="95" y="7">z</text></g>
+      <path class="s-sweat" d="M80 20 Q76.5 27 80 30 Q83.5 27 80 20 Z"></path>
+      <g class="s-bub"><circle cx="50" cy="100" r="2"></circle><circle cx="60" cy="104" r="1.4"></circle><circle cx="43" cy="105" r="1.6"></circle></g><g class="s-sign"><path class="sg-pole" d="M22 70 L22 104"></path><circle class="sg-board" cx="22" cy="62" r="13"></circle><path class="sg-x" d="M16 56 L28 68 M28 56 L16 68"></path></g></g></svg></svg>
