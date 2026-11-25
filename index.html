@@ -21,7 +21,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" integrity="sha384-XhclpeVnlxzNJLDRirsSorzzi8pG4LzCJX3r/CZTwEAIwTfXAQRI5FDxTc2SYTxO" crossorigin="anonymous">
-<link rel="preload" as="image" href="assets/img/archi-front-960.jpg" imagesrcset="assets/img/archi-front-960.jpg 960w, assets/img/archi-front.jpg 1600w" imagesizes="(max-width: 1100px) 92vw, 48vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/archi-mid-1080.webp" imagesrcset="assets/img/archi-mid-1080.webp 1080w, assets/img/archi-mid-2140.webp 2140w" imagesizes="47vw" media="(min-width: 641px)" fetchpriority="high">
 <link rel="stylesheet" href="assets/v3.css">
 <script src="assets/v3.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"이재엽","alternateName":"gamercross","url":"https://gamercross.github.io/","sameAs":["https://github.com/gamercross"]}</script>
@@ -54,10 +54,12 @@
     </div>
   </div>
   <a class="lead-work lift" href="work/archi-board/">
-    <figure>
-      <div class="browser">
-        <div class="addr" aria-hidden="true"><i></i><span>gamercross.github.io/archi-board</span></div>
-        <div class="view"><img src="assets/img/archi-front-960.jpg" srcset="assets/img/archi-front-960.jpg 960w, assets/img/archi-front.jpg 1600w" sizes="(max-width: 1100px) 92vw, 48vw" width="1600" height="1000" fetchpriority="high" alt="archi-board 예시 보드. 목표 · 사용자 · 화면 · 기능 · 인프라가 층으로 놓인 아키텍처 보드 한 장"></div>
+    <figure class="shot">
+      <div class="cover">
+        <picture>
+          <source media="(max-width: 640px)" srcset="assets/img/archi-close-640.webp 640w, assets/img/archi-close-1216.webp 1216w" sizes="92vw">
+          <img src="assets/img/archi-mid-1080.webp" srcset="assets/img/archi-mid-1080.webp 1080w, assets/img/archi-mid-2140.webp 2140w" sizes="(max-width: 1100px) 94vw, 47vw" width="1080" height="674" fetchpriority="high" alt="archi-board 예시 보드의 앞면 일부. 목표 · 원칙, 1계층 유저층, 2계층 사용자 인터페이스에 상자가 층으로 놓여 있다">
+        </picture>
       </div>
       <figcaption><b>archi-board</b> · 혼자 만든 Claude Code 스킬</figcaption>
     </figure>
@@ -70,11 +72,11 @@
     <li><a href="#archi"><span class="t">archi-board</span><span class="chip-pic" aria-hidden="true"><img src="assets/img/archi-front-320.jpg" alt="" width="320" height="200" loading="lazy"></span></a></li>
     <li><a href="#floe"><span class="t">Floe</span><span class="chip-pic" aria-hidden="true"><img src="assets/img/floe-workspace-320.jpg" alt="" width="320" height="191" loading="lazy"></span></a></li>
     <li><a href="#dotci"><span class="t">DOTCI</span><span class="chip-pic" aria-hidden="true"><img src="assets/img/dotci-map-200.jpg" alt="" width="200" height="433" loading="lazy" style="object-position:50% 30%"></span></a></li>
-    <li><a href="#minimall"><span class="t">MiniMall</span><span class="chip-pic" aria-hidden="true"><img src="assets/img/minimall-products-320.jpg" alt="" width="320" height="200" loading="lazy"></span></a></li>
+    <li><a href="#minimall"><span class="t">MiniMall</span><span class="chip-pic" aria-hidden="true"><img src="assets/img/mini-chip-320.webp" alt="" width="320" height="200" loading="lazy"></span></a></li>
   </ul>
 </section>
 
-<section class="chapter c-archi grid" id="archi" data-bar="#D3E3DA" aria-labelledby="t-archi">
+<section class="chapter big c-archi grid" id="archi" data-bar="#D3E3DA" aria-labelledby="t-archi">
   <div class="words">
     <h3 id="t-archi" class="rise">archi-board</h3>
     <p class="what rise" style="--i:1">코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬</p>
@@ -87,15 +89,22 @@
   </div>
   <div class="pic lift">
     <a href="work/archi-board/" aria-label="archi-board 자세히 보기">
-      <div class="laptop">
-        <div class="lid"><video data-loop muted loop playsinline preload="none" poster="assets/img/archi-clip.jpg" width="800" height="450" aria-label="예시 보드를 내려가다 확대하는 화면 녹화. 소리 없이 되풀이된다."><source src="assets/img/archi-clip.mp4" type="video/mp4"></video></div>
-        <div class="base"></div>
-      </div>
+      <figure class="shot">
+        <div class="cover">
+        <picture>
+          <source media="(max-width: 640px)" srcset="assets/img/archi-close-640.webp 640w, assets/img/archi-close-1216.webp 1216w" sizes="92vw">
+          <source media="(max-width: 1100px)" srcset="assets/img/archi-mid-1080.webp 1080w, assets/img/archi-mid-2140.webp 2140w" sizes="94vw">
+          <img src="assets/img/archi-cover-1400.webp" srcset="assets/img/archi-cover-1400.webp 1400w, assets/img/archi-cover-2752.webp 2752w" sizes="96vw" width="1400" height="874" loading="lazy" alt="archi-board 예시 보드의 앞면. 목표 · 원칙 아래로 유저층 · 사용자 인터페이스 · 기능(BPMN) · 인프라 네 층에 상자가 놓여 있다">
+        </picture>
+        </div>
+        <figcaption><b>예시 보드</b>앞면 한 장, 목표와 네 층</figcaption>
+      </figure>
     </a>
   </div>
 </section>
 
-<section class="chapter c-floe flip grid" id="floe" data-bar="#ECE5C9" aria-labelledby="t-floe">
+<div class="duo">
+<section class="chapter c-floe grid" id="floe" data-bar="#ECE5C9" aria-labelledby="t-floe">
   <div class="words">
     <h3 id="t-floe" class="rise">Floe</h3>
     <p class="what rise" style="--i:1">AI에게 코드를 맡기는 사람이 끝까지 만들게 돕는 데스크톱 앱</p>
@@ -107,10 +116,15 @@
   </div>
   <div class="pic lift">
     <a href="work/floe/" aria-label="Floe 자세히 보기">
-      <div class="laptop">
-        <div class="lid"><img src="assets/img/floe-workspace-960.jpg" srcset="assets/img/floe-workspace-960.jpg 960w, assets/img/floe-workspace.jpg 1600w" sizes="(max-width: 1100px) 92vw, 56vw" width="1600" height="955" loading="lazy" alt="Floe 작업실 화면. 왼쪽에 지금 할 일과 다음 단계, 오른쪽에 마스코트 플로로가 있다"></div>
-        <div class="base"></div>
-      </div>
+      <figure class="shot">
+        <div class="cover">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/img/floe-close-480.webp" width="480" height="300">
+            <img src="assets/img/floe-desk-740.webp" width="740" height="462" loading="lazy" alt="Floe 작업실 화면의 한 부분. 왼쪽은 다섯 칸 가운데 기록 칸, 오른쪽은 플로로가 3단계 할 일을 한 줄로 알려 주는 카드">
+          </picture>
+        </div>
+        <figcaption><b>작업실</b>기록 칸과 플로로의 단계 안내</figcaption>
+      </figure>
     </a>
   </div>
 </section>
@@ -126,12 +140,16 @@
     <div class="acts rise" style="--i:3"><a class="btn" href="work/dotci/">자세히 보기</a><a class="link" href="https://dotci.vercel.app/">서비스 열기</a></div>
   </div>
   <div class="pic lift">
-    <a href="work/dotci/" aria-label="DOTCI 자세히 보기" class="phones">
-      <span class="phone"><img src="assets/img/dotci-map.jpg" width="540" height="1169" loading="lazy" alt="DOTCI 지도 화면. 캠퍼스 건물마다 쪽지 수가 붙은 점이 있다"></span>
-      <span class="phone"><img src="assets/img/dotci-opened.jpg" width="540" height="1169" loading="lazy" alt="열린 책상. 도착하면 선배들의 쪽지가 보인다"></span>
+    <a href="work/dotci/" aria-label="DOTCI 자세히 보기">
+      <figure class="shot">
+        <div class="cover dev"><span class="handset"><img src="assets/img/dotci-map.jpg" width="540" height="1169" loading="lazy" alt="DOTCI 지도 화면. 캠퍼스 건물마다 쪽지 수가 붙은 점이 있다"></span></div>
+        <figcaption><b>지도</b>건물마다 쪽지 수가 붙은 점</figcaption>
+      </figure>
     </a>
   </div>
 </section>
+
+</div>
 
 <section class="chapter c-mini flip grid" id="minimall" data-bar="#EBD7DB" aria-labelledby="t-mini">
   <div class="words">
@@ -145,10 +163,15 @@
   </div>
   <div class="pic lift">
     <a href="work/minimall/" aria-label="MiniMall 자세히 보기">
-      <div class="browser">
-        <div class="addr" aria-hidden="true"><i></i><span>MiniMall · 상품 목록</span></div>
-        <div class="view"><img src="assets/img/minimall-products-960.jpg" srcset="assets/img/minimall-products-960.jpg 960w, assets/img/minimall-products.jpg 1440w" sizes="(max-width: 1100px) 92vw, 56vw" width="1440" height="900" loading="lazy" alt="MiniMall 상품 목록 화면. 상품 찾기 칸 아래에 상품 카드가 놓여 있다"></div>
-      </div>
+      <figure class="shot">
+        <div class="cover">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/img/mini-close-524.webp" width="524" height="326">
+            <img src="assets/img/mini-shop-795.webp" width="795" height="496" loading="lazy" alt="MiniMall 상품 목록. 검색 단추 아래 전체 상품 4, 상품 카드마다 이름 · 값 · 재고가 적혀 있다">
+          </picture>
+        </div>
+        <figcaption><b>상품 목록</b>이름 · 값 · 재고가 적힌 카드</figcaption>
+      </figure>
     </a>
   </div>
 </section>

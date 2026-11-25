@@ -1,5 +1,5 @@
 /* gamercross.github.io · v3 (2026-11-25)
-   짜임: 작품이 주인공 — 장마다 한 색 면에 작품 하나, 기기 틀, 글 세 줄.
+   짜임: 작품이 주인공 — 장마다 한 색 면에 작품 하나, 틀 없는 큰 그림, 글 세 줄.
    단계표: '일하는 법' · '2027' 두 구역만 모서리가 반듯한 막대가 차례로 오른다.
    글꼴 한 벌(Wanted Sans), 글자 크기 다섯, 선 · 그림자 · 그라디언트 · 장식 그림 없음.
    크기는 화면 너비에서 나온다. 기준은 _design/DESIGN.md */
@@ -22,8 +22,7 @@
   --rise-1: #BAC7D3;
   --rise-2: #A2B3C4;
   --rise-3: #8FA2B7;
-  --frame: #26314A;       /* 기기 테두리: 남색, 검정 아님 */
-  --metal: #C3CDD4;
+  --frame: #26314A;       /* 코드 칸 · 작은 그림 바탕: 남색, 검정 아님 */
 
   --m: clamp(16px, 2.2vw, 40px);
   --g: clamp(10px, 1.2vw, 20px);
@@ -89,25 +88,28 @@ p, dd, figcaption, li { text-wrap: pretty; }
 .bar nav a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 0.12em; }
 @media (hover: hover) and (pointer: fine) { .bar nav a:hover { text-decoration: underline; } }
 
-/* ── 기기 틀 (CSS로 그림) ── */
-.laptop { --b: clamp(6px, 0.8vw, 12px); width: 100%; }
-.laptop .lid { background: var(--frame); padding: var(--b) var(--b) calc(var(--b) * 1.4); border-radius: clamp(10px, 1.2vw, 18px) clamp(10px, 1.2vw, 18px) 4px 4px; }
-.laptop .lid > * { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 0 0; border-radius: 3px; background: var(--lit); }
-.laptop .base { height: clamp(10px, 1.1vw, 16px); margin-inline: -6%; background: var(--metal); border-radius: 0 0 14px 14px / 0 0 100% 100%; position: relative; }
-.laptop .base::before { content: ""; position: absolute; left: 50%; top: 0; translate: -50% 0; width: 16%; height: 40%; background: #AEB9C1; border-radius: 0 0 8px 8px; }
-.browser { width: 100%; background: var(--frame); border-radius: clamp(8px, 0.9vw, 14px); padding: 0 clamp(5px, 0.5vw, 8px) clamp(5px, 0.5vw, 8px); }
-.browser .addr { display: flex; align-items: center; gap: 10px; height: clamp(32px, 2.8vw, 44px); padding-inline: 6px; color: var(--ink-soft); font-size: var(--s-small); min-width: 0; }
-.browser .addr span { background: #33405C; padding: 2px 12px; border-radius: 999px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-.browser .addr i { width: 10px; height: 10px; border-radius: 50%; background: #4A5876; flex: none; }
-.browser .view > * { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 0; border-radius: 4px; background: var(--lit); }
-.phone { display: block; width: var(--w, 100%); aspect-ratio: 9 / 19.5; background: var(--frame); border-radius: 14% / 6.6%; padding: 3.2%; position: relative; }
-.phone img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; border-radius: 11% / 5.2%; }
-.phone::after { content: ""; position: absolute; top: 2.6%; left: 50%; translate: -50% 0; width: 30%; height: 3.2%; border-radius: 999px; background: var(--frame); }
-.phones { display: flex; justify-content: center; align-items: flex-end; gap: clamp(12px, 2vw, 36px); }
-.phones .phone { --w: min(19vw, 300px); }
-.phones .phone:nth-child(even) { translate: 0 -9%; }
-.plain img { width: 100%; }
-main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로로 밀리지 않게 */
+/* ── 그림: 기기 틀 없이 크게 (11/25 주인 '그림') ──
+   표지는 모두 16:10 한 비율. 화면 전체를 줄이지 않고 핵심을 잘라 보이는 크기에서 글이 읽히게,
+   너비마다 다른 자름(<picture>)을 쓴다. 둥근 모서리 + 옅은 바탕 + 아래 한 줄. */
+.shot { display: grid; gap: 12px; align-content: start; }
+.shot figcaption { font-size: var(--s-small); color: var(--ink-2); }
+.shot figcaption b { color: var(--ink); font-weight: 700; margin-right: .35em; }
+.cover, .pane { position: relative; overflow: hidden; border-radius: clamp(10px, 1vw, 16px); background: var(--lit); }
+.cover { aspect-ratio: 16 / 10; }
+.cover picture, .pane picture { display: block; width: 100%; height: 100%; }
+.cover img, .cover video { width: 100%; height: 100%; object-fit: cover; object-position: 0 0; }
+.pane img, .pane video { width: 100%; }
+/* 얇은 폰 한 대 (DOTCI만): 가는 테 + 실제 폰 같은 둥근 모서리, 아래는 칸 밖으로 */
+.cover.dev { container-type: inline-size; }
+.handset { position: absolute; left: 50%; top: 7%; translate: -50% 0; width: clamp(300px, 52cqw, 380px); aspect-ratio: 540 / 1169; padding: 4px; background: var(--ink); border-radius: 48px; }
+.handset img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; border-radius: 44px; }
+/* 폰 여러 장을 차례로 (DOTCI 한 장): 같은 가는 테, 칸 없이 */
+.handsets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 64px) var(--g); }
+.handsets .handset { position: static; translate: none; width: 100%; max-width: 360px; justify-self: center; border-radius: 13% / 6%; }
+.handsets .handset img { border-radius: 12% / 5.6%; }
+.handsets figure { display: grid; gap: 14px; justify-items: center; align-content: start; }
+.handsets figcaption { width: 100%; max-width: 360px; }
+main { overflow-x: clip; }
 
 /* ── 단계표: 반듯한 막대가 차례로 오른다 (일하는 법 · 2027) ── */
 .stair { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); align-items: end; gap: 4px; }
@@ -170,8 +172,24 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
 .chapter dt { color: var(--ink-2); font-weight: 600; }
 .chapter dd { font-weight: 500; }
 .chapter .acts { margin-top: 6px; }
-.chapter .pic a { display: block; }
-.chapter .pic a.phones { display: flex; }
+.chapter .pic a { display: block; text-decoration: none; }
+/* 네 장이 같은 구도로 되풀이되지 않게:
+   archi-board = 글 한 줄 위, 그림은 너비 전부 / Floe · DOTCI = 반씩 나란히, 그림 위 글 아래 /
+   MiniMall = 그림 왼쪽 7칸, 글 오른쪽 */
+.chapter.big { min-height: 0; row-gap: clamp(32px, 3.4vw, 56px); }
+.chapter.big .words { grid-column: 1 / -1; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: calc(var(--g) * 2); align-items: start; }
+.chapter.big .words > h3 { grid-column: 1; grid-row: 1; }
+.chapter.big .words > .what { grid-column: 1; grid-row: 2; }
+.chapter.big .words > .acts { grid-column: 1; grid-row: 3; align-self: end; }
+.chapter.big .words > .say { grid-column: 2; grid-row: 1 / span 2; align-self: end; }
+.chapter.big .words > dl { grid-column: 2; grid-row: 3; }
+.chapter.big .pic { grid-column: 1 / -1; }
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.duo .chapter { grid-template-columns: minmax(0, 1fr); min-height: 0; align-content: start; row-gap: clamp(28px, 2.6vw, 40px); }
+.duo .chapter .words, .duo .chapter .pic { grid-column: 1; }
+.duo .chapter .pic { grid-row: 1; }
+.duo .chapter .words { grid-row: 2; align-self: start; }
+.chapter.flip:not(.big) .pic { align-self: center; }
 .say { max-width: 34em; }
 .say p::before { content: "“"; } .say p::after { content: "”"; }
 .say footer { margin-top: 6px; font-size: var(--s-small); color: var(--ink-2); }
@@ -271,7 +289,6 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
 .w-hero h1 { font-size: var(--s-sig); font-weight: 850; letter-spacing: -0.045em; line-height: 0.88; }
 .w-hero h1 span { display: block; }
 .w-hero .pic { grid-column: 6 / span 7; align-self: center; }
-.w-hero .phones .phone { --w: min(12.4vw, 200px); }
 .glance { background: var(--lit); padding-block: clamp(64px, 8vw, 130px); row-gap: 28px; }
 .glance h2, .views h2, .bits h2, .open h2 { grid-column: 1 / -1; font-size: var(--s-head); font-weight: 850; letter-spacing: -0.04em; line-height: 1; }
 .glance dl:not(.nums) { grid-column: 1 / span 9; grid-row: 3; display: grid; }
@@ -289,13 +306,16 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
 .views figure { display: grid; gap: 14px; align-content: start; }
 .views figcaption, .bits figcaption { font-size: var(--s-body); max-width: 40em; }
 .views figcaption b, .bits figcaption b { font-weight: 750; margin-right: .4em; }
-.views .f-a { grid-column: 1 / span 7; }
-.views .f-b { grid-column: 8 / span 5; align-self: end; }
-.views .f-c { grid-column: 3 / span 10; }
-.views .f-d { grid-column: 1 / span 6; }
-.views .f-e { grid-column: 7 / span 6; }
-.views .strip { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--g); }
-.views .strip figcaption { font-size: var(--s-small); }
+/* 사례처럼: 큰 그림을 하나씩 내려가며, 그림마다 한 줄. 자리는 번갈아 */
+.views .s-full { grid-column: 1 / -1; }
+.views .s-left { grid-column: 1 / span 9; }
+.views .s-right { grid-column: 4 / span 9; }
+.views .s-mid { grid-column: 2 / span 10; }
+.views .s-half-l { grid-column: 1 / span 7; }
+.views .s-half-r { grid-column: 6 / span 7; }
+.views .handsets { grid-column: 1 / -1; }
+.views .s-port { grid-column: 1 / span 6; }
+.views .s-side { grid-column: 7 / span 6; align-self: center; }
 .views .log pre { background: var(--frame); color: #E3EAF6; padding: clamp(16px, 2vw, 28px); font-size: var(--s-small); line-height: 1.6; overflow-x: auto; border-radius: clamp(8px, 0.9vw, 14px); }
 .views .stack { display: grid; gap: clamp(28px, 3vw, 48px); align-content: start; }
 .bits { background: var(--lit); padding-block: clamp(64px, 8vw, 130px); row-gap: 28px; }
@@ -317,7 +337,6 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
 .next .name { grid-column: 1 / span 5; font-size: var(--s-head); font-weight: 850; letter-spacing: -0.04em; line-height: 1; color: var(--ink); }
 .next .desc { grid-column: 1 / span 5; font-size: var(--s-lead); }
 .next .pic { grid-column: 7 / span 6; grid-row: 1 / span 3; align-self: center; }
-.next .phones .phone { --w: min(12vw, 200px); }
 @media (hover: hover) and (pointer: fine) { .next:hover .name { text-decoration: underline; text-decoration-thickness: 0.06em; } }
 
 /* ── 일하는 법 쪽 ── */
@@ -388,7 +407,10 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
   .hero .me, .hero .lead-work { grid-column: 1 / -1; }
   .chapter .words, .chapter.flip .words { grid-column: 1 / -1; grid-row: 1; }
   .chapter .pic, .chapter.flip .pic { grid-column: 1 / -1; grid-row: 2; }
-  .phones .phone { --w: min(34vw, 300px); }
+  .duo { grid-template-columns: minmax(0, 1fr); }
+  .duo .chapter .words { grid-row: 1; } .duo .chapter .pic { grid-row: 2; }
+  .chapter.big .words { grid-template-columns: minmax(0, 1fr); }
+  .chapter.big .words > :is(h3, .what, .say, dl, .acts) { grid-column: 1; grid-row: auto; }
   .how > h2, .how > .lead { grid-column: 1 / -1; }
   .how > .acts { grid-column: 1 / -1; grid-row: auto; justify-self: start; }
   .how .panel:nth-of-type(n) { grid-column: 1 / -1; }
@@ -398,9 +420,8 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
   .contact .else { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--g); }
   .contact .else h3 { grid-column: 1 / -1; }
   .w-hero .words, .w-hero .pic, .h-hero .words, .h-hero nav { grid-column: 1 / -1; }
-  .w-hero .phones .phone { --w: min(20vw, 170px); }
-  .views .f-a, .views .f-b, .views .f-c, .views .f-d, .views .f-e { grid-column: 1 / -1; }
-  .views .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .views [class*="s-"] { grid-column: 1 / -1; }
+  .handsets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .glance dl:not(.nums) { grid-column: 1 / -1; }
   .glance .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .glance .nums dd { font-size: var(--s-lead); }
@@ -408,7 +429,6 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
   .glance .nums dt { padding-bottom: 0; }
   .open .with { grid-column: 1 / span 9; }
   .next .name, .next .desc, .next .pic { grid-column: 1 / -1; grid-row: auto; }
-  .next .phones .phone { --w: min(20vw, 200px); }
   .way .words, .way.flip .words, .way .fig, .way.flip .fig { grid-column: 1 / -1; grid-row: auto; }
   .after h2 { grid-column: 1 / -1; }
 }
@@ -423,9 +443,6 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
   .chapter dl div { grid-template-columns: 4.6em 1fr; }
   .names li { display: block; }
   .names li:not(:last-child)::after { content: none; }
-  .phones .phone { --w: 42vw; }
-  .w-hero .phones { gap: 8px; }
-  .w-hero .phones .phone, .next .phones .phone { --w: 21vw; }
   .more li { grid-template-columns: 1fr; }
   .more li .side { text-align: left; }
   .stair { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
@@ -444,7 +461,9 @@ main { overflow-x: clip; }   /* 노트북 받침이 6% 넓게 나가도 가로�
   .contact .else { grid-template-columns: 1fr; }
   .glance dl:not(.nums) div { grid-template-columns: 1fr; gap: 4px; }
   .glance .nums { grid-template-columns: 1fr; }
-  .views .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .handsets { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 8px; overscroll-behavior-x: contain; }
+  .handsets figure { flex: 0 0 min(84vw, 340px); scroll-snap-align: start; }
+  .handsets:focus-visible { outline-offset: 6px; }
   .open ul, .after ul { grid-template-columns: 1fr; }
   .open .with { grid-column: 1 / -1; }
   .open .floro { grid-column: 1 / -1; grid-row: auto; justify-self: start; }
