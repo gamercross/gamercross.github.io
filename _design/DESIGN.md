@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: gamercross.github.io v3
-description: 이재엽(gamercross) 포트폴리오. 작품이 주인공인 색 장, 기기 틀, 일하는 법 · 2027의 단계표. 원천은 assets/v3.css.
+description: 이재엽(gamercross) 포트폴리오. 작품이 주인공인 색 장, 틀 없는 큰 그림, 일하는 법 · 2027의 단계표. 원천은 assets/v3.css.
 colors:
   ground: "#DDE6EA"
   lit: "#F2F5F6"
@@ -19,7 +19,6 @@ colors:
   rise-2: "#A2B3C4"
   rise-3: "#8FA2B7"
   frame: "#26314A"
-  metal: "#C3CDD4"
 typography:
   s-small:
     fontFamily: Wanted Sans Variable
@@ -48,7 +47,7 @@ spacing:
 
 ## Overview
 
-이재엽(gamercross)이 끝낸 작품을 크게 보여 주는 포트폴리오다. 장마다 한 색 면에 작품 하나를 기기 틀에 담아 놓고, 글은 세 줄 안으로 둔다. 진지하고 차분한 결: 채도를 낮춘 파스텔 바탕에 남색 글씨, 무게는 글자 위계와 여백으로 준다.
+이재엽(gamercross)이 끝낸 작품을 크게 보여 주는 포트폴리오다. 장마다 한 색 면에 작품 하나를 기기 틀 없이 크게 놓고, 글은 세 줄 안으로 둔다. 진지하고 차분한 결: 채도를 낮춘 파스텔 바탕에 남색 글씨, 무게는 글자 위계와 여백으로 준다.
 
 ## Colors
 
@@ -56,7 +55,7 @@ spacing:
 - 글씨는 `ink`, 둘째 글씨는 `ink-2`. 남색 면 위 둘째 글씨만 `ink-soft`를 쓴다.
 - 작품 장의 색 면은 작품마다 하나(`archi` · `floe` · `dotci` · `mini`), 첫 화면 · 2027 · 연락은 `hero`.
 - 단계표는 `rise-0` → `rise-3`로 짙어지며 오르고, 꼭대기 한 칸은 `ink` 면에 `lit` 글씨다. `rise-3` 위의 작은 글씨는 `ink`로 쓴다(대비 4.5:1).
-- 기기 틀은 `frame`(남색). 검정 면은 쓰지 않는다.
+- `frame`(남색)은 코드 칸 · DOTCI 폰의 가는 테에만. 검정 면은 쓰지 않는다.
 
 ## Typography
 
@@ -73,13 +72,13 @@ spacing:
 
 ## Shapes
 
-- 면 · 막대 · 단추는 모서리가 반듯한 사각형이다. 둥근 모서리는 기기 틀(노트북 · 폰 · 브라우저)과 주소 줄에만.
+- 면 · 막대 · 단추는 모서리가 반듯한 사각형이다. 둥근 모서리는 그림(`.cover` · `.pane`)과 DOTCI 폰에만.
 - 계단 모양으로 깎은 모서리 · 도트 무늬는 쓰지 않는다. 사이트 자체의 마스코트 · 캐릭터 그림도 쓰지 않는다(작품 속 그림은 작품으로 싣는다).
 
 ## Components
 
 - 단추(`.btn`): `ink` 면, `lit` 글씨, 높이 52px 이상. 한 구역에 하나.
-- 기기 틀(`.laptop` · `.browser` · `.phone`): CSS로 그리고 제조사 표시를 넣지 않는다.
+- 그림(11/25 주인 "그림"): 노트북 · 브라우저 띠 · 두꺼운 폰은 쓰지 않는다. 첫 장 표지는 모두 `.cover` 16:10, 너비마다 핵심을 잘라(`<picture>`) 보이는 크기에서 글이 11px 안팎으로 읽히게. DOTCI만 가는 테 폰 한 대(`.handset`), 제조사 표시 없음.
 - 단계표(`.stair.up` · `.stair.down`): '일하는 법' · '2027' 구역에서만 쓴다.
 
 ## Do's and Don'ts

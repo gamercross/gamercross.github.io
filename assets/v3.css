@@ -101,7 +101,7 @@ p, dd, figcaption, li { text-wrap: pretty; }
 .pane img, .pane video { width: 100%; }
 /* 얇은 폰 한 대 (DOTCI만): 가는 테 + 실제 폰 같은 둥근 모서리, 아래는 칸 밖으로 */
 .cover.dev { container-type: inline-size; }
-.handset { position: absolute; left: 50%; top: 7%; translate: -50% 0; width: clamp(300px, 52cqw, 380px); aspect-ratio: 540 / 1169; padding: 4px; background: var(--ink); border-radius: 48px; }
+.handset { position: absolute; left: 50%; top: 7%; translate: -50% 0; width: clamp(300px, 52cqw, 380px); aspect-ratio: 540 / 1169; padding: 4px; background: var(--frame); border-radius: 48px; }
 .handset img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; border-radius: 44px; }
 /* 폰 여러 장을 차례로 (DOTCI 한 장): 같은 가는 테, 칸 없이 */
 .handsets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 64px) var(--g); }
@@ -174,7 +174,7 @@ main { overflow-x: clip; }
 .chapter .acts { margin-top: 6px; }
 .chapter .pic a { display: block; text-decoration: none; }
 /* 네 장이 같은 구도로 되풀이되지 않게:
-   archi-board = 글 한 줄 위, 그림은 너비 전부 / Floe · DOTCI = 반씩 나란히, 그림 위 글 아래 /
+   archi-board = 글 한 줄 위, 그림은 너비 전부 / Floe · DOTCI = 반씩 나란히, 그림은 아래 끝을 맞춤 /
    MiniMall = 그림 왼쪽 7칸, 글 오른쪽 */
 .chapter.big { min-height: 0; row-gap: clamp(32px, 3.4vw, 56px); }
 .chapter.big .words { grid-column: 1 / -1; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: calc(var(--g) * 2); align-items: start; }
@@ -185,10 +185,10 @@ main { overflow-x: clip; }
 .chapter.big .words > dl { grid-column: 2; grid-row: 3; }
 .chapter.big .pic { grid-column: 1 / -1; }
 .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.duo .chapter { grid-template-columns: minmax(0, 1fr); min-height: 0; align-content: start; row-gap: clamp(28px, 2.6vw, 40px); }
+.duo .chapter { grid-template-columns: minmax(0, 1fr); grid-template-rows: 1fr auto; min-height: 0; align-content: stretch; row-gap: clamp(36px, 3.4vw, 56px); }
 .duo .chapter .words, .duo .chapter .pic { grid-column: 1; }
-.duo .chapter .pic { grid-row: 1; }
-.duo .chapter .words { grid-row: 2; align-self: start; }
+.duo .chapter .pic { grid-row: 2; align-self: end; }
+.duo .chapter .words { grid-row: 1; align-self: start; }
 .chapter.flip:not(.big) .pic { align-self: center; }
 .say { max-width: 34em; }
 .say p::before { content: "“"; } .say p::after { content: "”"; }
