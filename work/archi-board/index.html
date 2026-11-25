@@ -4,113 +4,129 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>archi-board · 이재엽 (gamercross)</title>
-<meta name="description" content="archi-board: 코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬. 다섯 칸과 열리는 근거.">
+<meta name="description" content="archi-board: 코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬. 이재엽(gamercross)이 혼자 만들어 MIT로 공개.">
+<link rel="canonical" href="https://gamercross.github.io/work/archi-board/">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="gamercross">
 <meta property="og:title" content="archi-board · 이재엽 (gamercross)">
 <meta property="og:description" content="코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬. 혼자 만들어 MIT로 공개.">
 <meta property="og:url" content="https://gamercross.github.io/work/archi-board/">
 <meta property="og:image" content="https://gamercross.github.io/assets/img/archi-front.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="archi-board 예시 보드의 앞면">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://gamercross.github.io/work/archi-board/">
-<meta name="theme-color" content="#BFE2CF">
+<meta name="theme-color" content="#D3E3DA">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
-<link rel="stylesheet" href="../../assets/site.css">
-<script src="../../assets/site.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" integrity="sha384-XhclpeVnlxzNJLDRirsSorzzi8pG4LzCJX3r/CZTwEAIwTfXAQRI5FDxTc2SYTxO" crossorigin="anonymous">
+<link rel="stylesheet" href="../../assets/v3.css">
+<script src="../../assets/v3.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#made">본문으로 건너뛰기</a>
+<a class="skip" href="#glance">본문으로 건너뛰기</a>
 
-<header class="top grid pad f-archi">
-  <p class="who"><a href="../../">이재엽 · gamercross</a></p>
-  <p class="now">작품 넷 가운데 둘째, archi-board 한 장입니다.</p>
+<header class="bar" style="--bar:#D3E3DA">
+  <a class="mark" href="../../" aria-label="gamercross 첫 장">gamercross</a>
   <nav aria-label="다른 쪽으로 가기">
-    <a href="../../#work">작품</a>
-    <a href="../../#about" class="hide-s">소개</a>
-    <a href="https://github.com/gamercross">GitHub</a>
+    <a href="../../#work">작업</a>
+    <a href="../../how-i-work/" class="hide-s">일하는 법</a>
+    <a href="../../#about">소개</a>
+    <a href="../../#contact" class="hide-s">연락</a>
   </nav>
 </header>
 
 <main>
 
-<section class="d-hero grid pad f-archi" aria-labelledby="h-name" style="--name:9.6vw; --name-s:25vw">
+<section class="w-hero grid c-archi" data-bar="#D3E3DA" aria-labelledby="h-name">
   <div class="words">
     <h1 id="h-name" class="rise"><span>archi-</span><span>board</span></h1>
-    <p class="lead rise" style="--i:1">코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬</p>
-    <a class="button rise" style="--i:2" href="#proof">근거 보기</a>
+    <p class="what rise" style="--i:1">코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬</p>
+    <blockquote class="say rise" style="--i:2"><p>멘토링을 받으며 소프트웨어 공학에 대해서 공부하고 시스템을 기획할려고 할때 어떤 기법으로 공부를 했고 작업을 위해서 시각화된 자료를 만드는 방법을 클로드 스킬로 만들어본 과정이다</p><footer>이재엽</footer></blockquote>
+    <div class="acts rise" style="--i:3"><a class="btn" href="https://gamercross.github.io/archi-board/">예시 보드 열기</a><a class="link" href="#proof">근거 보기</a></div>
   </div>
-  <div class="shot pop-group" style="--shot:1.6"><div class="shutter"><img src="../../assets/img/archi-front.jpg" width="1600" height="1000" alt="archi-board 예시 보드의 앞면. 목표, 사용자, 화면, 기능, 인프라가 층으로 놓여 있다."></div></div>
-  <dl class="cells five">
-    <div class="c-what"><dt>무엇</dt><dd>프로젝트를 읽어 그리는 무한 보드 한 장</dd></div>
-    <div class="c-when"><dt>언제</dt><dd>2026.10 – 11</dd></div>
-    <div class="c-role"><dt>내 몫</dt><dd>혼자. 엔진 · 스킬 · 예시 보드</dd></div>
-    <div class="c-out"><dt>결과물</dt><dd>공개 스킬 (MIT) · 예시 보드 · 엔진 1.6</dd></div>
-    <div class="c-state"><dt>상태</dt><dd>공개함</dd></div>
-  </dl>
-</section>
-
-<section class="made grid pad" id="made" aria-labelledby="h-made">
-  <h2 id="h-made">만든 것</h2>
-  <dl class="nums">
-    <div><dd>1</dd><dt><b>장</b> 프로젝트 하나에 보드 한 장</dt></div>
-    <div><dd>2</dd><dt><b>면</b> 처음 보는 사람 · 만드는 사람</dt></div>
-    <div><dd>4</dd><dt><b>층</b> 사용자 · 화면 · 기능 · 인프라</dt></div>
-    <div><dd>1.6</dd><dt><b>엔진 버전</b> 보드 데이터와 따로 올라감</dt></div>
-  </dl>
-  <figure class="wide rise">
-    <div class="pic"><img src="../../assets/img/archi-back.jpg" width="1600" height="1000" alt="archi-board 예시 보드의 뒷면. 객체 지도와 순서도가 여러 창으로 이어져 있다." loading="lazy"></div>
-    <figcaption><b>뒷면</b> 만드는 사람이 보는 쪽입니다. 객체 지도 · 데이터 지도 · 순서도가 한 보드에 이어집니다.</figcaption>
-  </figure>
-  <figure class="third-a rise">
-    <div class="pic"><video data-loop muted loop playsinline preload="none" poster="../../assets/img/archi-clip.jpg" width="800" height="450" aria-label="예시 보드를 아래로 내려가다 확대하는 화면 녹화. 소리 없이 되풀이된다."><source src="../../assets/img/archi-clip.mp4" type="video/mp4"></video></div>
-    <figcaption><b>움직여 보기</b> 내려가다 확대하면 상자의 글이 읽힙니다.</figcaption>
-  </figure>
-  <figure class="third-b rise" style="--i:1">
-    <div class="pic"><img src="../../assets/img/archi-memo.jpg" width="1600" height="1000" alt="작은 메모 앱을 읽어 그린 예시 보드. 누가 쓰나, 받는 도움, 하는 일, 프로그램, 남는 것이 층으로 놓여 있다." loading="lazy"></div>
-    <figcaption><b>예시</b> 작은 메모 앱을 읽어 그린 보드입니다. 누가 쓰고 무엇이 남는지 한 장에.</figcaption>
-  </figure>
-  <figure class="third-c rise" style="--i:2">
-    <div class="pic"><img src="../../assets/img/archi-talk.jpg" width="1280" height="800" alt="발표 덱 첫 장. AI가 짜 주는 시대, 무엇을 믿고 만들까. 시스템 설계 7단계 위에 세운 스킬, archi-board." loading="lazy"></div>
-    <figcaption><b>수업 발표</b> 2026.11.18, 이 스킬을 설계 일곱 단계에 얹어 설명했습니다.</figcaption>
-  </figure>
-</section>
-
-<section class="line grid pad" id="proof" aria-labelledby="h-line">
-  <h2 id="h-line">근거</h2>
-  <p class="note">누구나 열어 볼 수 있는 주소만 놓았습니다.</p>
-  <div class="tree">
-    <div class="roots">
-      <a class="root" href="https://gamercross.github.io/archi-board/"><b>예시 보드</b><span>gamercross.github.io/archi-board</span></a>
-      <a class="root" href="https://github.com/gamercross/archi-board"><b>저장소</b><span>github.com/gamercross/archi-board · MIT</span></a>
-      <a class="root" href="https://gamercross.github.io/archi-board/talks/2026-11-18-sw-engineering/"><b>수업 발표 덱</b><span>AI 시대, 무엇을 믿고 만들까</span></a>
+  <div class="pic lift">
+    <div class="browser">
+      <div class="addr" aria-hidden="true"><i></i><span>gamercross.github.io/archi-board</span></div>
+      <div class="view"><img src="../../assets/img/archi-front-960.jpg" srcset="../../assets/img/archi-front-960.jpg 960w, ../../assets/img/archi-front.jpg 1600w" sizes="(max-width: 1100px) 92vw, 56vw" width="1600" height="1000" fetchpriority="high" alt="archi-board 예시 보드의 앞면. 목표, 사용자, 화면, 기능, 인프라가 층으로 놓여 있다."></div>
     </div>
-    <svg class="rise" style="--i:2" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 16.7 C55 16.7 45 50 100 50"/><path d="M0 50 H100"/><path d="M0 83.3 C55 83.3 45 50 100 50"/>
-    </svg>
-    <div class="trunk f-archi"><b>archi-board</b><span>2026.10 – 11 · 공개함</span></div>
   </div>
 </section>
 
-<section class="with grid pad" aria-labelledby="h-with">
-  <h2 id="h-with">함께</h2>
-  <p class="rise">혼자 만들었고, 누구나 쓸 수 있게 MIT 라이선스로 공개했습니다.</p>
+<section class="glance grid" id="glance" data-bar="#F2F5F6" aria-labelledby="h-glance">
+  <h2 id="h-glance" class="rise">한눈에</h2>
+  <dl class="rise" style="--i:1">
+    <div><dt>무엇</dt><dd>프로젝트를 읽어 그리는 무한 보드 한 장</dd></div>
+    <div><dt>언제</dt><dd>2026.10 – 11</dd></div>
+    <div><dt>내 몫</dt><dd>혼자. 엔진 · 스킬 · 예시 보드</dd></div>
+    <div><dt>결과물</dt><dd>공개 스킬 (MIT) · 예시 보드 · 엔진 1.6</dd></div>
+    <div><dt>상태</dt><dd>공개함</dd></div>
+  </dl>
+  <dl class="nums rise" style="--i:2">
+    <div><dd>1</dd><dt><b>장</b>프로젝트 하나에 보드 한 장</dt></div>
+    <div><dd>2</dd><dt><b>면</b>처음 보는 사람 · 만드는 사람</dt></div>
+    <div><dd>4</dd><dt><b>층</b>사용자 · 화면 · 기능 · 인프라</dt></div>
+    <div><dd>1.6</dd><dt><b>엔진 버전</b>보드 데이터와 따로 올라감</dt></div>
+  </dl>
 </section>
 
-<a class="next grid pad f-dotci" href="../dotci/">
-  <h2>다음 작품</h2>
-  <p class="name">DOTCI</p>
-  <p class="desc">캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹</p>
-  <div class="pic four"><img src="../../assets/img/dotci-map.jpg" width="540" height="1169" alt="DOTCI 지도 화면" loading="lazy"><img src="../../assets/img/dotci-place.jpg" width="540" height="1169" alt="" loading="lazy"><img src="../../assets/img/dotci-locked.jpg" width="540" height="1169" alt="" loading="lazy"><img src="../../assets/img/dotci-opened.jpg" width="540" height="1169" alt="" loading="lazy"></div>
+<section class="views grid" id="made" data-bar="#DDE6EA" aria-labelledby="h-views">
+  <h2 id="h-views" class="rise">만든 것</h2>
+  <figure class="f-a lift">
+    <div class="laptop"><div class="lid"><video data-loop muted loop playsinline preload="none" poster="../../assets/img/archi-clip.jpg" width="800" height="450" aria-label="예시 보드를 아래로 내려가다 확대하는 화면 녹화. 소리 없이 되풀이된다."><source src="../../assets/img/archi-clip.mp4" type="video/mp4"></video></div><div class="base"></div></div>
+    <figcaption><b>움직여 보기</b>내려가다 확대하면 상자의 글이 읽힙니다.</figcaption>
+  </figure>
+  <figure class="f-b rise">
+    <div class="plain"><img src="../../assets/img/archi-memo-960.jpg" srcset="../../assets/img/archi-memo-960.jpg 960w, ../../assets/img/archi-memo.jpg 1600w" sizes="(max-width: 1100px) 92vw, 40vw" width="1600" height="1000" loading="lazy" alt="작은 메모 앱을 읽어 그린 예시 보드. 누가 쓰나, 받는 도움, 하는 일, 프로그램, 남는 것이 층으로 놓여 있다."></div>
+    <figcaption><b>예시</b>작은 메모 앱을 읽어 그린 보드입니다. 누가 쓰고 무엇이 남는지 한 장에.</figcaption>
+  </figure>
+  <figure class="f-c lift">
+    <div class="browser"><div class="addr" aria-hidden="true"><i></i><span>gamercross.github.io/archi-board · 뒷면</span></div><div class="view"><img src="../../assets/img/archi-back-960.jpg" srcset="../../assets/img/archi-back-960.jpg 960w, ../../assets/img/archi-back.jpg 1600w" sizes="(max-width: 1100px) 92vw, 80vw" width="1600" height="1000" loading="lazy" alt="archi-board 예시 보드의 뒷면. 객체 지도와 순서도가 여러 창으로 이어져 있다."></div></div>
+    <figcaption><b>뒷면</b>만드는 사람이 보는 쪽입니다. 객체 지도 · 데이터 지도 · 순서도가 한 보드에 이어집니다.</figcaption>
+  </figure>
+  <figure class="f-d rise">
+    <div class="plain"><img src="../../assets/img/archi-talk-960.jpg" srcset="../../assets/img/archi-talk-960.jpg 960w, ../../assets/img/archi-talk.jpg 1280w" sizes="(max-width: 1100px) 92vw, 48vw" width="1280" height="800" loading="lazy" alt="발표 덱 첫 장. AI가 짜 주는 시대, 무엇을 믿고 만들까. 시스템 설계 7단계 위에 세운 스킬, archi-board."></div>
+    <figcaption><b>수업 발표</b>2026.11.18, 이 스킬을 설계 일곱 단계에 얹어 설명했습니다.</figcaption>
+  </figure>
+  <figure class="f-e rise" style="--i:1">
+    <div class="plain"><img src="../../assets/img/a-users.jpg" width="580" height="200" loading="lazy" alt="보드의 사용자 층: 처음 보는 사람, 만드는 사람"></div>
+    <figcaption><b>두 사람</b>보드는 처음 보는 사람과 만드는 사람, 두 쪽에서 읽힙니다.</figcaption>
+  </figure>
+</section>
+
+<section class="bits grid" data-bar="#F2F5F6" aria-labelledby="h-bits">
+  <h2 id="h-bits" class="rise">가까이 본 보드</h2>
+  <div class="row rise" style="--i:1">
+    <figure><img src="../../assets/img/a-goal.jpg" width="290" height="110" loading="lazy" alt="보드의 목표 상자"><figcaption>목표 상자</figcaption></figure>
+    <figure><img src="../../assets/img/a-ui.jpg" width="580" height="200" loading="lazy" alt="보드의 사용자 인터페이스 층"><figcaption>화면 층</figcaption></figure>
+    <figure><img src="../../assets/img/a-infra.jpg" width="580" height="130" loading="lazy" alt="보드의 인프라 · 엔진 층"><figcaption>인프라 · 엔진 층</figcaption></figure>
+    <figure><img src="../../assets/img/a-map.jpg" width="170" height="170" loading="lazy" alt="보드의 작은 지도"><figcaption>작은 지도</figcaption></figure>
+  </div>
+</section>
+
+<section class="open grid c-archi" id="proof" data-bar="#D3E3DA" aria-labelledby="h-open">
+  <h2 id="h-open" class="rise">직접 열어 보기</h2>
+  <p class="note rise">누구나 열어 볼 수 있는 주소만 놓았습니다.</p>
+  <ul class="rise" style="--i:1">
+    <li><a href="https://gamercross.github.io/archi-board/"><b>예시 보드</b><span>gamercross.github.io/archi-board</span></a></li>
+    <li><a href="https://github.com/gamercross/archi-board"><b>저장소</b><span>github.com/gamercross/archi-board · MIT</span></a></li>
+    <li><a href="https://gamercross.github.io/archi-board/talks/2026-11-18-sw-engineering/"><b>수업 발표 덱</b><span>AI 시대, 무엇을 믿고 만들까</span></a></li>
+  </ul>
+  <div class="with rise" style="--i:2"><h3>함께</h3><p>혼자 만들었고, 누구나 쓸 수 있게 MIT 라이선스로 공개했습니다.</p></div>
+</section>
+
+<a class="next grid c-floe" href="../floe/" data-bar="#ECE5C9">
+  <p class="name">다음 작품, Floe</p>
+  <p class="desc">AI에게 코드를 맡기는 사람이 끝까지 만들게 돕는 데스크톱 앱</p>
+  <div class="pic"><div class="laptop"><div class="lid"><img src="../../assets/img/floe-workspace-960.jpg" width="960" height="573" loading="lazy" alt=""></div><div class="base"></div></div></div>
 </a>
 
 </main>
 
-<footer class="foot grid pad">
-  <p class="name" aria-hidden="true">gamercross</p>
-  <p class="note">이재엽의 작품 색인 · 2026</p>
-  <nav aria-label="맺음 이동"><a href="../../#work">작품</a><a href="../../#about">소개</a><a href="https://github.com/gamercross">GitHub</a></nav>
+<footer class="foot grid" data-bar="#D6E3E7">
+  <p class="built" aria-hidden="true">gamercross</p>
+  <div class="small"><span>이재엽 · 2026</span><nav aria-label="맺음 이동"><a class="link" href="../../#work">만든 것</a><a class="link" href="../../how-i-work/">일하는 법</a><a class="link" href="../../#about">소개</a><a class="link" href="https://github.com/gamercross">GitHub</a></nav></div>
 </footer>
 
 </body>
