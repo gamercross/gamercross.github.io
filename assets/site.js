@@ -52,17 +52,21 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     pa.append(pic(w)); li.append(pa);
     h.append(a); li.append(h);
     if (w.line) li.append(el('p', 'line', w.line));
-    const meta = el('p', 'meta', w.kind === 'video' ? `${w.year ? w.year + ' · ' : ''}유튜브에서 보기` : (w.meta || ''));
-    if (w.kind === 'graphic') meta.textContent = `${w.meta} · 크게 보기`;
-    li.append(meta);
+    // 메타는 한 줄: 해 · 맡은 일만. 어디로 가는지는 링크 이름(화면 읽기 도구)에 둔다
+    if (w.kind === 'video') a.setAttribute('aria-label', `${w.title}, 유튜브에서 보기`);
+    if (w.kind === 'graphic') a.setAttribute('aria-label', `${w.title}, 크게 보기`);
+    const metaText = w.kind === 'video' ? '유튜브' : (w.meta || '').replace(/^경상롤드컵 제1회 · /, '');
+    if (metaText) li.append(el('p', 'meta', metaText));
     list.append(li);
   });
-  // 디자인 쪽: 갈래마다 마지막 줄이 비지 않게 남은 칸을 나눠 넓힌다 (그래픽 두 칸씩 · 영상 네 칸씩)
+  // 디자인 쪽: 갈래마다 마지막 줄이 비지 않게 남은 칸을 나눠 넓힌다 (영상 네 칸씩).
+  // 그래픽은 두 칸씩, 하나가 남으면 마지막 셋을 세 칸 줄로(하나만 화면 너비로 늘리지 않는다)
   if (list.classList.contains("wide")) {
     const per = { graphic: 2, video: 4 };
     kinds.forEach(k => {
       const row = per[k]; if (!row) return;
       const lis = [...list.querySelectorAll(`.work.k-${k}`)]; const r = lis.length % row;
+      if (k === 'graphic' && r === 1 && lis.length >= 3) { lis.slice(-3).forEach(li => li.classList.add('fill-3')); return; }
       if (r) lis.slice(-r).forEach(li => li.classList.add(`fill-${r}`));
     });
   }
