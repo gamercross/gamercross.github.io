@@ -362,9 +362,9 @@ table.tools tbody td:last-child { color: var(--muted); font-size: var(--t-s); }
   .p-hero.how-hero .words { grid-column: 1 / -1; }
 }
 @media (max-width: 760px) {
-  .bar .wrap { min-height: 60px; flex-wrap: wrap; gap: 0 16px; }
+  .bar .wrap { min-height: 60px; flex-wrap: wrap; align-content: flex-start; gap: 0 16px; padding-block: 8px; }
   .js .menu-btn { display: inline-flex; }
-  .js .menu { display: none; flex-basis: 100%; padding-bottom: 12px; }
+  .js .menu { display: none; flex-basis: 100%; padding-top: 10px; padding-bottom: 12px; }
   .js .menu.is-open { display: block; }
   .menu ul { gap: 2px; }
   .js .menu ul { flex-direction: column; }
