@@ -3,6 +3,15 @@
 document.documentElement.classList.add('js');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// 수상: works.js의 AWARDS 한 곳에서 말을 만든다. 첫 장 작품 칸 · 수상 구역 · 작품 쪽이 같은 말을 쓴다
+const award = {
+  of: id => (window.AWARDS || []).find(a => a.work === id),
+  day: d => d.replace(/-/g, '.'),
+  head: a => `${AWARD_SCOPES[a.scope]} · ${a.rank}`,
+  where: a => `${a.name}(${a.host}, ${award.day(a.date)})`,
+  line: a => `${award.head(a)} — ${award.where(a)}`,
+};
+
 // 위 메뉴: 지금 쪽 표시 + 폰에서 메뉴 단추로 펼치기 (Esc로 닫고 단추로 초점이 돌아온다)
 (() => {
   const page = document.body.dataset.page;
@@ -55,7 +64,8 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     // 메타는 한 줄: 해 · 맡은 일만. 어디로 가는지는 링크 이름(화면 읽기 도구)에 둔다
     if (w.kind === 'video' && !w.href) a.setAttribute('aria-label', `${w.title}, 유튜브에서 보기`);
     if (w.kind === 'graphic') a.setAttribute('aria-label', `${w.title}, 크게 보기`);
-    if (w.award) li.append(el('p', 'award', w.award));
+    const aw = award.of(w.id);
+    if (aw) li.append(el('p', 'award', award.head(aw)));
     const metaText = w.kind === 'video' && !w.href ? '' : (w.meta || '').replace(/^경상롤드컵 제1회 · /, '');
     if (metaText) li.append(el('p', 'meta', metaText));
     list.append(li);
@@ -125,6 +135,36 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const li = document.createElement('li'), a = document.createElement('a'), b = document.createElement('b'), s = document.createElement('span');
     a.href = l.url; a.rel = 'noopener'; b.textContent = l.name; s.textContent = l.label;
     a.append(b, s); li.append(a); ul.append(li);
+  });
+})();
+
+// 첫 장 "수상": 교내상 · 대외수상 두 목록 (<ul data-awards="in|out">). 줄마다 날짜 · 등위 · 대회 · 주최 · 쓴 작품
+(() => {
+  document.querySelectorAll('[data-awards]').forEach(ul => {
+    const items = (window.AWARDS || []).filter(a => a.scope === ul.dataset.awards).sort((x, y) => y.date.localeCompare(x.date));
+    if (!items.length) { const g = ul.closest('.aw-group'); if (g) g.hidden = true; return; }
+    ul.replaceChildren(...items.map(a => {
+      const w = (window.WORKS || []).find(x => x.id === a.work);
+      const li = document.createElement('li');
+      const t = document.createElement('time'); t.dateTime = a.date; t.textContent = award.day(a.date);
+      const d = document.createElement('div'); d.className = 'w';
+      const b = document.createElement('b'); b.textContent = a.rank;
+      const s = document.createElement('span'); s.textContent = a.name;
+      d.append(b, s);
+      const m = document.createElement('p'); m.className = 'm'; m.append(`${a.host} · `);
+      if (w && w.href) { const l = document.createElement('a'); l.href = w.href; l.textContent = w.title; l.setAttribute('aria-label', `${w.title} 작품 쪽`); m.append(l); }
+      else m.append(w ? w.title : '');
+      li.append(t, d, m);
+      return li;
+    }));
+  });
+})();
+
+// 작품 쪽: [data-award="dotci"]의 칸을 같은 말로 채운다. data-part = head | where | line, data-pre는 앞에 붙일 말
+(() => {
+  document.querySelectorAll('[data-award]').forEach(n => {
+    const a = award.of(n.dataset.award);
+    if (a) n.textContent = (n.dataset.pre || '') + award[n.dataset.part || 'line'](a);
   });
 })();
 

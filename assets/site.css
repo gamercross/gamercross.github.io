@@ -161,12 +161,22 @@ input, textarea { caret-color: var(--accent); }
 .more-head p { margin-top: 12px; color: var(--muted); }
 .more ul { grid-column: 5 / -1; grid-template-columns: 1fr 1fr; gap: 16px var(--gutter); }
 .more li { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 8px 0; align-content: start; }
-.more .w b { display: block; font-size: clamp(20px, 1.7vw, 24px); font-weight: 600; line-height: 1.35; }
+.more .w b, .awards .w b { display: block; font-size: clamp(20px, 1.7vw, 24px); font-weight: 600; line-height: 1.35; }
 .more .w span { display: block; margin-top: 4px; color: var(--muted); }
 .more .m { color: var(--muted); }
 .more .o { display: flex; flex-wrap: wrap; gap: 0 20px; }
-.more .o a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--ink) 40%, transparent); }
-.more .o a:hover { text-decoration-color: var(--ink); }
+.more .o a, .awards .m a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--ink) 40%, transparent); }
+.more .o a:hover, .awards .m a:hover { text-decoration-color: var(--ink); }
+
+/* 수상: 교내상 · 대외수상 두 묶음, 줄은 진행표 꼴(날짜 · 등위와 대회 · 주최와 작품) */
+#work + #awards { margin-top: clamp(96px, 8vw, 120px); }
+#awards .sec-head p { text-wrap: balance; }
+.awards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 40px var(--gutter); }
+.aw-group { grid-column: span 6; }
+.aw-group h3 { font-size: var(--t-m); font-weight: var(--weight-h); line-height: 1.4; padding-bottom: 8px; }
+.awards .w span { display: block; margin-top: 4px; text-wrap: pretty; }
+.awards .m { grid-column: 2; color: var(--muted); }
+.awards .m a { color: var(--ink); }
 
 /* ── 일하는 법 두 그림 (첫 장) — 판 없이 바탕 위에 ───── */
 .how { display: grid; grid-template-columns: repeat(12, 1fr); gap: 48px var(--gutter); }
@@ -473,6 +483,8 @@ table.tools tbody td:last-child { color: var(--muted); font-size: var(--t-s); }
   .cue > li, .cue > div, .cue > a, .more li { grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 12px 0; }
   .more .m, .more .o { grid-column: 1; }
   .more .o { margin-top: 0; }
+  .aw-group { grid-column: 1 / -1; }
+  .awards .m { grid-column: 1; }
   .toc a { grid-template-columns: minmax(0, 1fr); }
   .toc a > span { text-align: left; }
   .big-links a { font-size: clamp(26px, 7.4vw, 32px); padding: 6px 0; }

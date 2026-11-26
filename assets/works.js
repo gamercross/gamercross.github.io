@@ -1,13 +1,13 @@
 // 작품 목록 — 한 줄이 작품 하나. 첫 장(/)의 "만든 것"과 디자인 쪽(/design/)이 이 목록을 거른다.
 // 빼려면 그 줄을 지우고, 첫 장에서만 빼려면 home을 false로.
-// design: false면 디자인 쪽 격자에서 뺀다(그 쪽 첫 그림과 같을 때). award는 작품 칸에 글자색으로 한 줄 더 적는다.
+// design: false면 디자인 쪽 격자에서 뺀다(그 쪽 첫 그림과 같을 때). 상은 아래 AWARDS에서 work로 이어 작품 칸에 한 줄 더 적는다.
 // kind: dev(개발) · graphic(그래픽) · video(영상). 그림 길은 사이트 뿌리(/)에서 본 길.
 // value: 그 작품의 가치 한 줄(첫 장 · 디자인 쪽 카드에 line 아래로). 영상에 href가 있으면 유튜브 대신 그 작품 쪽으로 간다.
 // 영상 제목은 해만 적고 회차는 적지 않는다(2026-11-26 주인 고름). 그래픽은 모두 경상롤드컵 제1회(2022).
 window.WORKS = [
   { id: 'archi', kind: 'dev', home: true, title: 'archi-board', line: '코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬', value: '내 시스템의 기획을 그림 한 장으로 정리할 수 있게 됐습니다', meta: '혼자 · 공개 스킬 (MIT) · 엔진 1.6', href: '/work/archi-board/', img: '/assets/img/archi-back-960.webp', srcset: '/assets/img/archi-back-960.webp 960w, /assets/img/archi-back-1600.webp 1600w', w: 1600, h: 1000, alt: 'archi-board 예시 보드의 뒷면. 객체 지도와 순서도가 여러 창으로 이어져 있다' },
-  { id: 'floe', anchor: 'floe', kind: 'dev', home: true, title: 'Floe', line: 'AI에게 코드를 맡기는 사람이 끝까지 만들게 돕는 데스크톱 앱', value: 'AI 코딩을 하다 중간에 멈추는 사람이 끝까지 가게 돕습니다', meta: '팀장 · 총괄 · AI 연동 (5인 팀)', award: '경진대회 본선 우수상', href: '/work/floe/', img: '/assets/img/floe-workspace-800.webp', srcset: '/assets/img/floe-workspace-800.webp 800w, /assets/img/floe-workspace-1600.webp 1600w', w: 1600, h: 955, alt: 'Floe 작업실 화면. 3단계 할 일 칸들과 플로로가 단계를 알려 주는 남색 판' },
-  { id: 'dotci', anchor: 'dotci', kind: 'dev', home: true, title: 'DOTCI', line: '캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹', value: '신입생이 낯선 캠퍼스를 장소마다 선배의 쪽지로 알게 됩니다', meta: '시스템 QA · 시각 디자인 · 발표 (3인 팀)', award: '경진대회 1위', href: '/work/dotci/', pair: [['/assets/img/dotci-map.webp', 'DOTCI 지도 화면. 캠퍼스 건물마다 쪽지 수가 붙은 점'], ['/assets/img/dotci-opened.webp', 'DOTCI에서 우송도서관 쪽지를 연 화면']], w: 540, h: 1169 },
+  { id: 'floe', anchor: 'floe', kind: 'dev', home: true, title: 'Floe', line: 'AI에게 코드를 맡기는 사람이 끝까지 만들게 돕는 데스크톱 앱', value: 'AI 코딩을 하다 중간에 멈추는 사람이 끝까지 가게 돕습니다', meta: '팀장 · 총괄 · AI 연동 (5인 팀)', href: '/work/floe/', img: '/assets/img/floe-workspace-800.webp', srcset: '/assets/img/floe-workspace-800.webp 800w, /assets/img/floe-workspace-1600.webp 1600w', w: 1600, h: 955, alt: 'Floe 작업실 화면. 3단계 할 일 칸들과 플로로가 단계를 알려 주는 남색 판' },
+  { id: 'dotci', anchor: 'dotci', kind: 'dev', home: true, title: 'DOTCI', line: '캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹', value: '신입생이 낯선 캠퍼스를 장소마다 선배의 쪽지로 알게 됩니다', meta: '시스템 QA · 시각 디자인 · 발표 (3인 팀)', href: '/work/dotci/', pair: [['/assets/img/dotci-map.webp', 'DOTCI 지도 화면. 캠퍼스 건물마다 쪽지 수가 붙은 점'], ['/assets/img/dotci-opened.webp', 'DOTCI에서 우송도서관 쪽지를 연 화면']], w: 540, h: 1169 },
   { id: 'mini', anchor: 'minimall', kind: 'dev', home: true, title: 'MiniMall', line: '바이브코딩으로 만들면 어떤 문제가 생기는지 실습하는 수업용 쇼핑몰', value: '바이브코딩으로 만든 쇼핑몰에서 어떤 문제가 생기는지 직접 실습합니다', meta: '발표 덱 · 대본, 사용자 쪽 점검 · 팀 시험 110개 통과', href: '/work/minimall/', img: '/assets/img/minimall-products-720.webp', srcset: '/assets/img/minimall-products-720.webp 720w, /assets/img/minimall-products-1440.webp 1440w', w: 1440, h: 900, alt: 'MiniMall 상품 목록. 검색 칸 아래 전체 상품 4' },
   { id: 'g-final', kind: 'graphic', home: true, title: '결승 포스터', line: 'THE GRAND FINAL', meta: '경상롤드컵 제1회 · 2022.12.07', img: '/assets/img/d-final-600.webp', big: '/assets/img/d-final-1200.webp', w: 600, h: 600, bw: 1200, bh: 1200, alt: '결승 포스터. 구겨진 검은 종이 위 위아래로 붉고 푸른 빛, 가운데 경상롤드컵 THE GRAND FINAL, 아래 GAME DAY 2022. 12. 07' },
   { id: 'g-offline', kind: 'graphic', home: true, design: false, title: '결승 화면 OFFLINE', line: 'VICTORY · MVP · WIN', meta: '경상롤드컵 제1회 · 2022.12.07', img: '/assets/img/d-offline-640.webp', big: '/assets/img/d-offline-1280.webp', w: 640, h: 360, bw: 1280, bh: 720, alt: '결승 날 방송 화면. 검은 종이 위에 흰 OFF와 테두리만 남은 LINE, 오른쪽에 노란 붓글씨 VICTORY · MVP · WIN' },
@@ -27,3 +27,12 @@ window.WORKS = [
   { id: 'v-grad', kind: 'video', home: false, title: '졸업영상', yt: 'Wp5Izk2OVQ8' },
 ];
 window.KINDS = { dev: '개발', graphic: '그래픽', video: '영상' };
+
+// 수상 목록 — 한 줄이 상 하나. 첫 장의 "수상"과 작품 쪽(상태 칸 · 결과 머리)이 이 한 곳에서 그린다.
+// scope: in = 교내상(우송대학교가 연 대회) · out = 대외수상(다른 기관 · 지역 · 대학이 연 대회). work는 위 WORKS의 id.
+// 결과가 나오지 않은 대회는 넣지 않는다. 상장 그림은 싣지 않는다(개인 정보가 있을 수 있음).
+window.AWARDS = [
+  { scope: 'in', rank: '1위', name: '2026 비교과 연계 창의융합 협력학습 경진대회', host: '우송대학교', date: '2026-11-06', work: 'dotci' },
+  { scope: 'out', rank: '본선 우수상(한남대 HUSS 사업단장상)', name: '2026 대전 창업 One 클럽 AI 바이브코딩 아이디어 경진대회', host: '한남대학교 HUSS 사업단', date: '2026-11-12', work: 'floe' },
+];
+window.AWARD_SCOPES = { in: '교내상', out: '대외수상' };
