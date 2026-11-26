@@ -38,7 +38,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     return box;
   };
   items.forEach(w => {
-    const li = el('li', `work k-${w.kind}${hasPic(w) ? '' : ' noimg'}`); li.dataset.kind = w.kind;
+    const li = el('li', `work k-${w.kind}${hasPic(w) ? '' : ' noimg'}${w.kind === 'video' && w.href ? ' own' : ''}`); li.dataset.kind = w.kind;
     if (w.anchor) li.id = w.anchor;   // 옛 주소의 #floe · #dotci · #minimall
     const h = el('h3'); const a = el('a', null, w.title);
     if (w.kind === 'video' && !w.href) { a.href = `https://www.youtube.com/watch?v=${w.yt}`; a.rel = 'noopener'; }
@@ -117,6 +117,9 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!ul || !window.WORKS) return;
   const w = WORKS.find(x => x.id === ul.dataset.links);
   const links = ((w && w.links) || []).filter(l => l.url);
+  // 머리의 첫 단추는 첫 주소로 간다. 주소가 없으면 단추를 지운다
+  const first = document.querySelector(`[data-link-first="${ul.dataset.links}"]`);
+  if (first) { if (links.length) { first.href = links[0].url; first.rel = 'noopener'; first.textContent = `${links[0].name} 열기`; } else first.remove(); }
   if (!links.length) { const sec = ul.closest('section'); if (sec) sec.hidden = true; return; }
   links.forEach(l => {
     const li = document.createElement('li'), a = document.createElement('a'), b = document.createElement('b'), s = document.createElement('span');
