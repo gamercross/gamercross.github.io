@@ -33,6 +33,6 @@ window.KINDS = { dev: '개발', graphic: '그래픽', video: '영상' };
 // 결과가 나오지 않은 대회는 넣지 않는다. 상장 그림은 싣지 않는다(개인 정보가 있을 수 있음).
 window.AWARDS = [
   { scope: 'in', rank: '1위', name: '2026 비교과 연계 창의융합 협력학습 경진대회', host: '우송대학교', date: '2026-11-06', work: 'dotci' },
-  { scope: 'out', rank: '본선 우수상', name: '2026 대전 창업 One 클럽 AI 바이브코딩 아이디어 경진대회', host: '한남대학교 HUSS 사업단', date: '2026-11-12', work: 'floe' },
+  { scope: 'out', rank: '본선 우수상(한남대 HUSS 사업단장상)', name: '2026 대전 창업 One 클럽 AI 바이브코딩 아이디어 경진대회', host: '한남대학교 HUSS 사업단', date: '2026-11-12', work: 'floe' },
 ];
 window.AWARD_SCOPES = { in: '교내상', out: '대외수상' };
