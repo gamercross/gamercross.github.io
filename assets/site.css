@@ -22,7 +22,7 @@ a { color: inherit; text-underline-offset: .24em; text-decoration-thickness: 1px
 h1, h2, h3, p, ol, ul, dl, dd, figure, blockquote, pre { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 h1, h2, h3 { font-weight: var(--weight-h); text-wrap: balance; }
-p, blockquote, li { text-wrap: pretty; }
+p, blockquote, li, dd { text-wrap: pretty; }
 input, textarea { caret-color: var(--accent); }
 ::selection { background: var(--accent); color: var(--on-accent); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
