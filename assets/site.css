@@ -274,7 +274,7 @@ input, textarea { caret-color: var(--accent); }
 .p-hero.text .what { max-width: 32ch; }
 .p-hero .tally { grid-column: 7 / -1; padding-bottom: 8px; }
 .p-hero .num { font-size: clamp(30px, 3.6vw, 56px); font-weight: var(--weight-d); line-height: 1.1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; text-wrap: balance; }
-.p-hero .tally .sub { margin-top: 16px; color: var(--muted); max-width: 36ch; }
+.p-hero .tally .sub { margin-top: 16px; color: var(--muted); max-width: 44ch; }
 .glance .made { grid-column: 8 / -1; padding-top: 12px; }
 .glance .made h3 { font-size: var(--t-m); line-height: 1.3; font-weight: var(--weight-h); margin-bottom: 4px; }
 .glance .made .note { margin-top: 16px; color: var(--muted); font-size: var(--t-s); }
