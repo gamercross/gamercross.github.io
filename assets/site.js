@@ -23,7 +23,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const scope = list.dataset.works;            // home | design
   const kinds = list.dataset.kinds.split(',');
   const hasPic = w => !!(w.img || w.pair);
-  const items = WORKS.filter(w => kinds.includes(w.kind) && (scope !== 'home' || w.home))
+  const items = WORKS.filter(w => kinds.includes(w.kind) && (scope !== 'home' || w.home) && (scope !== 'design' || w.design !== false))
     .sort((x, y) => kinds.indexOf(x.kind) - kinds.indexOf(y.kind) || hasPic(y) - hasPic(x));
   const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
   const pic = w => {
@@ -49,13 +49,15 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     // 그림도 같은 곳으로 가는 길(키보드 · 화면 읽기 도구는 제목 링크 하나만 만난다)
     const pa = el('a', 'pic-a'); pa.href = a.href; pa.tabIndex = -1; pa.setAttribute('aria-hidden', 'true');
     if (a.dataset.zoom) pa.dataset.zoom = w.id; if (a.rel) pa.rel = a.rel;
-    pa.append(pic(w)); li.append(pa);
+    // 그림 없는 영상(얼굴이 또렷한 썸네일)은 빈 재생 칸 대신 글 한 줄로 둔다
+    if (hasPic(w)) { pa.append(pic(w)); li.append(pa); }
     h.append(a); li.append(h);
     if (w.line) li.append(el('p', 'line', w.line));
     // 메타는 한 줄: 해 · 맡은 일만. 어디로 가는지는 링크 이름(화면 읽기 도구)에 둔다
     if (w.kind === 'video') a.setAttribute('aria-label', `${w.title}, 유튜브에서 보기`);
     if (w.kind === 'graphic') a.setAttribute('aria-label', `${w.title}, 크게 보기`);
-    const metaText = w.kind === 'video' ? '유튜브' : (w.meta || '').replace(/^경상롤드컵 제1회 · /, '');
+    if (w.award) li.append(el('p', 'award', w.award));
+    const metaText = w.kind === 'video' ? '' : (w.meta || '').replace(/^경상롤드컵 제1회 · /, '');
     if (metaText) li.append(el('p', 'meta', metaText));
     list.append(li);
   });
@@ -65,8 +67,14 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const per = { graphic: 2, video: 4 };
     kinds.forEach(k => {
       const row = per[k]; if (!row) return;
-      const lis = [...list.querySelectorAll(`.work.k-${k}`)]; const r = lis.length % row;
-      if (k === 'graphic' && r === 1 && lis.length >= 3) { lis.slice(-3).forEach(li => li.classList.add('fill-3')); return; }
+      const lis = [...list.querySelectorAll(`.work.k-${k}:not(.noimg)`)]; const r = lis.length % row;
+      // 하나만 남으면 마지막 셋을 세 칸 줄로, 그 앞에 남는 것도 나눠 채운다(작은 썸네일 하나가 화면 너비로 늘지 않게)
+      if (r === 1 && lis.length >= 3) {
+        lis.slice(-3).forEach(li => li.classList.add('fill-3'));
+        const rest = lis.slice(0, -3), r2 = rest.length % row;
+        if (r2) rest.slice(-r2).forEach(li => li.classList.add(`fill-${r2}`));
+        return;
+      }
       if (r) lis.slice(-r).forEach(li => li.classList.add(`fill-${r}`));
     });
   }
@@ -85,12 +93,12 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     bar.append(b); return b;
   });
   const apply = k => {
-    let shown = 0;
-    list.querySelectorAll('.work').forEach(li => {
-      const on = k === 'all' || li.dataset.kind === k;
-      li.hidden = !on; li.classList.remove('enter'); li.style.animationDelay = '';
-      if (on) { shown++; if (!reduce) { void li.offsetWidth; li.classList.add('enter'); } }
-    });
+    // 쓰기를 모두 한 뒤 한 번만 읽고(reflow 한 번), 다시 떠오르기를 붙인다
+    const lis = [...list.querySelectorAll('.work')];
+    const on = lis.filter(li => k === 'all' || li.dataset.kind === k);
+    lis.forEach(li => { li.hidden = !on.includes(li); li.classList.remove('enter'); li.style.animationDelay = ''; });
+    if (!reduce) { void list.offsetWidth; on.forEach(li => li.classList.add('enter')); }
+    const shown = on.length;
     btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k));
     if (count) count.textContent = k === 'all' ? `작품 ${shown}개 모두` : `${KINDS[k]} ${shown}개`;
   };
