@@ -150,10 +150,6 @@ input, textarea { caret-color: var(--accent); }
 .work .line { margin-top: 4px; }
 .work .award { margin-top: 8px; font-weight: 600; }
 .work .meta { margin-top: 4px; font-size: var(--t-s); color: var(--faint); }
-.playmark { width: 48px; height: 48px; }
-.playmark circle { fill: var(--surface-2); }
-.playmark path { fill: var(--muted); transition: fill var(--t-fast) var(--ease); }
-.work:hover .playmark path { fill: var(--ink); }
 .after { margin-top: 48px; }
 
 /* 그 밖에 끝낸 것: 그림 없이 진행표 줄 */

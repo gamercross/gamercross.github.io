@@ -34,8 +34,6 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     } else if (w.img) {
       const im = new Image(w.w, w.h); im.src = w.img; if (w.srcset) { im.srcset = w.srcset; im.sizes = '(max-width: 760px) 92vw, 46vw'; }
       im.alt = w.alt || ''; im.loading = 'lazy'; im.decoding = 'async'; box.append(im);
-    } else {
-      box.insertAdjacentHTML('beforeend', '<svg class="playmark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23"/><path d="M19 15.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 19 15.5z"/></svg>');
     }
     return box;
   };
