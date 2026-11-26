@@ -1,0 +1,38 @@
+/* gamercross 토큰 — 색 · 글꼴 · 글자 단계 · 간격.
+   포트폴리오(gamercross.github.io)와 커리어 로드맵이 같이 쓴다. 값의 뜻은 _design/DESIGN.md.
+   글꼴: 이 파일보다 먼저 Pretendard를 불러 둔다.
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" crossorigin="anonymous"> */
+
+:root {
+  color-scheme: dark;
+
+  /* 색: 바탕 하나 · 글자 하나 · 강조 하나, 판은 한 톤 차이로만 */
+  --bg: #0F1522;        /* 아주 짙은 남색 바탕 (순검정 아님) */
+  --surface: #161E2E;   /* 판 · 그림 칸 */
+  --surface-2: #1D2638; /* 한 톤 위 판 */
+  --ink: #E6EAF2;       /* 글자 (순백 아님) */
+  --muted: #AEB7CA;     /* 보조 글자 */
+  --accent: #8FB1EC;    /* 채운 단추 · 고른 단추 · 초점 테 */
+  --on-accent: #0F1522; /* 채운 단추 위 글자 */
+  --scrim: rgb(8 11 18 / .82); /* 크게 보기 뒤 가림막 */
+
+  /* 글꼴 */
+  --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --weight-h: 500;
+
+  /* 글자 단계 다섯 */
+  --t-xl: clamp(56px, 12.5vw, 196px); /* 맺음 이름 */
+  --t-l: clamp(28px, 3.3vw, 48px);    /* 큰 제목 */
+  --t-m: 21px;                        /* 부제 */
+  --t-b: 17px;                        /* 본문 */
+  --t-s: 14px;                        /* 작은 글 */
+
+  /* 간격: 4px 단위, 바깥 여백 한 쌍 */
+  --m: clamp(16px, 3vw, 40px);
+  --max: 1360px;
+  --gap-sec: clamp(96px, 12vw, 168px);
+  --gutter: 24px;
+
+  /* 움직임 */
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
