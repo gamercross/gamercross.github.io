@@ -41,7 +41,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const li = el('li', `work k-${w.kind}${hasPic(w) ? '' : ' noimg'}`); li.dataset.kind = w.kind;
     if (w.anchor) li.id = w.anchor;   // 옛 주소의 #floe · #dotci · #minimall
     const h = el('h3'); const a = el('a', null, w.title);
-    if (w.kind === 'video') { a.href = `https://www.youtube.com/watch?v=${w.yt}`; a.rel = 'noopener'; }
+    if (w.kind === 'video' && !w.href) { a.href = `https://www.youtube.com/watch?v=${w.yt}`; a.rel = 'noopener'; }
     else if (w.kind === 'graphic') { a.href = w.big; a.dataset.zoom = w.id; }
     else a.href = w.href;
     // 그림도 같은 곳으로 가는 길(키보드 · 화면 읽기 도구는 제목 링크 하나만 만난다)
@@ -51,11 +51,12 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (hasPic(w)) { pa.append(pic(w)); li.append(pa); }
     h.append(a); li.append(h);
     if (w.line) li.append(el('p', 'line', w.line));
+    if (w.value) li.append(el('p', 'value', w.value));
     // 메타는 한 줄: 해 · 맡은 일만. 어디로 가는지는 링크 이름(화면 읽기 도구)에 둔다
-    if (w.kind === 'video') a.setAttribute('aria-label', `${w.title}, 유튜브에서 보기`);
+    if (w.kind === 'video' && !w.href) a.setAttribute('aria-label', `${w.title}, 유튜브에서 보기`);
     if (w.kind === 'graphic') a.setAttribute('aria-label', `${w.title}, 크게 보기`);
     if (w.award) li.append(el('p', 'award', w.award));
-    const metaText = w.kind === 'video' ? '' : (w.meta || '').replace(/^경상롤드컵 제1회 · /, '');
+    const metaText = w.kind === 'video' && !w.href ? '' : (w.meta || '').replace(/^경상롤드컵 제1회 · /, '');
     if (metaText) li.append(el('p', 'meta', metaText));
     list.append(li);
   });
@@ -107,6 +108,21 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     list.querySelectorAll('.work').forEach(li => seen.observe(li));
   }
   if (count) count.textContent = `작품 ${items.length}개 모두`;
+})();
+
+// 작품 쪽 "직접 열어 보기": works.js의 links 한 곳에서 그린다. 주소가 빈 것은 내보내지 않고, 하나도 없으면 구역을 숨긴다.
+// 남의 채널이라 rel="me"는 붙이지 않는다.
+(() => {
+  const ul = document.querySelector('[data-links]');
+  if (!ul || !window.WORKS) return;
+  const w = WORKS.find(x => x.id === ul.dataset.links);
+  const links = ((w && w.links) || []).filter(l => l.url);
+  if (!links.length) { const sec = ul.closest('section'); if (sec) sec.hidden = true; return; }
+  links.forEach(l => {
+    const li = document.createElement('li'), a = document.createElement('a'), b = document.createElement('b'), s = document.createElement('span');
+    a.href = l.url; a.rel = 'noopener'; b.textContent = l.name; s.textContent = l.label;
+    a.append(b, s); li.append(a); ul.append(li);
+  });
 })();
 
 // 크게 보기: <dialog> + showModal, 바깥 누르기 · Esc로 닫힘, 이전 · 다음

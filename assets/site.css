@@ -148,6 +148,7 @@ input, textarea { caret-color: var(--accent); }
 .work:has(h3 a:focus-visible) { outline: 2px solid var(--accent); outline-offset: 8px; }
 @supports selector(:has(*)) { .work h3 a:focus-visible { outline: none; } }
 .work .line { margin-top: 4px; }
+.work .value { margin-top: 8px; color: var(--muted); max-width: 44ch; }
 .work .award { margin-top: 8px; font-weight: 600; }
 .work .meta { margin-top: 4px; font-size: var(--t-s); color: var(--faint); }
 .after { margin-top: 40px; }
@@ -236,6 +237,8 @@ input, textarea { caret-color: var(--accent); }
 .d-hero .top { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gutter); align-items: end; margin-bottom: 40px; }
 .d-hero h1 { grid-column: 1 / span 7; font-size: clamp(36px, 5.6vw, 84px); font-weight: var(--weight-d); line-height: 1.02; letter-spacing: -0.04em; }
 .d-hero .top p { grid-column: 8 / -1; font-size: var(--t-b); line-height: 1.6; }
+.d-hero .lol { grid-column: 8 / -1; margin-top: 24px; }
+.d-hero .lol div { grid-template-columns: 4em minmax(0, 1fr); padding: 12px 0; }
 .d-hero figure img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; background: var(--surface); }
 /* 디자인 쪽 격자: 그래픽 다섯 = 두 칸 + 세 칸, 영상은 네 칸씩, 남은 줄은 나눠 채운다 */
 .works.wide { grid-auto-flow: row; }
@@ -266,6 +269,9 @@ input, textarea { caret-color: var(--accent); }
 .glance h2 { grid-column: 1 / -1; font-size: var(--t-l); line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 24px; }
 .glance .kv { grid-column: 1 / span 6; }
 .glance .kv div { grid-template-columns: 5.5em minmax(0, 1fr); padding: 12px 0; }
+.glance .aside-note { grid-column: 8 / -1; padding-top: 12px; color: var(--muted); max-width: 40ch; }
+.p-hero.text .words { grid-column: 1 / span 8; }
+.p-hero.text .what { max-width: 36ch; }
 
 /* 만든 것 — 그림 칸 */
 .views { display: grid; grid-template-columns: repeat(12, 1fr); gap: 48px var(--gutter); align-items: start; }
@@ -413,7 +419,7 @@ table.tools tbody td:last-child { color: var(--muted); font-size: var(--t-s); }
   .lead .clip, .lead .words { grid-column: 1 / -1; }
   .work, .works.wide .work.k-video { grid-column: span 6; }
   .about blockquote, .path { grid-column: 1 / -1; }
-  .p-hero .words, .p-hero .pic { grid-column: 1 / -1; }
+  .p-hero .words, .p-hero.text .words, .p-hero .pic { grid-column: 1 / -1; }
   .s-7, .s-5r, .s-5, .s-7r, .s-port, .s-side { grid-column: 1 / -1; }
   .s-port { max-width: 520px; }
   .phones-row { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
@@ -425,11 +431,12 @@ table.tools tbody td:last-child { color: var(--muted); font-size: var(--t-s); }
   .works.wide .work.k-graphic.fill-3 { grid-column: span 6; }
   .works.wide .work.k-graphic.fill-3:last-child { grid-column: 1 / -1; }
   .works.wide .work.k-graphic.fill-3:last-child .pic { aspect-ratio: 16 / 9; }
-  .d-hero h1, .d-hero .top p { grid-column: 1 / -1; }
+  .d-hero h1, .d-hero .top p, .d-hero .lol { grid-column: 1 / -1; }
   .d-hero .top p { margin-top: 20px; }
 }
 @media (max-width: 760px) {
-  .contact .l, .contact .else, .glance .kv { grid-column: 1 / -1; }
+  .contact .l, .contact .else, .glance .kv, .glance .aside-note { grid-column: 1 / -1; }
+  .glance .aside-note { margin-top: 32px; }
   .proof { margin-top: 80px; }
   .bar .wrap { min-height: 60px; flex-wrap: wrap; align-content: flex-start; gap: 0 16px; padding-block: 8px; }
   .js .menu-btn { display: inline-flex; }
