@@ -534,3 +534,10 @@ table.tools tbody td:last-child { color: var(--muted); font-size: var(--t-s); }
 .facts-line b { color: var(--ink); font-size: var(--t-m); font-weight: 700; font-variant-numeric: tabular-nums; margin-right: 4px; }
 .facts-line span { display: block; color: var(--faint); }
 @media (max-width: 760px) { .proof { grid-column: 1 / -1; } .works:not(.wide) .work.k-video.own { display: block; margin-top: 0; } .works:not(.wide) .work.k-video.own > .value { margin-top: 8px; } .works:not(.wide) .work.k-video.own > .meta { margin-top: 4px; } .works .work.noimg, .works .work.k-video.own, .works.wide .work.k-video.own, .works.wide .work.k-video.noimg:not(.own) { grid-column: 1 / -1; } }
+
+/* ── 영어판 (/en/) ─────────────────────────────
+   인용 밑의 한국어 원문(작게) · 404의 두 말 */
+.say-q .orig, .way blockquote .orig { margin-top: 8px; font-size: var(--t-s); line-height: 1.7; color: var(--muted); }
+.say-q .orig::before, .say-q .orig::after, .way blockquote .orig::before, .way blockquote .orig::after { content: none; }
+.lost .en-half { margin-top: 56px; }
+.lost .en-half h2 { font-size: var(--t-l); line-height: 1.2; letter-spacing: -0.03em; }
