@@ -49,13 +49,13 @@
 
 <section class="p-hero how-hero" aria-labelledby="h-how">
   <div class="wrap">
-    <div class="words" data-reveal>
+    <div class="words">
       <h1 id="h-how">일하는 법</h1>
       <p class="what">작은 목표를 큰 목표에 잇고, 할 일을 <span class="nw">나 · AI · 남</span>으로 나눕니다. 급한 일과 중요한 일을 가르고, 도구마다 맡길 일을 정해 둡니다.</p>
       <p class="note">틀은 제 매뉴얼에서 옮겼고, 인용은 제가 한 말 그대로입니다.</p>
       <div class="acts"><a class="btn" href="#ladder">첫째 틀부터 보기</a><a class="go" href="/career-roadmap/">커리어 로드맵</a></div>
     </div>
-    <nav class="toc" aria-label="네 가지 틀" data-reveal>
+    <nav class="toc cue" aria-label="네 가지 틀">
       <a href="#ladder"><b>작은 목표를 큰 목표에 잇기</b><span>업무 매뉴얼 v2</span></a>
       <a href="#split"><b>할 일을 <span class="nw">나 · AI · 남</span>으로 나누기</b><span>온톨로지 v0.2</span></a>
       <a href="#four"><b>급한 일과 중요한 일 가르기</b><span>네 칸</span></a>
@@ -223,17 +223,43 @@
 
 </div>
 
+<section class="sec" id="boards" aria-labelledby="h-boards">
+  <div class="wrap boards">
+    <div class="words" data-reveal>
+      <h2 id="h-boards">틀은 보드 한 장으로 그립니다</h2>
+      <p>위의 틀을 기획에 쓸 때는 직접 만든 Claude Code 스킬 archi-board로 그립니다. 코드와 문서를 읽어 누가 쓰고, 무엇을 받고, 어떤 차례로 도는지를 보드 한 장에 놓습니다.</p>
+      <blockquote class="say-q"><p>멘토링을 받으며 소프트웨어 공학에 대해서 공부하고 시스템을 기획할려고 할때 어떤 기법으로 공부를 했고 작업을 위해서 시각화된 자료를 만드는 방법을 클로드 스킬로 만들어본 과정이다</p><footer>이재엽</footer></blockquote>
+      <div class="acts"><a class="btn" href="/work/archi-board/">archi-board 자세히</a><a class="go" href="https://gamercross.github.io/archi-board/">예시 보드 열기</a></div>
+    </div>
+    <figure class="b-main" data-reveal>
+      <div class="clip" data-clip><video muted loop playsinline preload="none" poster="/assets/img/archi-clip.webp" width="800" height="450" aria-label="archi-board 예시 보드를 아래로 내려가다 확대하는 화면 녹화. 소리 없이 되풀이된다."><source src="/assets/img/archi-clip.mp4" type="video/mp4"></video><button class="pp" type="button" aria-label="영상 멈추기"><svg class="pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg><svg class="play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a.8.8 0 0 0 1.2.7l9-5.5a.8.8 0 0 0 0-1.4l-9-5.5A.8.8 0 0 0 4 2.5z"/></svg></button></div>
+      <figcaption><b>예시 보드</b>앞면을 아래로 내려가며 본 화면입니다. 소리는 없습니다.</figcaption>
+    </figure>
+    <figure class="b-a" data-reveal>
+      <div class="plate"><img src="/assets/img/archi-memo-960.webp" srcset="/assets/img/archi-memo-960.webp 960w, /assets/img/archi-memo-1600.webp 1600w" sizes="(max-width: 1080px) 94vw, 30vw" width="1600" height="1000" loading="lazy" decoding="async" alt="작은 메모 앱을 읽어 그린 예시 보드. 누가 쓰나, 받는 도움, 하는 일, 프로그램, 남는 것이 층으로 놓여 있다."></div>
+      <figcaption><b>메모 앱 보드</b>작은 앱 하나를 층으로 나눈 예시</figcaption>
+    </figure>
+    <figure class="b-b" data-reveal>
+      <div class="plate"><img src="/assets/img/archi-back-960.webp" srcset="/assets/img/archi-back-960.webp 960w, /assets/img/archi-back-1600.webp 1600w" sizes="(max-width: 1080px) 94vw, 30vw" width="1600" height="1000" loading="lazy" decoding="async" alt="archi-board 예시 보드의 뒷면. 객체 지도와 순서도가 여러 창으로 이어져 있다."></div>
+      <figcaption><b>보드 뒷면</b>만드는 사람이 보는 객체 지도와 순서도</figcaption>
+    </figure>
+    <figure class="b-c" data-reveal>
+      <div class="plate"><img src="/assets/img/archi-talk-960.webp" srcset="/assets/img/archi-talk-960.webp 960w, /assets/img/archi-talk-1280.webp 1280w" sizes="(max-width: 1080px) 94vw, 30vw" width="1280" height="800" loading="lazy" decoding="async" alt="발표 덱 첫 장. AI가 짜 주는 시대, 무엇을 믿고 만들까. 시스템 설계 7단계 위에 세운 스킬, archi-board."></div>
+      <figcaption><b>수업 발표</b>설계 일곱 단계를 이 보드로 다시 그린 덱</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section class="sec" aria-labelledby="h-after">
   <div class="wrap">
     <div class="contact" data-reveal>
       <div class="l">
         <h2 id="h-after">이 틀로 가는 곳</h2>
-        <div class="acts"><a class="btn" href="/career-roadmap/">커리어 로드맵</a><a class="go" href="/#work">만든 것 보기</a></div>
-      </div>
-      <div class="else">
-        <a href="/career-roadmap/"><b>커리어 로드맵</b><span>진로 계획 자세히</span></a>
-        <a href="/#work"><b>만든 것</b><span>archi-board · Floe · DOTCI · MiniMall</span></a>
-        <a href="/design/"><b>디자인</b><span>경상롤드컵 제1회 포스터 · 방송 화면, 편집 영상</span></a>
+        <nav class="big-links" aria-label="이어서 볼 곳">
+          <a href="/career-roadmap/">커리어 로드맵 <span>진로 계획 자세히</span></a>
+          <a href="/#work">만든 것 <span>archi-board · Floe · DOTCI · MiniMall</span></a>
+          <a href="/design/">디자인 <span>경상롤드컵 제1회 포스터 · 방송 화면, 편집 영상</span></a>
+        </nav>
       </div>
     </div>
   </div>
@@ -242,9 +268,8 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p class="built" aria-hidden="true">gamercross</p>
     <div class="small">
-      <span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span>
+      <span><b>gamercross</b><span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span></span>
       <nav aria-label="맺음 이동">
         <a href="/#work">만든 것</a><a href="/design/">디자인</a><a href="/how-i-work/">일하는 법</a><a href="/career-roadmap/">커리어 로드맵</a>
       </nav>
@@ -254,5 +279,6 @@
     </div>
   </div>
 </footer>
+
 </body>
 </html>

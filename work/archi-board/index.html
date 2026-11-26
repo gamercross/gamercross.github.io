@@ -49,13 +49,13 @@
 
 <section class="p-hero" aria-labelledby="h-name">
   <div class="wrap">
-    <div class="words" data-reveal>
+    <div class="words">
       <h1 id="h-name">archi-board</h1>
       <p class="what">코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 Claude Code 스킬</p>
       <blockquote class="say-q"><p>멘토링을 받으며 소프트웨어 공학에 대해서 공부하고 시스템을 기획할려고 할때 어떤 기법으로 공부를 했고 작업을 위해서 시각화된 자료를 만드는 방법을 클로드 스킬로 만들어본 과정이다</p><footer>이재엽</footer></blockquote>
       <div class="acts"><a class="btn" href="https://gamercross.github.io/archi-board/">예시 보드 열기</a><a class="go" href="#proof">근거 보기</a></div>
     </div>
-    <figure class="pic" data-reveal>
+    <figure class="pic">
       <div class="plate"><img src="/assets/img/archi-cover-1400.webp" srcset="/assets/img/archi-cover-960.webp 960w, /assets/img/archi-cover-1400.webp 1400w, /assets/img/archi-cover-2752.webp 2752w" sizes="(max-width: 1080px) 94vw, 56vw" width="1400" height="874" fetchpriority="high" alt="archi-board 예시 보드의 앞면 전체. 목표 · 원칙 아래로 유저층 · 사용자 인터페이스 · 기능(BPMN) · 인프라 · 엔진 네 층에 상자가 놓이고 화살표로 이어진다"></div>
       <figcaption class="cap"><b>앞면</b>처음 보는 사람이 보는 쪽, 네 층이 한 장에.</figcaption>
     </figure>
@@ -65,7 +65,7 @@
 <section class="sec" id="glance" aria-labelledby="h-glance">
   <div class="wrap glance" data-reveal>
     <h2 id="h-glance">한눈에</h2>
-    <dl class="kv">
+    <dl class="kv cue">
       <div><dt>무엇</dt><dd>프로젝트를 읽어 그리는 무한 보드 한 장</dd></div>
       <div><dt>언제</dt><dd>2026.10 – 11</dd></div>
       <div><dt>내 몫</dt><dd>혼자. 엔진 · 스킬 · 예시 보드</dd></div>
@@ -127,7 +127,7 @@
         <p>혼자 만들었고, 누구나 쓸 수 있게 MIT 라이선스로 공개했습니다.</p>
         <p class="note">누구나 열어 볼 수 있는 주소만 놓았습니다.</p>
       </div>
-      <ul>
+      <ul class="cue">
         <li><a href="https://gamercross.github.io/archi-board/"><b>예시 보드</b><span>gamercross.github.io/archi-board</span></a></li>
         <li><a href="https://github.com/gamercross/archi-board"><b>저장소</b><span>github.com/gamercross/archi-board · MIT</span></a></li>
         <li><a href="https://gamercross.github.io/archi-board/talks/2026-11-18-sw-engineering/"><b>수업 발표 덱</b><span>AI 시대, 무엇을 믿고 만들까</span></a></li>
@@ -148,9 +148,8 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p class="built" aria-hidden="true">gamercross</p>
     <div class="small">
-      <span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span>
+      <span><b>gamercross</b><span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span></span>
       <nav aria-label="맺음 이동">
         <a href="/#work">만든 것</a><a href="/design/">디자인</a><a href="/how-i-work/">일하는 법</a><a href="/career-roadmap/">커리어 로드맵</a>
       </nav>
@@ -160,5 +159,6 @@
     </div>
   </div>
 </footer>
+
 </body>
 </html>

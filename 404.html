@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="/assets/tokens.css">
 <link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/works.js" defer></script>
 <script src="/assets/site.js" defer></script>
 </head>
 <body data-page="">
@@ -47,12 +48,12 @@
 <main>
 <section class="lost" aria-labelledby="h-lost">
   <div class="wrap">
-    <div class="words" data-reveal>
+    <div class="words">
       <h1 id="h-lost" tabindex="-1">찾는 쪽이 없습니다</h1>
       <p>주소가 바뀌었거나 지워진 쪽입니다. 아래에서 골라 가 보세요.</p>
       <div class="acts"><a class="btn" href="/">첫 장으로</a><a class="go" href="/#work">만든 것 보기</a></div>
     </div>
-    <ul data-reveal>
+    <ul class="cue">
       <li><a href="/work/archi-board/"><b>archi-board</b><span>코드와 문서를 읽어 아키텍처 보드 한 장을 그리는 스킬</span></a></li>
       <li><a href="/work/floe/"><b>Floe</b><span>AI에게 코드를 맡기는 사람을 돕는 데스크톱 앱</span></a></li>
       <li><a href="/work/dotci/"><b>DOTCI</b><span>장소에 도착하면 쪽지가 열리는 신입생용 웹</span></a></li>
@@ -62,13 +63,22 @@
     </ul>
   </div>
 </section>
+
+<section class="sec" aria-labelledby="h-lost-works">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <h2 id="h-lost-works">만든 것</h2>
+      <p>개발 작품 넷. 그림을 눌러 한 장씩 열어 보세요.</p>
+    </div>
+    <ul class="works" data-works="home" data-kinds="dev"></ul>
+  </div>
+</section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <p class="built" aria-hidden="true">gamercross</p>
     <div class="small">
-      <span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span>
+      <span><b>gamercross</b><span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span></span>
       <nav aria-label="맺음 이동">
         <a href="/#work">만든 것</a><a href="/design/">디자인</a><a href="/how-i-work/">일하는 법</a><a href="/career-roadmap/">커리어 로드맵</a>
       </nav>
@@ -78,5 +88,6 @@
     </div>
   </div>
 </footer>
+
 </body>
 </html>
