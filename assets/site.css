@@ -150,18 +150,19 @@ input, textarea { caret-color: var(--accent); }
 .work .line { margin-top: 4px; }
 .work .award { margin-top: 8px; font-weight: 600; }
 .work .meta { margin-top: 4px; font-size: var(--t-s); color: var(--faint); }
-.after { margin-top: 48px; }
+.after { margin-top: 40px; }
 
 /* 그 밖에 끝낸 것: 그림 없이 진행표 줄 */
-.more { margin-top: 128px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px var(--gutter); }
+.more { margin-top: 80px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px var(--gutter); }
+#work + #how { margin-top: clamp(96px, 8vw, 120px); }
 .more-head { grid-column: 1 / span 4; }
-.more-head h3 { font-size: clamp(22px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.02em; }
-.more-head p { margin-top: 8px; color: var(--muted); font-size: var(--t-s); }
+.more-head h3 { font-size: var(--t-l); line-height: 1.2; letter-spacing: -0.03em; }
+.more-head p { margin-top: 12px; color: var(--muted); }
 .more ul { grid-column: 5 / -1; grid-template-columns: 1fr 1fr; gap: 16px var(--gutter); }
 .more li { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 8px 0; align-content: start; }
-.more .w b { display: block; font-size: var(--t-m); font-weight: 600; line-height: 1.4; }
+.more .w b { display: block; font-size: clamp(20px, 1.7vw, 24px); font-weight: 600; line-height: 1.35; }
 .more .w span { display: block; margin-top: 4px; color: var(--muted); }
-.more .m { color: var(--muted); font-size: var(--t-s); }
+.more .m { color: var(--muted); }
 .more .o { display: flex; flex-wrap: wrap; gap: 0 20px; }
 .more .o a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--ink) 40%, transparent); }
 .more .o a:hover { text-decoration-color: var(--ink); }
