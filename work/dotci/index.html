@@ -4,136 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DOTCI · 이재엽 (gamercross)</title>
-<meta name="description" content="DOTCI: 캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹. 다섯 칸과 열리는 근거.">
+<meta name="description" content="DOTCI: 캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹. 이재엽(gamercross)이 3인 팀에서 UI 디자인 · 사용자 평가 · 발표를 맡았다.">
+<link rel="canonical" href="https://gamercross.github.io/work/dotci/">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="gamercross">
 <meta property="og:title" content="DOTCI · 이재엽 (gamercross)">
-<meta property="og:description" content="캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹. 3인 팀의 UI 디자인.">
+<meta property="og:description" content="캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹. 3인 팀, UI 디자인 · 사용자 평가 · 발표.">
 <meta property="og:url" content="https://gamercross.github.io/work/dotci/">
 <meta property="og:image" content="https://gamercross.github.io/assets/img/dotci-display.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="450">
+<meta property="og:image:alt" content="DOTCI 전시 부스 화면">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://gamercross.github.io/work/dotci/">
-<meta name="theme-color" content="#BFD4F2">
-<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta name="twitter:creator" content="@gamercross98">
+<meta name="theme-color" content="#0E1118">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
-<link rel="stylesheet" href="../../assets/site.css">
-<script src="../../assets/site.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
 </head>
-<body>
-<a class="skip" href="#made">본문으로 건너뛰기</a>
-
-<header class="top grid pad f-dotci">
-  <p class="who"><a href="../../">이재엽 · gamercross</a></p>
-  <p class="now">작품 넷 가운데 셋째, DOTCI 한 장입니다.</p>
-  <nav aria-label="다른 쪽으로 가기">
-    <a href="../../#work">작품</a>
-    <a href="../../#about" class="hide-s">소개</a>
-    <a href="https://github.com/gamercross">GitHub</a>
-  </nav>
+<body data-page="work">
+<a class="skip" href="#glance">본문으로 건너뛰기</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="gamercross 첫 장">gamercross</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="t">메뉴</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12"/></svg></button>
+    <nav class="menu" id="site-menu" aria-label="사이트 메뉴">
+      <ul>
+        <li><a href="/#work" data-nav="work">만든 것</a></li>
+        <li><a href="/design/" data-nav="design">디자인</a></li>
+        <li><a href="/how-i-work/" data-nav="how">일하는 법</a></li>
+        <li><a href="/career-roadmap/" data-nav="roadmap">커리어 로드맵</a></li>
+        <li><a href="/#about" data-nav="about">소개</a></li>
+        <li><a href="/#contact" data-nav="contact">연락</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
-
 <main>
 
-<section class="d-hero grid pad f-dotci" aria-labelledby="h-name" style="--name:9.4vw; --name-s:27vw">
-  <div class="words">
-    <h1 id="h-name" class="rise">DOTCI</h1>
-    <p class="lead rise" style="--i:1">캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹</p>
-    <a class="button rise" style="--i:2" href="#proof">근거 보기</a>
-  </div>
-  <div class="phones pop-group">
-    <div class="frame pop" style="--r:.4618;--i:0"><img src="../../assets/img/dotci-map.jpg" width="540" height="1169" alt="DOTCI 지도 화면. 캠퍼스 건물마다 쪽지 수가 붙은 점이 있다"></div>
-    <div class="frame pop" style="--r:.4618;--i:1"><img src="../../assets/img/dotci-place.jpg" width="540" height="1169" alt="장소를 누르면 나오는 안내. 책상 열기 단추가 있다"></div>
-    <div class="frame pop" style="--r:.4618;--i:2"><img src="../../assets/img/dotci-locked.jpg" width="540" height="1169" alt="잠긴 책상. 도착하기 전에는 쪽지 본문이 가려져 있다"></div>
-    <div class="frame pop" style="--r:.4618;--i:3"><img src="../../assets/img/dotci-opened.jpg" width="540" height="1169" alt="열린 책상. 도착하면 선배들의 쪽지가 보인다"></div>
-  </div>
-  <dl class="cells five">
-    <div class="c-what"><dt>무엇</dt><dd>장소가 곧 검색어인 위치 기반 웹</dd></div>
-    <div class="c-when"><dt>언제</dt><dd>2026 2학기</dd></div>
-    <div class="c-role"><dt>내 몫</dt><dd>UI 디자인 · 사용자 평가 · 발표 (3인 팀)</dd></div>
-    <div class="c-out"><dt>결과물</dt><dd>공개 웹 서비스. 캠퍼스 21곳, GPS · QR로 도착 확인</dd></div>
-    <div class="c-state"><dt>상태</dt><dd>서비스 공개 중. 우송대학교 비교과 연계 창의융합 협력학습 경진대회 1위</dd></div>
-  </dl>
-</section>
-
-<section class="made grid pad" id="made" aria-labelledby="h-made">
-  <h2 id="h-made">만든 것</h2>
-  <dl class="nums">
-    <div><dd>21</dd><dt><b>곳</b> 우송대 서캠퍼스의 장소</dt></div>
-    <div><dd>2</dd><dt><b>가지 도착 확인</b> GPS · QR</dt></div>
-    <div><dd>200</dd><dt><b>자</b> 쪽지 한 장의 길이</dt></div>
-    <div><dd>3</dd><dt><b>인 팀</b> 개발 · 디자인 · QA</dt></div>
-  </dl>
-  <div class="strip">
-    <figure class="rise">
-      <div class="pic"><img src="../../assets/img/dotci-note.jpg" width="540" height="1169" alt="쪽지 한 장을 크게 본 화면" loading="lazy"></div>
-      <figcaption><b>쪽지</b> 도착해야 본문이 열립니다.</figcaption>
-    </figure>
-    <figure class="rise" style="--i:1">
-      <div class="pic"><img src="../../assets/img/dotci-write.jpg" width="540" height="1169" alt="흔적 남기기 화면. 쪽지 갈래를 고르고 글을 쓴다" loading="lazy"></div>
-      <figcaption><b>남기기</b> 그 장소에서만 씁니다.</figcaption>
-    </figure>
-    <figure class="rise" style="--i:2">
-      <div class="pic"><img src="../../assets/img/dotci-nearby.jpg" width="540" height="1169" alt="지도 위에 뜬 근처 알림. 30미터 앞에 아직 안 연 책상이 있다고 알려 준다" loading="lazy"></div>
-      <figcaption><b>근처 알림</b> 가까워지면 알려 줍니다.</figcaption>
-    </figure>
-    <figure class="rise" style="--i:3">
-      <div class="pic"><img src="../../assets/img/dotci-subjects.jpg" width="540" height="1169" alt="과목별 수강 팁 화면. 과목을 고르면 팁이 있는 장소가 나온다" loading="lazy"></div>
-      <figcaption><b>과목별 팁</b> 어느 장소에 있는지만 보입니다.</figcaption>
-    </figure>
-    <figure class="rise" style="--i:4">
-      <div class="pic"><img src="../../assets/img/dotci-certificate.jpg" width="540" height="1169" alt="내 도감 화면. 다 돌면 캠퍼스 수료증이 나온다" loading="lazy"></div>
-      <figcaption><b>도감</b> 연 장소가 쌓입니다.</figcaption>
-    </figure>
-    <figure class="rise" style="--i:5">
-      <div class="pic"><img src="../../assets/img/dotci-course.jpg" width="540" height="1169" alt="신입생 첫 코스 화면. 다섯 곳을 차례로 돈다" loading="lazy"></div>
-      <figcaption><b>첫 코스</b> 신입생이 돌 차례.</figcaption>
-    </figure>
-  </div>
-  <figure class="half-a rise">
-    <div class="pic"><video data-loop muted loop playsinline preload="none" poster="../../assets/img/dotci-clip.jpg" width="960" height="540" aria-label="DOTCI 시연 영상의 한 대목. 도착하면 잠긴 책상이 열린다. 소리 없이 되풀이된다."><source src="../../assets/img/dotci-clip.mp4" type="video/mp4"></video></div>
-    <figcaption><b>시연 영상</b> 도착하는 순간 잠긴 책상이 열리는 대목, 10초입니다.</figcaption>
-  </figure>
-  <figure class="half-b rise" style="--i:1">
-    <div class="pic"><img src="../../assets/img/dotci-display.jpg" width="800" height="450" alt="전시 부스에 띄운 화면. 지금 이 방에도 책상이 있어요라는 글과 QR, 학과 대항전 순위가 있다." loading="lazy"></div>
-    <figcaption><b>전시 화면</b> 부스에서 QR을 찍으면 그 자리의 책상이 열립니다.</figcaption>
-  </figure>
-</section>
-
-<section class="line grid pad" id="proof" aria-labelledby="h-line">
-  <h2 id="h-line">근거</h2>
-  <p class="note">누구나 열어 볼 수 있는 주소만 놓았습니다.</p>
-  <div class="tree">
-    <div class="roots">
-      <a class="root" href="https://dotci.vercel.app/"><b>서비스</b><span>dotci.vercel.app</span></a>
-      <a class="root" href="https://sangukjeon.github.io/dotci/"><b>체험판</b><span>서버 없이 예시 글로 돌아가는 판</span></a>
-      <a class="root" href="https://github.com/sangukjeon/dotci"><b>저장소</b><span>github.com/sangukjeon/dotci</span></a>
+<section class="p-hero" aria-labelledby="h-name">
+  <div class="wrap">
+    <div class="words">
+      <h1 id="h-name">DOTCI</h1>
+      <p class="what">캠퍼스 장소에 도착하면 선배의 쪽지가 열리는 신입생용 웹</p>
+      <div class="acts"><a class="btn" href="https://dotci.vercel.app/">서비스 열기</a><a class="go" href="#proof">근거 보기</a></div>
     </div>
-    <svg class="rise" style="--i:2" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 16.7 C55 16.7 45 50 100 50"/><path d="M0 50 H100"/><path d="M0 83.3 C55 83.3 45 50 100 50"/>
-    </svg>
-    <div class="trunk f-dotci"><b>DOTCI</b><span>2026 2학기 · 서비스 공개 중</span></div>
+    <figure class="pic">
+      <div class="plate phones"><img src="/assets/img/dotci-map.webp" width="540" height="1169" fetchpriority="high" alt="DOTCI 지도 화면. 캠퍼스 건물마다 쪽지 수가 붙은 점이 있다"><img src="/assets/img/dotci-opened.webp" width="540" height="1169" alt="DOTCI에서 우송도서관 쪽지를 연 화면"></div>
+      <figcaption class="cap"><b>지도와 쪽지</b>도착한 장소의 쪽지만 열립니다.</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="with grid pad" aria-labelledby="h-with">
-  <h2 id="h-with">함께</h2>
-  <p class="rise">3인 팀으로 만들었습니다. 제 몫은 UI 디자인 · 사용자 평가 · 발표입니다. 화면 속 쪽지는 예시 글입니다.</p>
+<section class="sec" id="glance" aria-labelledby="h-glance">
+  <div class="wrap glance" data-reveal>
+    <h2 id="h-glance">한눈에</h2>
+    <dl class="kv cue">
+      <div><dt>무엇</dt><dd>장소가 곧 검색어인 위치 기반 웹</dd></div>
+      <div><dt>언제</dt><dd>2026 2학기</dd></div>
+      <div><dt>내 몫</dt><dd>UI 디자인 · 사용자 평가 · 발표 (3인 팀)</dd></div>
+      <div><dt>결과물</dt><dd>공개 웹 서비스. 캠퍼스 21곳, GPS · QR로 도착 확인</dd></div>
+      <div><dt>상태</dt><dd>서비스 공개 중. 우송대학교 비교과 연계 창의융합 협력학습 경진대회 1위</dd></div>
+    </dl>
+    <div class="proof">
+      <p class="big">경진대회 1위</p>
+      <p class="sub">우송대학교 비교과 연계 창의융합 협력학습 경진대회 · 서비스 공개 중</p>
+      <ul class="facts-line">
+        <li><b>21</b> 곳 <span>우송대 서캠퍼스의 장소</span></li>
+        <li><b>2</b> 가지 도착 확인 <span>GPS · QR</span></li>
+        <li><b>200</b> 자 <span>쪽지 한 장의 길이</span></li>
+        <li><b>3</b> 인 팀 <span>개발 · 디자인 · QA</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<a class="next grid pad f-mini" href="../minimall/" style="--pos:50% 0">
-  <h2>다음 작품</h2>
-  <p class="name">MiniMall</p>
-  <p class="desc">요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰</p>
-  <div class="pic"><img src="../../assets/img/minimall-products.jpg" width="1440" height="900" alt="MiniMall 첫 화면" loading="lazy"></div>
-</a>
+<section class="sec" id="made" aria-labelledby="h-made">
+  <div class="wrap views">
+    <h2 id="h-made" data-reveal>만든 것</h2>
+    <div class="phones-row" role="group" aria-label="DOTCI 화면 여섯" data-reveal>
+      <figure><img src="/assets/img/dotci-note.webp" width="540" height="1169" loading="lazy" decoding="async" alt="쪽지 한 장을 크게 본 화면"><figcaption><b>쪽지</b>도착해야 본문이 열립니다.</figcaption></figure>
+      <figure><img src="/assets/img/dotci-write.webp" width="540" height="1169" loading="lazy" decoding="async" alt="흔적 남기기 화면. 쪽지 갈래를 고르고 글을 쓴다"><figcaption><b>남기기</b>그 장소에서만 씁니다.</figcaption></figure>
+      <figure><img src="/assets/img/dotci-nearby.webp" width="540" height="1169" loading="lazy" decoding="async" alt="지도 위에 뜬 근처 알림. 30미터 앞에 아직 안 연 책상이 있다고 알려 준다"><figcaption><b>근처 알림</b>가까워지면 알려 줍니다.</figcaption></figure>
+      <figure><img src="/assets/img/dotci-subjects.webp" width="540" height="1169" loading="lazy" decoding="async" alt="과목별 수강 팁 화면. 과목을 고르면 팁이 있는 장소가 나온다"><figcaption><b>과목별 팁</b>어느 장소에 있는지만 보입니다.</figcaption></figure>
+      <figure><img src="/assets/img/dotci-certificate.webp" width="540" height="1169" loading="lazy" decoding="async" alt="내 도감 화면. 다 돌면 캠퍼스 수료증이 나온다"><figcaption><b>도감</b>연 장소가 쌓입니다.</figcaption></figure>
+      <figure><img src="/assets/img/dotci-course.webp" width="540" height="1169" loading="lazy" decoding="async" alt="신입생 첫 코스 화면. 다섯 곳을 차례로 돈다"><figcaption><b>첫 코스</b>신입생이 돌 차례.</figcaption></figure>
+    </div>
+    <figure class="s-7" data-reveal>
+      <div class="clip" data-clip><video muted loop playsinline preload="none" loading="lazy" poster="/assets/img/dotci-clip.webp" width="960" height="540" aria-label="DOTCI 시연 영상의 한 대목. 도착하면 잠긴 책상이 열린다. 소리 없이 되풀이된다."><source src="/assets/img/dotci-clip.mp4" type="video/mp4"></video><button class="pp" type="button" aria-label="영상 멈추기"><svg class="pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg><svg class="play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a.8.8 0 0 0 1.2.7l9-5.5a.8.8 0 0 0 0-1.4l-9-5.5A.8.8 0 0 0 4 2.5z"/></svg></button></div>
+      <figcaption><b>시연 영상</b>도착하는 순간 잠긴 책상이 열리는 대목, 10초입니다.</figcaption>
+    </figure>
+    <figure class="s-5r" data-reveal>
+      <div class="plate"><img src="/assets/img/dotci-display.webp" width="800" height="450" loading="lazy" decoding="async" alt="전시 부스에 띄운 화면. 지금 이 방에도 책상이 있어요라는 글과 QR, 학과 대항전 순위가 있다."></div>
+      <figcaption><b>전시 화면</b>부스에서 QR을 찍으면 그 자리의 책상이 열립니다.</figcaption>
+    </figure>
+  </div>
+</section>
 
+<section class="sec" id="proof" aria-labelledby="h-open">
+  <div class="wrap">
+    <div class="open" data-reveal>
+      <div class="l">
+        <h2 id="h-open">직접 열어 보기</h2>
+        <p>3인 팀으로 만들었습니다. 제 몫은 UI 디자인 · 사용자 평가 · 발표입니다. 화면 속 쪽지는 예시 글입니다.</p>
+        <p class="note">누구나 열어 볼 수 있는 주소만 놓았습니다.</p>
+      </div>
+      <ul class="cue">
+        <li><a href="https://dotci.vercel.app/"><b>서비스</b><span>dotci.vercel.app</span></a></li>
+        <li><a href="https://sangukjeon.github.io/dotci/"><b>체험판</b><span>서버 없이 예시 글로 돌아가는 판</span></a></li>
+        <li><a href="https://github.com/sangukjeon/dotci"><b>저장소</b><span>팀원 GitHub의 dotci 저장소</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-label="다음 작품">
+  <div class="wrap">
+    <a class="next" href="/work/minimall/" data-reveal>
+      <span class="w"><b>다음 작품, MiniMall</b><span>요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰</span></span>
+      <span class="pic plate"><img src="/assets/img/minimall-products-720.webp" width="720" height="450" loading="lazy" decoding="async" alt=""></span>
+    </a>
+  </div>
+</section>
 </main>
 
-<footer class="foot grid pad">
-  <p class="name" aria-hidden="true">gamercross</p>
-  <p class="note">이재엽의 작품 색인 · 2026</p>
-  <nav aria-label="맺음 이동"><a href="../../#work">작품</a><a href="../../#about">소개</a><a href="https://github.com/gamercross">GitHub</a></nav>
+<footer class="foot">
+  <div class="wrap">
+    <div class="small">
+      <span><b>gamercross</b><span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span></span>
+      <nav aria-label="맺음 이동">
+        <a href="/#work">만든 것</a><a href="/design/">디자인</a><a href="/how-i-work/">일하는 법</a><a href="/career-roadmap/">커리어 로드맵</a>
+      </nav>
+      <nav class="links" aria-label="바깥 계정">
+        <a href="https://github.com/gamercross" rel="me noopener">GitHub</a><a href="https://www.linkedin.com/in/leejaeyeub/" rel="me noopener">LinkedIn</a><a href="https://www.instagram.com/jaeyeob98/" rel="me noopener">Instagram @jaeyeob98</a><a href="https://x.com/gamercross98" rel="me noopener">X @gamercross98</a>
+      </nav>
+    </div>
+  </div>
 </footer>
 
 </body>

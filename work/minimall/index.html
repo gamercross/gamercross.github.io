@@ -4,118 +4,162 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MiniMall · 이재엽 (gamercross)</title>
-<meta name="description" content="MiniMall: 요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰. 다섯 칸과 열리는 근거.">
+<meta name="description" content="MiniMall: 요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰. 이재엽(gamercross)이 발표 덱 · 대본과 사용자 쪽 점검을 맡았다. 팀 시험 110개 통과.">
+<link rel="canonical" href="https://gamercross.github.io/work/minimall/">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="gamercross">
 <meta property="og:title" content="MiniMall · 이재엽 (gamercross)">
-<meta property="og:description" content="요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰. 팀의 발표 덱 · 대본과 사용자 쪽 점검.">
+<meta property="og:description" content="요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰. 발표 덱 · 대본, 사용자 쪽 점검. 팀 시험 110개 통과.">
 <meta property="og:url" content="https://gamercross.github.io/work/minimall/">
-<meta property="og:image" content="https://gamercross.github.io/assets/img/minimall-products.jpg">
+<meta property="og:image" content="https://gamercross.github.io/assets/img/og-minimall.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MiniMall 상품 카드가 찬 화면">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://gamercross.github.io/work/minimall/">
-<meta name="theme-color" content="#F0C3CD">
-<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta name="twitter:creator" content="@gamercross98">
+<meta name="theme-color" content="#0E1118">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
-<link rel="stylesheet" href="../../assets/site.css">
-<script src="../../assets/site.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
 </head>
-<body>
-<a class="skip" href="#made">본문으로 건너뛰기</a>
-
-<header class="top grid pad f-mini">
-  <p class="who"><a href="../../">이재엽 · gamercross</a></p>
-  <p class="now">작품 넷 가운데 넷째, MiniMall 한 장입니다.</p>
-  <nav aria-label="다른 쪽으로 가기">
-    <a href="../../#work">작품</a>
-    <a href="../../#about" class="hide-s">소개</a>
-    <a href="https://github.com/gamercross">GitHub</a>
-  </nav>
+<body data-page="work">
+<a class="skip" href="#glance">본문으로 건너뛰기</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="gamercross 첫 장">gamercross</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="t">메뉴</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12"/></svg></button>
+    <nav class="menu" id="site-menu" aria-label="사이트 메뉴">
+      <ul>
+        <li><a href="/#work" data-nav="work">만든 것</a></li>
+        <li><a href="/design/" data-nav="design">디자인</a></li>
+        <li><a href="/how-i-work/" data-nav="how">일하는 법</a></li>
+        <li><a href="/career-roadmap/" data-nav="roadmap">커리어 로드맵</a></li>
+        <li><a href="/#about" data-nav="about">소개</a></li>
+        <li><a href="/#contact" data-nav="contact">연락</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
-
 <main>
 
-<section class="d-hero grid pad f-mini" aria-labelledby="h-name" style="--name:7.2vw; --name-s:21vw">
-  <div class="words">
-    <h1 id="h-name" class="rise">MiniMall</h1>
-    <p class="lead rise" style="--i:1">요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰</p>
-    <a class="button rise" style="--i:2" href="#proof">근거 보기</a>
+<section class="p-hero" aria-labelledby="h-name">
+  <div class="wrap">
+    <div class="words">
+      <h1 id="h-name">MiniMall</h1>
+      <p class="what">요구 명세와 시험으로 끝을 재는 수업용 가상 쇼핑몰</p>
+      <div class="acts"><a class="btn" href="#proof">근거 보기</a><a class="go" href="https://github.com/moonjjang4421/Minimall">저장소</a></div>
+    </div>
+    <figure class="pic">
+      <div class="plate"><img src="/assets/img/minimall-products-1440.webp" srcset="/assets/img/minimall-products-720.webp 720w, /assets/img/minimall-products-1440.webp 1440w" sizes="(max-width: 1080px) 94vw, 56vw" width="1440" height="900" fetchpriority="high" alt="MiniMall 상품 목록. 검색 단추 아래 전체 상품 4, 상품 카드마다 이름 · 값 · 재고가 적혀 있다."></div>
+      <figcaption class="cap"><b>상품 목록</b>찾고, 고르고, 담는 첫 화면.</figcaption>
+    </figure>
   </div>
-  <div class="shot pop-group" style="--shot:1.6"><div class="shutter"><img src="../../assets/img/minimall-products.jpg" width="1440" height="900" alt="MiniMall 첫 화면. 머리 띠 아래에 상품 찾기 칸과 상품 목록이 있다."></div></div>
-  <dl class="cells five">
-    <div class="c-what"><dt>무엇</dt><dd>미션 여섯으로 키운 작은 쇼핑몰</dd></div>
-    <div class="c-when"><dt>언제</dt><dd>2026 2학기</dd></div>
-    <div class="c-role"><dt>내 몫</dt><dd>발표 덱 · 대본, 사용자 쪽 점검</dd></div>
-    <div class="c-out"><dt>결과물</dt><dd>팀 결과: 시험 110개 통과, 요구 43 · 수용 기준 50</dd></div>
-    <div class="c-state"><dt>상태</dt><dd>저장소 공개 · 마지막 반영 11.04</dd></div>
-  </dl>
 </section>
 
-<section class="made grid pad" id="made" aria-labelledby="h-made">
-  <h2 id="h-made">만든 것</h2>
-  <dl class="nums">
-    <div><dd>110</dd><dt><b>시험 통과</b> 팀 결과</dt></div>
-    <div><dd>43</dd><dt><b>기능 요구</b></dt></div>
-    <div><dd>50</dd><dt><b>수용 기준</b></dt></div>
-    <div><dd>18</dd><dt><b>비기능 요구</b></dt></div>
-  </dl>
-  <figure class="half-a rise">
-    <div class="pic"><img src="../../assets/img/minimall-home.jpg" width="820" height="1180" alt="MiniMall 첫 화면을 좁은 창에서 본 모습. 상품 찾기 칸과 상품 카드 셋." loading="lazy"></div>
-    <figcaption><b>상품</b> 찾고, 고르고, 담는 첫 화면입니다.</figcaption>
-  </figure>
-  <div class="stack">
-    <figure class="rise" style="--i:1">
-      <div class="pic"><img src="../../assets/img/m-cart.jpg" width="1132" height="348" alt="장바구니 화면. 상품 두 개와 수량 칸, 삭제 단추." loading="lazy"></div>
-      <figcaption><b>장바구니</b> 수량을 바꾸고 주문으로 넘어갑니다.</figcaption>
+<section class="sec" id="glance" aria-labelledby="h-glance">
+  <div class="wrap glance" data-reveal>
+    <h2 id="h-glance">한눈에</h2>
+    <dl class="kv cue">
+      <div><dt>무엇</dt><dd>미션 여섯으로 키운 작은 쇼핑몰</dd></div>
+      <div><dt>언제</dt><dd>2026 2학기</dd></div>
+      <div><dt>내 몫</dt><dd>발표 덱 · 대본, 사용자 쪽 점검</dd></div>
+      <div><dt>결과물</dt><dd>팀 결과: 시험 110개 통과, 요구 43 · 수용 기준 50</dd></div>
+      <div><dt>상태</dt><dd>저장소 공개 · 마지막 반영 11.04</dd></div>
+    </dl>
+    <div class="proof">
+      <p class="big">팀 시험 110개 통과</p>
+      <p class="sub">요구 명세와 수용 기준으로 끝을 쟀습니다 · 저장소 공개</p>
+      <ul class="facts-line">
+        <li><b>110</b> 시험 통과 <span>팀 결과</span></li>
+        <li><b>43</b> 기능 요구 <span>요구 명세</span></li>
+        <li><b>50</b> 수용 기준 <span>요구마다 끝을 재는 줄</span></li>
+        <li><b>18</b> 비기능 요구 <span>빠르기 · 안전 같은 것</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="made" aria-labelledby="h-made">
+  <div class="wrap views">
+    <h2 id="h-made" data-reveal>만든 것</h2>
+    <figure class="s-port" data-reveal>
+      <div class="plate"><img src="/assets/img/minimall-home.webp" width="820" height="1112" loading="lazy" decoding="async" alt="MiniMall 첫 화면을 좁은 창에서 본 모습. 상품 찾기 칸과 상품 카드 셋."></div>
+      <figcaption><b>상품</b>찾고, 고르고, 담는 첫 화면입니다.</figcaption>
     </figure>
-    <figure class="log rise" style="--i:2">
-      <div class="pic"><pre aria-label="시험 실행 결과의 끝부분">
-ℹ tests 110
+    <div class="s-side">
+      <figure data-reveal>
+        <div class="plate"><img src="/assets/img/m-cart.webp" width="1132" height="348" loading="lazy" decoding="async" alt="장바구니 화면. 상품 두 개와 수량 칸, 삭제 단추."></div>
+        <figcaption><b>장바구니</b>수량을 바꾸고 주문으로 넘어갑니다.</figcaption>
+      </figure>
+      <figure class="log" data-reveal>
+        <pre aria-label="시험 실행 결과의 끝부분"><code>ℹ tests 110
 ℹ suites 0
 ℹ pass 110
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
-ℹ todo 0</pre></div>
-      <figcaption><b>시험 기록</b> 팀 저장소에 남은 2026.11.04 실행 결과의 끝부분입니다. 같은 날 범위 감사는 시험이 다 통과해도 요구를 다 채운 것은 아니라고 적었습니다.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="line grid pad" id="proof" aria-labelledby="h-line">
-  <h2 id="h-line">근거</h2>
-  <p class="note">누구나 열어 볼 수 있는 주소만 놓았습니다.</p>
-  <div class="tree">
-    <div class="roots">
-      <a class="root" href="https://github.com/moonjjang4421/Minimall"><b>저장소</b><span>github.com/moonjjang4421/Minimall</span></a>
-      <a class="root" href="https://github.com/moonjjang4421/Minimall/blob/main/docs/SCOPE_AUDIT.md"><b>범위 감사</b><span>요구 111줄을 구현 · 시험과 견준 문서</span></a>
-      <a class="root" href="https://github.com/moonjjang4421/Minimall/blob/main/docs/evidence/SCOPE-AUDIT-20261104/regression.txt"><b>시험 기록</b><span>110개 통과 · 실패 0</span></a>
+ℹ todo 0</code></pre>
+        <figcaption><b>시험 기록</b>팀 저장소에 남은 2026.11.04 실행 결과의 끝부분입니다. 같은 날 범위 감사는 시험이 다 통과해도 요구를 다 채운 것은 아니라고 적었습니다.</figcaption>
+      </figure>
     </div>
-    <svg class="rise" style="--i:2" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 16.7 C55 16.7 45 50 100 50"/><path d="M0 50 H100"/><path d="M0 83.3 C55 83.3 45 50 100 50"/>
-    </svg>
-    <div class="trunk f-mini"><b>MiniMall</b><span>2026 2학기 · 저장소 공개</span></div>
   </div>
 </section>
 
-<section class="with grid pad" aria-labelledby="h-with">
-  <h2 id="h-with">함께</h2>
-  <p class="rise">수업 팀 과제입니다. 시험 110개 통과는 팀 결과이고, 제 몫은 발표 덱 · 대본과 사용자 쪽 점검입니다.</p>
+<section class="sec" aria-labelledby="h-bits">
+  <div class="wrap bits" data-reveal>
+    <h2 id="h-bits">가까이 본 화면</h2>
+    <div class="row">
+      <figure><div><img src="/assets/img/m-cards.webp" width="772" height="386" loading="lazy" decoding="async" alt="상품 카드 셋. 이름 · 값 · 재고가 적혀 있다"></div><figcaption>상품 카드</figcaption></figure>
+      <figure><div><img src="/assets/img/m-buy.webp" width="550" height="391" loading="lazy" decoding="async" alt="상품 한 개 화면. 장바구니 담기와 바로 구매"></div><figcaption>상품 한 개</figcaption></figure>
+      <figure><div><img src="/assets/img/m-box.webp" width="552" height="390" loading="lazy" decoding="async" alt="상품 그림. 상자 하나"></div><figcaption>상품 그림</figcaption></figure>
+    </div>
+  </div>
 </section>
 
-<a class="next grid pad" href="../../#work">
-  <h2>처음으로</h2>
-  <p class="name">작품 색인</p>
-  <p class="desc">네 작품을 같은 다섯 칸으로 견줍니다.</p>
-  <div class="pic"><img src="../../assets/img/floe-workspace.jpg" width="1600" height="955" alt="Floe 작업실 화면" loading="lazy"></div>
-</a>
+<section class="sec" id="proof" aria-labelledby="h-open">
+  <div class="wrap">
+    <div class="open" data-reveal>
+      <div class="l">
+        <h2 id="h-open">직접 열어 보기</h2>
+        <p>수업 팀 과제입니다. 시험 110개 통과는 팀 결과이고, 제 몫은 발표 덱 · 대본과 사용자 쪽 점검입니다.</p>
+        <p class="note">누구나 열어 볼 수 있는 주소만 놓았습니다.</p>
+      </div>
+      <ul class="cue">
+        <li><a href="https://github.com/moonjjang4421/Minimall"><b>저장소</b><span>팀원 GitHub의 Minimall 저장소</span></a></li>
+        <li><a href="https://github.com/moonjjang4421/Minimall/blob/main/docs/SCOPE_AUDIT.md"><b>범위 감사</b><span>요구 111줄을 구현 · 시험과 견준 문서</span></a></li>
+        <li><a href="https://github.com/moonjjang4421/Minimall/blob/main/docs/evidence/SCOPE-AUDIT-20261104/regression.txt"><b>시험 기록</b><span>110개 통과 · 실패 0</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
+<section class="sec" aria-label="다음">
+  <div class="wrap">
+    <a class="next" href="/how-i-work/" data-reveal>
+      <span class="w"><b>다음은 일하는 법</b><span>작은 목표를 큰 목표에 잇고, 할 일을 <span class="nw">나 · AI · 남</span>으로 나눕니다.</span></span>
+      <span class="pic plate"><svg class="fig-svg ladder" viewBox="0 0 368 236" aria-hidden="true"> <title id="nx-ladder-t">목표 사다리</title> <desc id="nx-ladder-d">아래에서 위로 네 칸: 이번 주(매주 일요일), 이번 달(매달 첫 금요일), 이번 분기(1 · 4 · 7 · 10월), 올해(해가 바뀔 때). 칸마다 바로 위 칸으로 선이 이어진다.</desc> <defs><marker id="nx-ladder-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="ar" d="M0 0 10 5 0 10z"/></marker></defs> <rect class="box" x="150" y="0" width="218" height="48"/><text class="lg" x="166" y="31">올해</text><text class="sm" x="352" y="30" text-anchor="end">해가 바뀔 때</text> <rect class="box" x="100" y="62" width="218" height="48"/><text class="lg" x="116" y="93">이번 분기</text><text class="sm" x="302" y="92" text-anchor="end">1 · 4 · 7 · 10월</text> <rect class="box" x="50" y="124" width="218" height="48"/><text class="lg" x="66" y="155">이번 달</text><text class="sm" x="252" y="154" text-anchor="end">매달 첫 금요일</text> <rect class="box-a" x="0" y="186" width="218" height="48"/><text class="lg on-a" x="16" y="217">이번 주</text><text class="sm on-a" x="202" y="216" text-anchor="end">매주 일요일</text> <path class="ln" d="M318 86h22V52" marker-end="url(#nx-ladder-ar)"/> <path class="ln" d="M268 148h22v-34" marker-end="url(#nx-ladder-ar)"/> <path class="ln" d="M218 210h22v-34" marker-end="url(#nx-ladder-ar)"/> </svg> </span>
+    </a>
+  </div>
+</section>
 </main>
 
-<footer class="foot grid pad">
-  <p class="name" aria-hidden="true">gamercross</p>
-  <p class="note">이재엽의 작품 색인 · 2026</p>
-  <nav aria-label="맺음 이동"><a href="../../#work">작품</a><a href="../../#about">소개</a><a href="https://github.com/gamercross">GitHub</a></nav>
+<footer class="foot">
+  <div class="wrap">
+    <div class="small">
+      <span><b>gamercross</b><span>이재엽 · 2026 · <span lang="en">MAKE, FIX, GO HIGH.</span></span></span>
+      <nav aria-label="맺음 이동">
+        <a href="/#work">만든 것</a><a href="/design/">디자인</a><a href="/how-i-work/">일하는 법</a><a href="/career-roadmap/">커리어 로드맵</a>
+      </nav>
+      <nav class="links" aria-label="바깥 계정">
+        <a href="https://github.com/gamercross" rel="me noopener">GitHub</a><a href="https://www.linkedin.com/in/leejaeyeub/" rel="me noopener">LinkedIn</a><a href="https://www.instagram.com/jaeyeob98/" rel="me noopener">Instagram @jaeyeob98</a><a href="https://x.com/gamercross98" rel="me noopener">X @gamercross98</a>
+      </nav>
+    </div>
+  </div>
 </footer>
 
 </body>
