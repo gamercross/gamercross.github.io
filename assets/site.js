@@ -2,13 +2,27 @@
 // 위 메뉴(폰 메뉴 펼침)와 지금 쪽 표시는 로드맵도 같이 쓴다: <body data-page="roadmap">
 document.documentElement.classList.add('js');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// 영어판(<html lang="en">)이 쓰는 글. 한국어 쪽은 그대로, 영어 쪽만 이 낱말을 쓴다.
+const EN = document.documentElement.lang === 'en';
+const L = EN
+  ? { menu: 'Menu', close: 'Close', all: 'All', n: (name, n) => `${name}, ${n}`, allN: n => `All ${n} works`, kindN: (k, n) => `${k}: ${n}`, yt: t => `${t}, watch on YouTube`, zoom: t => `${t}, view larger`, open: name => `Open ${name}`, work: t => `${t} project page`, play: 'Play video', pause: 'Pause video', swap: ['a dream', 'a star'], metaCut: /^Gyeongsang LoL Cup #1 · / }
+  : { menu: '메뉴', close: '닫기', all: '전체', n: (name, n) => `${name} ${n}개`, allN: n => `작품 ${n}개 모두`, kindN: (k, n) => `${k} ${n}개`, yt: t => `${t}, 유튜브에서 보기`, zoom: t => `${t}, 크게 보기`, open: name => `${name} 열기`, work: t => `${t} 작품 쪽`, play: '영상 재생', pause: '영상 멈추기', swap: ['하나의 꿈이', '하나의 별이'], metaCut: /^경상롤드컵 제1회 · / };
+
+// 한국어 ↔ English: 지금 쪽의 다른 말 판으로 간다. /x/ ↔ /en/x/, 로드맵은 /career-roadmap/x/ ↔ /career-roadmap/en/x/
+// (header의 <a data-lang-link>. 로드맵도 같은 header를 쓰면 이 규칙을 그대로 따른다)
+(() => {
+  const a = document.querySelector('a[data-lang-link]');
+  if (!a) return;
+  const p = location.pathname, base = p.startsWith('/career-roadmap/') ? '/career-roadmap/' : '/', rest = p.slice(base.length);
+  a.href = (rest === 'en' || rest.startsWith('en/') ? base + rest.replace(/^en\/?/, '') : base + 'en/' + rest) + location.hash;
+})();
 
 // 수상: works.js의 AWARDS 한 곳에서 말을 만든다. 첫 장 작품 칸 · 수상 구역 · 작품 쪽이 같은 말을 쓴다
 const award = {
   of: id => (window.AWARDS || []).find(a => a.work === id),
   day: d => d.replace(/-/g, '.'),
   head: a => `${AWARD_SCOPES[a.scope]} · ${a.rank}`,
-  where: a => `${a.name}(${a.host}, ${award.day(a.date)})`,
+  where: a => `${a.name}${EN ? ' ' : ''}(${a.host}, ${award.day(a.date)})`,
   line: a => `${award.head(a)} — ${award.where(a)}`,
 };
 
@@ -18,7 +32,7 @@ const award = {
   document.querySelectorAll('.menu a[data-nav]').forEach(a => { if (a.dataset.nav === page) a.setAttribute('aria-current', a.pathname === location.pathname && !a.hash ? 'page' : 'true'); });
   const btn = document.querySelector('.menu-btn'), menu = document.getElementById('site-menu');
   if (!btn || !menu) return;
-  const set = open => { btn.setAttribute('aria-expanded', open); menu.classList.toggle('is-open', open); btn.querySelector('.t').textContent = open ? '닫기' : '메뉴'; };
+  const set = open => { btn.setAttribute('aria-expanded', open); menu.classList.toggle('is-open', open); btn.querySelector('.t').textContent = open ? L.close : L.menu; };
   btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
   menu.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { set(false); btn.focus(); } });
@@ -62,11 +76,11 @@ const award = {
     if (w.line) li.append(el('p', 'line', w.line));
     if (w.value) li.append(el('p', 'value', w.value));
     // 메타는 한 줄: 해 · 맡은 일만. 어디로 가는지는 링크 이름(화면 읽기 도구)에 둔다
-    if (w.kind === 'video' && !w.href) a.setAttribute('aria-label', `${w.title}, 유튜브에서 보기`);
-    if (w.kind === 'graphic') a.setAttribute('aria-label', `${w.title}, 크게 보기`);
+    if (w.kind === 'video' && !w.href) a.setAttribute('aria-label', L.yt(w.title));
+    if (w.kind === 'graphic') a.setAttribute('aria-label', L.zoom(w.title));
     const aw = award.of(w.id);
     if (aw) li.append(el('p', 'award', award.head(aw)));
-    const metaText = w.kind === 'video' && !w.href ? '' : (w.meta || '').replace(/^경상롤드컵 제1회 · /, '');
+    const metaText = w.kind === 'video' && !w.href ? '' : (w.meta || '').replace(L.metaCut, '');
     if (metaText) li.append(el('p', 'meta', metaText));
     list.append(li);
   });
@@ -94,11 +108,11 @@ const award = {
   const bar = document.querySelector('[data-filter]');
   const count = document.querySelector('[data-count]');
   if (!bar) return;
-  const groups = [['all', '전체', items.length], ...kinds.map(k => [k, KINDS[k], items.filter(w => w.kind === k).length])].filter(g => g[2] > 0);
+  const groups = [['all', L.all, items.length], ...kinds.map(k => [k, KINDS[k], items.filter(w => w.kind === k).length])].filter(g => g[2] > 0);
   const btns = groups.map(([k, name, n]) => {
     const b = el('button'); b.type = 'button'; b.dataset.k = k; b.setAttribute('aria-pressed', k === 'all');
     b.append(name); const s = el('span', 'n', String(n)); s.setAttribute('aria-hidden', 'true'); b.append(s);
-    b.setAttribute('aria-label', `${name} ${n}개`);
+    b.setAttribute('aria-label', L.n(name, n));
     bar.append(b); return b;
   });
   const apply = k => {
@@ -109,7 +123,7 @@ const award = {
     if (!reduce) { void list.offsetWidth; on.forEach(li => li.classList.add('enter')); }
     const shown = on.length;
     btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k));
-    if (count) count.textContent = k === 'all' ? `작품 ${shown}개 모두` : `${KINDS[k]} ${shown}개`;
+    if (count) count.textContent = k === 'all' ? L.allN(shown) : L.kindN(KINDS[k], shown);
   };
   btns.forEach(b => b.addEventListener('click', () => apply(b.dataset.k)));
   // 처음 보일 때 작품마다 한 번 떠오르기 (차례로 70ms씩)
@@ -117,7 +131,7 @@ const award = {
     const seen = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const li = e.target; li.style.animationDelay = (([...list.children].indexOf(li) % 4) * 70) + 'ms'; li.classList.add('enter'); seen.unobserve(li); } }), { rootMargin: '0px 0px -8% 0px' });
     list.querySelectorAll('.work').forEach(li => seen.observe(li));
   }
-  if (count) count.textContent = `작품 ${items.length}개 모두`;
+  if (count) count.textContent = L.allN(items.length);
 })();
 
 // 작품 쪽 "직접 열어 보기": works.js의 links 한 곳에서 그린다. 주소가 빈 것은 내보내지 않고, 하나도 없으면 구역을 숨긴다.
@@ -129,7 +143,7 @@ const award = {
   const links = ((w && w.links) || []).filter(l => l.url);
   // 머리의 첫 단추는 첫 주소로 간다. 주소가 없으면 단추를 지운다
   const first = document.querySelector(`[data-link-first="${ul.dataset.links}"]`);
-  if (first) { if (links.length) { first.href = links[0].url; first.rel = 'noopener'; first.textContent = `${links[0].name} 열기`; } else first.remove(); }
+  if (first) { if (links.length) { first.href = links[0].url; first.rel = 'noopener'; first.textContent = L.open(links[0].name); } else first.remove(); }
   if (!links.length) { const sec = ul.closest('section'); if (sec) sec.hidden = true; return; }
   links.forEach(l => {
     const li = document.createElement('li'), a = document.createElement('a'), b = document.createElement('b'), s = document.createElement('span');
@@ -152,7 +166,7 @@ const award = {
       const s = document.createElement('span'); s.textContent = a.name;
       d.append(b, s);
       const m = document.createElement('p'); m.className = 'm'; m.append(`${a.host} · `);
-      if (w && w.href) { const l = document.createElement('a'); l.href = w.href; l.textContent = w.title; l.setAttribute('aria-label', `${w.title} 작품 쪽`); m.append(l); }
+      if (w && w.href) { const l = document.createElement('a'); l.href = w.href; l.textContent = w.title; l.setAttribute('aria-label', L.work(w.title)); m.append(l); }
       else m.append(w ? w.title : '');
       li.append(t, d, m);
       return li;
@@ -218,7 +232,7 @@ const award = {
 (() => {
   const sw = document.querySelector('.swap');
   if (!sw || reduce) return;
-  ['하나의 꿈이', '하나의 별이'].forEach((w, i) => setTimeout(() => {
+  L.swap.forEach((w, i) => setTimeout(() => {
     sw.classList.add('out');
     setTimeout(() => { sw.textContent = w; sw.classList.remove('out'); }, 600);
   }, 1400 + i * 2000));
@@ -229,7 +243,7 @@ const award = {
   document.querySelectorAll('[data-clip]').forEach(box => {
     const v = box.querySelector('video'), b = box.querySelector('.pp');
     let userPaused = reduce;
-    const set = () => { box.classList.toggle('paused', v.paused); b.setAttribute('aria-label', v.paused ? '영상 재생' : '영상 멈추기'); };
+    const set = () => { box.classList.toggle('paused', v.paused); b.setAttribute('aria-label', v.paused ? L.play : L.pause); };
     const play = () => { const p = v.play(); if (p) p.catch(() => {}); };
     v.addEventListener('play', set); v.addEventListener('pause', set); set();
     b.addEventListener('click', () => { if (v.paused) { userPaused = false; play(); } else { userPaused = true; v.pause(); } });

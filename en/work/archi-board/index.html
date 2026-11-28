@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>archi-board · Jae Yeup Lee (gamercross)</title>
+<meta name="description" content="archi-board: a Claude Code skill that reads your code and docs and draws one architecture board. Built solo by Jae Yeup Lee (gamercross), open source under MIT.">
+<link rel="canonical" href="https://gamercross.github.io/en/work/archi-board/">
+<link rel="alternate" hreflang="ko" href="https://gamercross.github.io/work/archi-board/">
+<link rel="alternate" hreflang="en" href="https://gamercross.github.io/en/work/archi-board/">
+<link rel="alternate" hreflang="x-default" href="https://gamercross.github.io/work/archi-board/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gamercross">
+<meta property="og:title" content="archi-board · Jae Yeup Lee (gamercross)">
+<meta property="og:description" content="A Claude Code skill that reads your code and docs and draws one architecture board. Built solo, open source under MIT.">
+<meta property="og:url" content="https://gamercross.github.io/en/work/archi-board/">
+<meta property="og:image" content="https://gamercross.github.io/assets/img/archi-front.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Front of the archi-board sample board">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@gamercross98">
+<meta name="theme-color" content="#0E1118">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
+</head>
+<body data-page="work">
+<a class="skip" href="#glance">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="/en/" aria-label="gamercross home">gamercross</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="t">Menu</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12"/></svg></button>
+    <nav class="menu" id="site-menu" aria-label="Site menu">
+      <ul>
+        <li><a href="/en/#work" data-nav="work">Work</a></li>
+        <li><a href="/en/design/" data-nav="design">Design</a></li>
+        <li><a href="/en/how-i-work/" data-nav="how">How I work</a></li>
+        <li><a href="/career-roadmap/" data-nav="roadmap">Career roadmap</a></li>
+        <li><a href="/en/#about" data-nav="about">About</a></li>
+        <li><a href="/en/#contact" data-nav="contact">Contact</a></li>
+        <li class="lang"><a href="/work/archi-board/" hreflang="ko" lang="ko" data-lang-link>한국어</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<section class="p-hero" aria-labelledby="h-name">
+  <div class="wrap">
+    <div class="words">
+      <h1 id="h-name">archi-board</h1>
+      <p class="what">A Claude Code skill that reads your code and docs and draws one architecture board</p>
+      <blockquote class="say-q"><p>I studied software engineering with a mentor. When I set out to plan a system, I turned the methods I learned, and my way of drawing the work, into a Claude skill. This is that process.</p><p class="orig" lang="ko">멘토링을 받으며 소프트웨어 공학에 대해서 공부하고 시스템을 기획할려고 할때 어떤 기법으로 공부를 했고 작업을 위해서 시각화된 자료를 만드는 방법을 클로드 스킬로 만들어본 과정이다</p><footer>Jae Yeup Lee</footer></blockquote>
+      <div class="acts"><a class="btn" href="https://gamercross.github.io/archi-board/">Open the sample board</a><a class="go" href="#proof">See the proof</a></div>
+    </div>
+    <figure class="pic">
+      <div class="plate"><img src="/assets/img/archi-cover-1400.webp" srcset="/assets/img/archi-cover-960.webp 960w, /assets/img/archi-cover-1400.webp 1400w, /assets/img/archi-cover-2752.webp 2752w" sizes="(max-width: 1080px) 94vw, 56vw" width="1400" height="874" fetchpriority="high" alt="The whole front of the archi-board sample board, in Korean. Under goals and principles, boxes sit in four layers (users, user interface, features in BPMN, infrastructure and engine) linked by arrows."></div>
+      <figcaption class="cap"><b>Front</b>The side for first-time readers: four layers on one page.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="glance" aria-labelledby="h-glance">
+  <div class="wrap glance" data-reveal>
+    <h2 id="h-glance">At a glance</h2>
+    <dl class="kv cue">
+      <div><dt>What</dt><dd>Built and released the engine, the board data format, and the Claude Code skill on my own. It reads a project and draws one infinite board. The engine went from v1.2 to v1.6.</dd></div>
+      <div><dt>When</dt><dd>Oct – Nov 2026</dd></div>
+      <div><dt>My role</dt><dd>Solo. Engine, skill, sample board</dd></div>
+      <div><dt>Why it matters</dt><dd>Now I can lay out a system plan as a picture. It's a tool for planning systems people actually use.</dd></div>
+      <div><dt>Standard</dt><dd>All four layers connect on one page · Both newcomers and builders can read it · Engine and data stay separate</dd></div>
+      <div><dt>Output</dt><dd>Open-source skill (MIT), sample board, engine v1.6</dd></div>
+      <div><dt>Status</dt><dd>Released</dd></div>
+    </dl>
+    <div class="proof">
+      <p class="big">Four layers, one board</p>
+      <p class="sub">A board that reads for newcomers and builders alike · Open-source skill (MIT)</p>
+      <ul class="facts-line">
+        <li><b>1</b> board <span>one board per project</span></li>
+        <li><b>2</b> sides <span>newcomers · builders</span></li>
+        <li><b>4</b> layers <span>users · screens · features · infrastructure</span></li>
+        <li><b>1.6</b> engine <span>updates apart from board data</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="made" aria-labelledby="h-made">
+  <div class="wrap views">
+    <h2 id="h-made" data-reveal>What I made</h2>
+    <figure class="s-7" data-reveal>
+      <div class="clip" data-clip><video muted loop playsinline preload="none" loading="lazy" poster="/assets/img/archi-clip.webp" width="800" height="450" aria-label="Screen recording: scrolling down the sample board and zooming in. Silent, loops."><source src="/assets/img/archi-clip.mp4" type="video/mp4"></video><button class="pp" type="button" aria-label="Pause video"><svg class="pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg><svg class="play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a.8.8 0 0 0 1.2.7l9-5.5a.8.8 0 0 0 0-1.4l-9-5.5A.8.8 0 0 0 4 2.5z"/></svg></button></div>
+      <figcaption><b>In motion</b>Scroll and zoom in, and the box text becomes readable.</figcaption>
+    </figure>
+    <figure class="s-5r" data-reveal>
+      <div class="plate"><img src="/assets/img/archi-memo-960.webp" srcset="/assets/img/archi-memo-960.webp 960w, /assets/img/archi-memo-1600.webp 1600w" sizes="(max-width: 1080px) 94vw, 40vw" width="1600" height="1000" loading="lazy" decoding="async" alt="A sample board drawn from a small memo app, in layers: who uses it, the help they get, what they do, the program, and what's left behind."></div>
+      <figcaption><b>Example</b>A board drawn from a small memo app: who uses it and what's left, on one page.</figcaption>
+    </figure>
+    <figure class="s-full" data-reveal>
+      <div class="plate"><img src="/assets/img/archi-back-960.webp" srcset="/assets/img/archi-back-960.webp 960w, /assets/img/archi-back-1600.webp 1600w" sizes="(max-width: 1440px) 94vw, 1360px" width="1600" height="1000" loading="lazy" decoding="async" alt="Back of the archi-board sample board: object maps and flowcharts linked across several panels."></div>
+      <figcaption><b>Back</b>The side for builders: object map, data map and flowcharts, linked on one board.</figcaption>
+    </figure>
+    <figure class="s-7r" data-reveal>
+      <div class="plate"><img src="/assets/img/archi-talk-960.webp" srcset="/assets/img/archi-talk-960.webp 960w, /assets/img/archi-talk-1280.webp 1280w" sizes="(max-width: 1080px) 94vw, 56vw" width="1280" height="800" loading="lazy" decoding="async" alt="First slide of a talk, in Korean: “When AI writes the code, what do we trust when we build? archi-board, a skill built on the seven steps of system design.”"></div>
+      <figcaption><b>Class talk</b>Nov 18, 2026: I explained this skill through the seven steps of system design.</figcaption>
+    </figure>
+    <figure class="s-5" data-reveal>
+      <div class="plate"><img src="/assets/img/a-users.webp" width="580" height="200" loading="lazy" decoding="async" alt="The board's user layer: newcomers and builders"></div>
+      <figcaption><b>Two readers</b>The board reads for newcomers and for builders.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="h-bits">
+  <div class="wrap bits" data-reveal>
+    <h2 id="h-bits">Up close</h2>
+    <div class="row">
+      <figure><div><img src="/assets/img/a-goal.webp" width="290" height="110" loading="lazy" decoding="async" alt="The board's goal box"></div><figcaption>Goal box</figcaption></figure>
+      <figure><div><img src="/assets/img/a-ui.webp" width="580" height="200" loading="lazy" decoding="async" alt="The board's user interface layer"></div><figcaption>Screen layer</figcaption></figure>
+      <figure><div><img src="/assets/img/a-infra.webp" width="580" height="130" loading="lazy" decoding="async" alt="The board's infrastructure and engine layer"></div><figcaption>Infrastructure and engine layer</figcaption></figure>
+      <figure><div><img src="/assets/img/a-map.webp" width="170" height="170" loading="lazy" decoding="async" alt="The board's minimap"></div><figcaption>Minimap</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="proof" aria-labelledby="h-open">
+  <div class="wrap">
+    <div class="open" data-reveal>
+      <div class="l">
+        <h2 id="h-open">Try it yourself</h2>
+        <p>I built it alone and released it under the MIT license so anyone can use it.</p>
+        <p class="note">Only public links here.</p>
+      </div>
+      <ul class="cue">
+        <li><a href="https://gamercross.github.io/archi-board/"><b>Sample board</b><span>gamercross.github.io/archi-board</span></a></li>
+        <li><a href="https://github.com/gamercross/archi-board"><b>Repository</b><span>github.com/gamercross/archi-board · MIT</span></a></li>
+        <li><a href="https://gamercross.github.io/archi-board/talks/2026-11-18-sw-engineering/" hreflang="ko"><b>Class talk slides</b><span>In the AI era, what do we trust when we build? (Korean)</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-label="Next project">
+  <div class="wrap">
+    <a class="next" href="/en/work/floe/" data-reveal>
+      <span class="w"><b>Next: Floe</b><span>A desktop app that helps people who code with AI see it through to the end</span></span>
+      <span class="pic plate"><img src="/assets/img/floe-workspace-800.webp" width="800" height="478" loading="lazy" decoding="async" alt=""></span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="small">
+      <span><b>gamercross</b><span>Jae Yeup Lee · 2026 · MAKE, FIX, GO HIGH.</span></span>
+      <nav aria-label="Footer links">
+        <a href="/en/#work">Work</a><a href="/en/design/">Design</a><a href="/en/how-i-work/">How I work</a><a href="/career-roadmap/">Career roadmap</a>
+      </nav>
+      <nav class="links" aria-label="Accounts">
+        <a href="https://github.com/gamercross" rel="me noopener">GitHub</a><a href="https://www.linkedin.com/in/leejaeyeub/" rel="me noopener">LinkedIn</a><a href="https://www.instagram.com/jaeyeob98/" rel="me noopener">Instagram @jaeyeob98</a><a href="https://x.com/gamercross98" rel="me noopener">X @gamercross98</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
