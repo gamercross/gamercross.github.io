@@ -112,9 +112,9 @@
   <div class="words" data-reveal>
     <h2 id="h-split">할 일을 <span class="nw">나 · AI · 남</span>으로 나누기</h2>
     <p class="doc">온톨로지 v0.2 · 무엇이 있고 어떻게 잇나</p>
-    <p>장부의 한 줄을 '일' 하나로 읽습니다. 일마다 맡은 사람이 하나, 상태가 하나 있습니다. 맡은 사람은 나, AI, 남 가운데 하나입니다.</p>
+    <p>장부의 한 줄을 '일' 하나로 읽습니다. 온톨로지는 분류표에 그치지 않습니다. 요청에서 끝난 모습 · 마감 · 맡은 사람을 연결해 다음 행동을 고르게 합니다. 일 하나에는 맡은 사람과 상태가 각각 하나입니다.</p>
     <ul class="rules">
-      <li>일 하나에 맡은 사람 하나 · 상태 하나. 둘이면 일을 쪼갭니다.</li>
+      <li>맡은 사람은 나 · AI · 남 가운데 하나. 둘이면 일을 쪼갭니다.</li>
       <li>기다리는 일에는 무엇을 기다리는지 잇습니다.</li>
       <li>결정을 고르는 사람은 늘 저입니다.</li>
       <li>풀어 주는 줄에 고리를 만들지 않습니다.</li>
@@ -141,13 +141,15 @@
 </svg>
     </div>
     <div class="panel">
-      <h3>일의 상태 넷</h3>
-      <ul class="state">
-        <li><b>해야 함</b><span>아직 손 안 댔고, 막힌 것이 없다</span></li>
-        <li><b>하는 중</b><span>맡은 사람이 하고 있다</span></li>
-        <li><b>기다림</b><span>다른 일이나 결정이 끝나야 움직인다</span></li>
-        <li><b>끝</b><span>했거나 취소했다</span></li>
-      </ul>
+      <h3>요구가 결과로 바뀌는 길</h3>
+      <ol class="state" aria-label="요구에서 결과까지">
+        <li><b>요구를 가름</b><span><span lang="en">wants</span>는 말을 나누고, 끝난 모습 · 마감 · 맡을 사람을 카드에 놓습니다.</span></li>
+        <li><b>먼저 할 것</b><span><span lang="en">first-things</span>는 급함 · 중요함을 보고 다음 한 걸음을 제안합니다.</span></li>
+        <li><b>제가 확정</b><span><span lang="en">confirm</span>에 제안이 모이고, 제 확인 뒤에 반영합니다.</span></li>
+        <li><b>맡겨 실행</b><span>한 일에는 맡은 사람 하나를 두고, 진행 · 기다림 · 끝을 표시합니다.</span></li>
+        <li><b>결과를 기록</b><span><span lang="en">digest</span>가 실행 결과를 남기고, 작업 · 말 · 일정의 근거를 맞춰 봅니다.</span></li>
+      </ol>
+      <p class="floor">일의 상태는 해야 함 · 하는 중 · 기다림 · 끝 가운데 하나입니다.</p>
     </div>
   </div>
 </section>
